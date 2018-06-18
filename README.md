@@ -101,9 +101,9 @@ import YotiButtonSDK
 
 do {
             let scenario = try ScenarioBuilder()
-                .setUseCaseID("FirstTest")
-                .setClientSDKID("4ae125ba-8bce-4e29-8fdd-d46560651edc")
-                .setScenarioID("99582fc0-4b6a-4bff-87de-e2bd9041caeb")
+                .setUseCaseID("YOUR_USE_CASE_ID")
+                .setClientSDKID("YOUR_CLIENT_SDK_ID")
+                .setScenarioID("YOUR_SCENARIO_ID")
                 .setClientCompletion({ (baseURL, token, url, error) in
                     // If you decide to call the callback url via
                     // your own Service and handle the result, set  isProcessed at true.
@@ -111,7 +111,7 @@ do {
                     // will make the call.
                     return false
                 })
-                .setCallbackBackendURL(URL(string:"https://www.yoti.com/connect/thankyou/")!)
+                .setCallbackBackendURL(URL(string:"YOUR_CALLBACK_URL")!)
                 .create()
             
         } catch {
