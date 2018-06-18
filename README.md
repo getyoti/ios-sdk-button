@@ -104,6 +104,7 @@ do {
                 .setUseCaseID("YOUR_USE_CASE_ID")
                 .setClientSDKID("YOUR_CLIENT_SDK_ID")
                 .setScenarioID("YOUR_SCENARIO_ID")
+                .setCallbackBackendURL(URL(string:"YOUR_CALLBACK_URL")!)
                 .setClientCompletion({ (baseURL, token, url, error) in
                     // If you decide to call the callback url via
                     // your own Service and handle the result, set  isProcessed at true.
@@ -111,11 +112,15 @@ do {
                     // will make the call.
                     return false
                 })
-                .setCallbackBackendURL(URL(string:"YOUR_CALLBACK_URL")!)
+                .setBackendCompletion({ (data, error) in
+                    // when the callback has been invoked from the SDK, you can get the
+                    // data/error here. This needs to be defined even if it is empty.
+                })
                 .create()
             
         } catch {
             // error management here
+            print(error)
         }
 ```
 
@@ -140,6 +145,10 @@ myBuilder.clientCompletion = (^BOOL(NSURL * _Nullable baseURL,
   // Otherwise, set isProcessed at false and the Yoti SDK
   // will make the call.
   return isProcessed
+});
+myBuilder.backendCompletion = ((NSData * data, NSError * _Nullable error) {
+    // when the callback has been invoked from the SDK, you can get the
+    // data/error here. This needs to be defined even if it is empty.
 });
 
 YTBScenario *myScenario = [myBuilder create:&error];
