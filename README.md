@@ -38,10 +38,10 @@ $ brew install carthage
 To integrate Yoti into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "getyoti/ios-sdk-button” ~1.0
+github "getyoti/ios-sdk-button" ~> 1.0
 ```
 
-This will allow you to type `carthage update button-ios` in your Terminal to fetch and build the latest version of the framework.
+This will allow you to type `carthage update ios-sdk-button` in your Terminal to fetch and build the latest version of the framework.
 The first time you are integrating the iOS SDK,  the dynamic framework will be generated at `Carthage/Build/iOS/`. 
 
 Drag the built `YotiButtonSDK.framework` into your Xcode project without copying it. Don't commit the `Carthage` folder but do commit the `Carthage.resolved` file.
@@ -72,15 +72,17 @@ Add a **User defined runtime attributes**: `useCaseID` of type String with a val
 
 ### Yoti Button 
 
-The SDK provide a custom Button you can use in your layout, do not forget to set the `useCaseID`, it's the link with the `Scenario` you defined earlier.
+The SDK provide a custom Button you can use in your layout, do not forget to set the `useCaseID`, it's the link with the `Scenario`. See definitions lower. Or you can also define the button in the code like this:
 
 ```swift
+import YotiButtonSDK
+
 let button = YotiButton(frame: CGRect(x: 0, y: 0, width: 230, height: 48))
 button.useCaseID = "YOUR_USE_CASE_ID"
 ```
 
 ```Objective-C
-YotiButton* button = [[YotiButton alloc] initWithFrame:CGRectMake(0, 0, 230, 48)]
+#import <YotiButtonSDK/YotiButtonSDK.h>                                                                                                                                                                                                                 YotiButton* button = [[YotiButton alloc] initWithFrame:CGRectMake(0, 0, 230, 48)]
 button.useCaseID = "YOUR_USE_CASE_ID"
 ```
 
@@ -97,22 +99,24 @@ Swift:
 ```swift
 import YotiButtonSDK
 
-guard let url = URL.setCallbackBackendURL(URL(string: “add_your_callback_url_here”) else{
-  return
-}
-
-let scenario = try ScenarioBuilder().setUseCaseID("YOUR_USE_CASE_ID")
-                .setClientSDKID("YOUR_CLIENT_SDK_ID")
-                .setScenarioID("YOUR_SCENARIO_ID")
+do {
+            let scenario = try ScenarioBuilder()
+                .setUseCaseID("FirstTest")
+                .setClientSDKID("4ae125ba-8bce-4e29-8fdd-d46560651edc")
+                .setScenarioID("99582fc0-4b6a-4bff-87de-e2bd9041caeb")
                 .setClientCompletion({ (baseURL, token, url, error) in
                     // If you decide to call the callback url via
                     // your own Service and handle the result, set  isProcessed at true.
                     // Otherwise, set isProcessed at false and the Yoti SDK
                     // will make the call.
-                    return isProcessed
+                    return false
                 })
-                .setCallbackBackendURL(url)
+                .setCallbackBackendURL(URL(string:"https://www.yoti.com/connect/thankyou/")!)
                 .create()
+            
+        } catch {
+            // error management here
+        }
 ```
 
 Objective-C
@@ -126,6 +130,7 @@ YTBScenarioBuilder *myBuilder = [[YTBScenarioBuilder alloc] init];
 myBuilder.useCaseID = @"YOUR_USE_CASE_ID";
 myBuilder.clientSDKID = @"YOUR_CLIENT_SDK_ID";
 myBuilder.scenarioID = @"YOUR_SCENARIO_ID";
+myBuilder.callbackBackendURL = [NSURL URLWithString:@"YOUR_CALLBACK_URL"]
 myBuilder.clientCompletion = (^BOOL(NSURL * _Nullable baseURL,
                                     NSString * _Nullable token,
                                     NSURL * _Nullable url,
@@ -181,6 +186,8 @@ Yoti SDK would perform an app switch to Yoti app and back to your app to complet
 
 Swift:
 ```swift
+import YotiButtonSDK
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication,
                      open url: URL,
@@ -191,6 +198,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 Objective-C:
 ```Objective-C
+#import <YotiButtonSDK/YotiButtonSDK.h>
+
 @implementation AppDelegate
   - (BOOL)application:(UIApplication *)app
               openURL:(NSURL *)url
@@ -198,50 +207,6 @@ Objective-C:
       return [YotiSDK application:app open:url options:options];
   }
 @end
-```
-
-## Profile Retrieval
-To handle the profile of the user on the mobile app the following configuration :
-
-```swift 
-if let selfie = userInfo["selfie"] as? String
-{
-    let base64Image = selfie.replacingOccurrences(of: "data:image/jpeg;base64,", with: "")
-    if let imageData = Data(base64Encoded: base64Image) {
-
-        let photo = UIImage(data: imageData)
-        viewController.selfie = photo
-    }
-}
-
-if let phone = userInfo["phoneNumber"] as? String {
-    viewController.phone = phone
-}
-
-if let givenNames = userInfo["givenNames"] as? String {
-    viewController.givenNames = givenNames
-}
-
-if let postalAddress = userInfo["postalAddress"] as? String {
-    viewController.postalAddress = postalAddress
-}
-
-if let gender = userInfo["gender"] as? String {
-    viewController.gender = gender
-}
-
-if let emailAddress = userInfo["emailAddress"] as? String {
-    viewController.emailAddress = emailAddress
-}
-
-if let familyName = userInfo["familyName"] as? String {
-    viewController.familyName = familyName
-}
-
-if let dateOfBirth = userInfo["dateOfBirth"] as? String {
-    viewController.dateOfBirth = dateOfBirth
-}
-
 ```
 
 ## Handling Users
