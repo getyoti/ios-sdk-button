@@ -10,13 +10,9 @@ import Foundation
 
 class CallbackBackendService: HTTPService, URLSessionDelegate {
     
-    var scenario: Scenario?
     lazy var urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
         
-    func callbackBackend(scenario: Scenario, token: String) {
-        
-        self.scenario = scenario
-        let completion = scenario.backendCompletion
+    func callbackBackend(scenario: Scenario, token: String, completion: @escaping (Data?, Error?) -> Void) {
         
         guard let callbackBackendURL = scenario.callbackBackendURL else {
             completion(nil, GenericError.nilValue("callbackBackendURL"))

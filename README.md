@@ -164,6 +164,40 @@ Objective-C:
 [YotiSDK addScenario:scenario];
 ```
 
+### Notifications
+In case you need to change your interface before we are doing a network request, you can subscribe to the `willMakeNetorkRequest` and `didFinishNetworkRequest` notification from the `YotiSDK` class
+
+Swift: 
+```
+NotificationCenter.default.addObserver(forName: YotiSDK.willMakeNetorkRequest, object: nil, queue: nil) { (notification) in
+    // Disable interface
+}
+```
+
+```
+NotificationCenter.default.addObserver(forName: YotiSDK.didFinishNetworkRequest, object: nil, queue: nil) { (notification) in
+    // Re-enable interface
+}
+```
+
+Objective-C: 
+```
+[NSNotificationCenter.defaultCenter addObserverForName:YotiSDK.willMakeNetorkRequest object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+    // Disable interface
+}];
+```
+
+```
+[NSNotificationCenter.defaultCenter addObserverForName:YotiSDK.didFinishNetworkRequest object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+    // Re-enable interface
+}];
+```
+
+Note:
+`willMakeNetorkRequest` will be called twice if you set `isProcessed` to `false` in the `clientCompletion` block. The first time will be before openning the Yoti application and the second time will be after the Yoti Application re-open your application.
+
+`didFinishNetworkRequest` will only be called once whether the `isProcessed` is set to `true` or `false`. 
+
 ### Inter-app communication
 
 Yoti SDK would perform an app switch to Yoti app and back to your app to complete the sharing process, your application's `.plist` also need to handle this.

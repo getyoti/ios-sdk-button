@@ -11,7 +11,7 @@ import Security
 import UIKit
 
 class KernelSDK: NSObject {
-    
+
     static let shared = KernelSDK()
     
     private lazy var retrieveScenarioService = RetrieveScenarioService()
@@ -21,13 +21,17 @@ class KernelSDK: NSObject {
      * Perform a call to the Yoti API to retrieve the scenario and start the Yoti App
      */
     func startScenario(for useCaseID: String) {
-        
+
+        NotificationCenter.default.post(name: YotiSDK.willMakeNetorkRequest, object: nil)
+
         guard let scenario = YotiSDK.scenario(for: useCaseID) else {
             return
         }
         
         retrieve(scenario: scenario) { (qrCodeURL, error) in
-            
+
+            NotificationCenter.default.post(name: YotiSDK.didFinishNetworkRequest, object: nil)
+
             guard let qrCodeURL = qrCodeURL, error == nil else {
                 _ = scenario.clientCompletion(nil, nil, nil, error)
                 print("Error while retrieving the scenario from the Yoti API, please check your clientSDKID and scenarioID.")
@@ -60,7 +64,7 @@ class KernelSDK: NSObject {
                 print("Cannot Open Yoti, please check LSApplicationQueriesSchemes or install Yoti")
                 return
             }
-            
+
             if #available(iOS 10, *) {
                 UIApplication.shared.open(url, options: [:]) { (isSuccess) in
                     guard isSuccess else {
@@ -83,6 +87,14 @@ class KernelSDK: NSObject {
     }
     
     func callbackBackend(scenario: Scenario, token: String) {
-        callbackBackendService.callbackBackend(scenario: scenario, token: token)
+        NotificationCenter.default.post(name: YotiSDK.willMakeNetorkRequest, object: nil)
+        
+        callbackBackendService.callbackBackend(scenario: scenario, token: token) { (data, error) in
+
+            NotificationCenter.default.post(name: YotiSDK.didFinishNetworkRequest, object: nil)
+
+            let completion = scenario.backendCompletion
+            completion(data, error)
+        }
     }
 }
