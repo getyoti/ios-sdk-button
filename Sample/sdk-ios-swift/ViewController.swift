@@ -57,13 +57,6 @@ class ViewController: UIViewController {
         catch {
             
         }
-        NotificationCenter.default.addObserver(forName: YotiSDK.willMakeNetorkRequest, object: nil, queue: nil) { (notification) in
-            print("+1")
-        }
-        NotificationCenter.default.addObserver(forName: YotiSDK.didFinishNetworkRequest, object: nil, queue: nil) { (notification) in
-            print("-1")
-        }
-
 
         // Do any additional setup after loading the view, typically from a nib.
     }
