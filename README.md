@@ -165,11 +165,11 @@ Objective-C:
 ```
 
 ### Notifications
-In case you need to change your interface before we are doing a network request, you can subscribe to the `willMakeNetorkRequest` and `didFinishNetworkRequest` notification from the `YotiSDK` class
+In case you need to change your interface before we are doing a network request, you can subscribe to the `willMakeNetworkRequest` and `didFinishNetworkRequest` notification from the `YotiSDK` class
 
 Swift: 
 ```
-NotificationCenter.default.addObserver(forName: YotiSDK.willMakeNetorkRequest, object: nil, queue: nil) { (notification) in
+NotificationCenter.default.addObserver(forName: YotiSDK.willMakeNetworkRequest, object: nil, queue: nil) { (notification) in
     // Disable interface
 }
 ```
@@ -182,7 +182,7 @@ NotificationCenter.default.addObserver(forName: YotiSDK.didFinishNetworkRequest,
 
 Objective-C: 
 ```
-[NSNotificationCenter.defaultCenter addObserverForName:YotiSDK.willMakeNetorkRequest object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+[NSNotificationCenter.defaultCenter addObserverForName:YotiSDK.willMakeNetworkRequest object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
     // Disable interface
 }];
 ```
