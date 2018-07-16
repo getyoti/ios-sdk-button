@@ -13,6 +13,9 @@ import UIKit
 public class YotiSDK: NSObject {
 
     static let shared = YotiSDK()
+    @objc public static let didFinishNetworkRequest = Notification.Name("com.yoti.didFinishNetworkRequest")
+    @objc public static let willMakeNetworkRequest = Notification.Name("com.yoti.willMakeNetworkRequest")
+
     var kernel = KernelSDK.shared
     private var scenarios = [String: Scenario]()
     
