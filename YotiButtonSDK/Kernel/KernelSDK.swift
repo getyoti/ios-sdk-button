@@ -22,7 +22,7 @@ class KernelSDK: NSObject {
      */
     func startScenario(for useCaseID: String) {
 
-        NotificationCenter.default.post(name: YotiSDK.willMakeNetorkRequest, object: nil)
+        NotificationCenter.default.post(name: YotiSDK.willMakeNetworkRequest, object: nil)
 
         guard let scenario = YotiSDK.scenario(for: useCaseID) else {
             return
@@ -87,7 +87,7 @@ class KernelSDK: NSObject {
     }
     
     func callbackBackend(scenario: Scenario, token: String) {
-        NotificationCenter.default.post(name: YotiSDK.willMakeNetorkRequest, object: nil)
+        NotificationCenter.default.post(name: YotiSDK.willMakeNetworkRequest, object: nil)
         
         callbackBackendService.callbackBackend(scenario: scenario, token: token) { (data, error) in
 
