@@ -91,38 +91,77 @@ The front end of the integration is now complete.
 
 ### Create a Scenario
 
-You will now need to your SDK ID, Scenario ID and call back URL ready from your application dashboard. 
+You will now need your SDK ID, Scenario ID and call back URL ready from your application dashboard. 
 
-The SDK will need to be initialised, please and add the below scenario method:
+The SDK will need to be initialised, please and add the below scenario method. Note that the SDK can support now multiple scenarios:
 
 Swift:
+Please add the scenario method in your appDelegate.swift in `func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions...` like below.
 ```swift
 import YotiButtonSDK
 
 do {
-            let scenario = try ScenarioBuilder()
-                .setUseCaseID("YOUR_USE_CASE_ID")
-                .setClientSDKID("YOUR_CLIENT_SDK_ID")
-                .setScenarioID("YOUR_SCENARIO_ID")
-                .setCallbackBackendURL(URL(string:"YOUR_CALLBACK_URL")!)
-                .setClientCompletion({ (baseURL, token, url, error) in
-                    // If you decide to call the callback url via
-                    // your own Service and handle the result, set  isProcessed at true.
-                    // Otherwise, set isProcessed at false and the Yoti SDK
-                    // will make the call.
-                    return false
-                })
-                .setBackendCompletion({ (data, error) in
-                    // when the callback has been invoked from the SDK, you can get the
-                    // data/error here. This needs to be defined even if it is empty.
-                })
-                .create()
-            
-        } catch {
-            // error management here
-            print(error)
-        }
+             guard let url = URL(string: "YOUR_CALLBACK_URL") else {
+                 return false
+             }
+             //Here we need to add as many scenarios as we want. each scenario is linked to a button in the Main.storyboard.
+             let scenario_1 = try ScenarioBuilder().setUseCaseID("yoti_btn_1")
+                 .setClientSDKID("YOUR_CLIENT_SDK_ID")
+                 .setScenarioID("YOUR_SCENARIO_ID_1")
+                 .setCallbackBackendURL(url)
+                 .create()
+             YotiSDK.add(scenario: scenario_1)
+             
+             let scenario_2 = try ScenarioBuilder().setUseCaseID("yoti_btn_2")
+                 .setClientSDKID("YOUR_CLIENT_SDK_ID")
+                 .setScenarioID("YOUR_SCENARIO_ID_2")
+                 .setCallbackBackendURL(url)
+                 .create()
+             YotiSDK.add(scenario: scenario_2)
+             
+         } catch {
+             // handle error code here
+         }
+    }
 ```
+
+then in your viewController class call the static function ```public static func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) throws``` by passing it the useCaseID and self as delegate.
+
+your ViewController class should comply to YotiSDKDelegate and to BackendDelegate in order to get the callbacks when the app has opened or not.
+
+```extension ViewController: YotiSDKDelegate {
+    func yotiSDKDidFail(for useCaseID: String, with error: Error) {
+    	//handle here the error opening of Yoti app
+    }
+
+    func yotiSDKDidSucceed(for useCaseID: String, baseURL: URL?, token: String?, url: URL?) {
+        //Handle here the success of the opening of Yoti app for example by requesting a profile from the backend like below
+        //Get the specific scenario by calling  
+        let scenario = YotiSDK.scenario(for: useCaseID)
+        //request the backend to get the profile linked to a specific scenario by passing the token returned and self as delegate for a call back
+        YotiSDK.callbackBackend(scenario: scenario!, token: token!, with: self)
+    }
+
+    func yotiSDKDidOpenYotiApp() {
+    //Handle specific behaviour if needed when the Yoti App didOpen
+
+    }
+}
+```
+when the callback returns from the backend we get the data linked to the profile or the error in `func backendDidFinish(with data: Data?, error: Error?)`
+the data can be checked as JSON and parsed in order to display the profile.
+```
+extension ViewController: BackendDelegate {
+    func backendDidFinish(with data: Data?, error: Error?) {
+        guard let data = data else {
+            return
+        }
+        let json = try? JSONSerialization.jsonObject(with: data, options: [])
+        
+        //We would have to parse Jason at this point in order to create the `responseObject` Dictionary which will be used in override func prepare(for segue: UIStoryboardSegue, sender: Any?) before moving to profile screen. For now we only printing  the JSON
+        print (json ?? "")
+    }
+}```
 
 Objective-C
 ```objective-c
