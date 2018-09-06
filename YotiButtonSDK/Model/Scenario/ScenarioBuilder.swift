@@ -14,10 +14,7 @@ public class ScenarioBuilder: NSObject {
     public var useCaseID: String?
     public var clientSDKID: String?
     public var scenarioID: String?
-    public var clientCompletion: Scenario.ClientCompletion?
     public var qrCodeURL: URL?
-    public var backendCompletion: Scenario.BackendCompletion?
-    public var customCertificate: CustomCertificate?
     public var callbackBackendURL: URL?
     
     @objc public func setUseCaseID(_ useCaseID: String) -> Self {
@@ -32,21 +29,6 @@ public class ScenarioBuilder: NSObject {
     
     @objc public func setScenarioID(_ scenarioID: String) -> Self {
         self.scenarioID = scenarioID
-        return self
-    }
-    
-    @objc public func setClientCompletion(_ clientCompletion: @escaping Scenario.ClientCompletion) -> Self {
-        self.clientCompletion = clientCompletion
-        return self
-    }
-    
-    @objc public func setBackendCompletion(_ backendCompletion: @escaping Scenario.BackendCompletion) -> Self {
-        self.backendCompletion = backendCompletion
-        return self
-    }
-    
-    @objc public func setCustomCertificate(_ customCertificate: CustomCertificate) -> Self {
-        self.customCertificate = customCertificate
         return self
     }
     
@@ -70,21 +52,11 @@ public class ScenarioBuilder: NSObject {
         guard let scenarioID = scenarioID else {
             throw GenericError.nilValue("scenarioID")
         }
-        
-        guard let clientCompletion = clientCompletion else {
-            throw GenericError.nilValue("clientCompletion")
-        }
-        
-        guard let backendCompletion = backendCompletion else {
-            throw GenericError.nilValue("backendCompletion")
-        }
-        
+
+
         let scenario = Scenario(useCaseID: useCaseID,
                                 clientSDKID: clientSDKID,
                                 scenarioID: scenarioID,
-                                clientCompletion: clientCompletion,
-                                backendCompletion: backendCompletion,
-                                customCertificate: customCertificate,
                                 callbackBackendURL: callbackBackendURL)
         
         guard scenario.isValid else {

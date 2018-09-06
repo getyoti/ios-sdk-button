@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C68C5E421242BE400228878 /* YotiSDKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */; };
+		1C68C5E62124364100228878 /* YotiBackendDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C68C5E52124364100228878 /* YotiBackendDelegate.swift */; };
 		B42E94331F22AD6400159300 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E94321F22AD6400159300 /* UIFontExtension.swift */; };
 		B42E94361F22B26500159300 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B42E94351F22B26500159300 /* Roboto-Medium.ttf */; };
 		B42E94841F2368D000159300 /* CallbackBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E94831F2368D000159300 /* CallbackBackendService.swift */; };
@@ -17,7 +19,6 @@
 		B43B0E431F2206B600CD5E4E /* KernelSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E2F1F2206B600CD5E4E /* KernelSDK.swift */; };
 		B43B0E441F2206B600CD5E4E /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E311F2206B600CD5E4E /* HTTPService.swift */; };
 		B43B0E451F2206B600CD5E4E /* RetrieveScenarioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E321F2206B600CD5E4E /* RetrieveScenarioService.swift */; };
-		B43B0E461F2206B600CD5E4E /* CustomCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E351F2206B600CD5E4E /* CustomCertificate.swift */; };
 		B43B0E491F2206B600CD5E4E /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E3A1F2206B600CD5E4E /* Scenario.swift */; };
 		B43B0E4A1F2206B600CD5E4E /* ScenarioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E3B1F2206B600CD5E4E /* ScenarioBuilder.swift */; };
 		B43B0E4B1F2206B600CD5E4E /* ScenarioError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E3C1F2206B600CD5E4E /* ScenarioError.swift */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiSDKDelegate.swift; sourceTree = "<group>"; };
+		1C68C5E52124364100228878 /* YotiBackendDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiBackendDelegate.swift; sourceTree = "<group>"; };
 		B42E94321F22AD6400159300 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		B42E94351F22B26500159300 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		B42E94831F2368D000159300 /* CallbackBackendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallbackBackendService.swift; sourceTree = "<group>"; };
@@ -56,7 +59,6 @@
 		B43B0E2F1F2206B600CD5E4E /* KernelSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KernelSDK.swift; sourceTree = "<group>"; };
 		B43B0E311F2206B600CD5E4E /* HTTPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
 		B43B0E321F2206B600CD5E4E /* RetrieveScenarioService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrieveScenarioService.swift; sourceTree = "<group>"; };
-		B43B0E351F2206B600CD5E4E /* CustomCertificate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCertificate.swift; sourceTree = "<group>"; };
 		B43B0E3A1F2206B600CD5E4E /* Scenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		B43B0E3B1F2206B600CD5E4E /* ScenarioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioBuilder.swift; sourceTree = "<group>"; };
 		B43B0E3C1F2206B600CD5E4E /* ScenarioError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioError.swift; sourceTree = "<group>"; };
@@ -120,6 +122,8 @@
 				B43B0E3D1F2206B600CD5E4E /* Resources */,
 				B43B0E751F220D1F00CD5E4E /* Extension */,
 				B43B0E411F2206B600CD5E4E /* YotiSDK.swift */,
+				1C68C5E52124364100228878 /* YotiBackendDelegate.swift */,
+				1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */,
 				B43B0E5B1F2208A500CD5E4E /* YotiButton.swift */,
 				B43B0E131F22063800CD5E4E /* YotiButtonSDK.h */,
 				B43B0E141F22063800CD5E4E /* Info.plist */,
@@ -159,19 +163,10 @@
 		B43B0E331F2206B600CD5E4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B43B0E341F2206B600CD5E4E /* CustomCertificate */,
 				B43B0E361F2206B600CD5E4E /* Error */,
 				B43B0E391F2206B600CD5E4E /* Scenario */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B43B0E341F2206B600CD5E4E /* CustomCertificate */ = {
-			isa = PBXGroup;
-			children = (
-				B43B0E351F2206B600CD5E4E /* CustomCertificate.swift */,
-			);
-			path = CustomCertificate;
 			sourceTree = "<group>";
 		};
 		B43B0E361F2206B600CD5E4E /* Error */ = {
@@ -278,7 +273,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Yoti Limited";
 				TargetAttributes = {
 					B43B0E0F1F22063800CD5E4E = {
@@ -340,7 +335,6 @@
 				B43B0E5C1F2208A500CD5E4E /* YotiButton.swift in Sources */,
 				B42E94841F2368D000159300 /* CallbackBackendService.swift in Sources */,
 				B43B0E441F2206B600CD5E4E /* HTTPService.swift in Sources */,
-				B43B0E461F2206B600CD5E4E /* CustomCertificate.swift in Sources */,
 				B43B0E4A1F2206B600CD5E4E /* ScenarioBuilder.swift in Sources */,
 				B43B0E421F2206B600CD5E4E /* EnvironmentConfiguration.swift in Sources */,
 				B43B0E491F2206B600CD5E4E /* Scenario.swift in Sources */,
@@ -350,6 +344,8 @@
 				B43B0E4B1F2206B600CD5E4E /* ScenarioError.swift in Sources */,
 				B42E94331F22AD6400159300 /* UIFontExtension.swift in Sources */,
 				B43B0E521F22070000CD5E4E /* GenericError.swift in Sources */,
+				1C68C5E62124364100228878 /* YotiBackendDelegate.swift in Sources */,
+				1C68C5E421242BE400228878 /* YotiSDKDelegate.swift in Sources */,
 				B43B0E531F22070000CD5E4E /* NetworkError.swift in Sources */,
 				B43B0E451F2206B600CD5E4E /* RetrieveScenarioService.swift in Sources */,
 			);
@@ -388,6 +384,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -395,6 +392,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -408,6 +406,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -418,6 +417,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
@@ -436,7 +436,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6VUTP72GG4;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 2.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = YotiButtonSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -475,6 +475,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -482,6 +483,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -523,7 +525,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6VUTP72GG4;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 2.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = YotiButtonSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

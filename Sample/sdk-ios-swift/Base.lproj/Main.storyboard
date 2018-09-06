@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gnP-Sy-O24">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gnP-Sy-O24">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,6 +22,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwZ-FF-DzN" customClass="YotiButton" customModule="YotiButtonSDK">
+                                <rect key="frame" x="72.5" y="487" width="230" height="48"/>
+                                <accessibility key="accessibilityConfiguration" hint="scenario no selfie"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="59W-BZ-o9L"/>
+                                    <constraint firstAttribute="width" constant="230" id="AZ0-yf-XqT"/>
+                                </constraints>
+                                <state key="normal" title="RememberMeIDphoto"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="useCaseID" value="yoti_btn_2"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="yotiButtonDidTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vLd-Dj-RFu"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBr-MW-r5B" customClass="YotiButton" customModule="YotiButtonSDK">
                                 <rect key="frame" x="72" y="555" width="230" height="48"/>
                                 <constraints>
@@ -29,10 +44,13 @@
                                     <constraint firstAttribute="height" constant="48" id="YD8-ry-uWM"/>
                                     <constraint firstAttribute="width" constant="230" id="sfk-kX-vzL"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="SelfieAuthentication"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="useCaseID" value="yoti_btn_1"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="yotiButtonDidTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HCn-Ka-ryM"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRj-ao-PFO">
                                 <rect key="frame" x="91.5" y="128" width="64" height="64"/>
@@ -83,7 +101,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHH-sv-wEc">
-                                <rect key="frame" x="171.5" y="126.5" width="142" height="67"/>
+                                <rect key="frame" x="171.5" y="126.5" width="141.5" height="67"/>
                                 <string key="text">COMPANY
 LTD</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
@@ -93,16 +111,21 @@ LTD</string>
                         </subviews>
                         <color key="backgroundColor" red="0.31764705882352939" green="0.3529411764705882" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="uBr-MW-r5B" firstAttribute="top" secondItem="WwZ-FF-DzN" secondAttribute="bottom" constant="20" id="0T2-x6-P1K"/>
                             <constraint firstItem="YHH-sv-wEc" firstAttribute="centerY" secondItem="pRj-ao-PFO" secondAttribute="centerY" id="25y-o3-OIx"/>
+                            <constraint firstItem="WwZ-FF-DzN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7df-n7-Me9"/>
                             <constraint firstItem="YHH-sv-wEc" firstAttribute="leading" secondItem="pRj-ao-PFO" secondAttribute="trailing" constant="16" id="HVb-AE-h2m"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uBr-MW-r5B" secondAttribute="bottom" constant="64" id="bcw-uX-9Of"/>
                             <constraint firstItem="uBr-MW-r5B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e46-yC-xQS"/>
                             <constraint firstItem="pRj-ao-PFO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-64" id="eSV-hj-KJw"/>
+                            <constraint firstItem="WwZ-FF-DzN" firstAttribute="width" secondItem="WwZ-FF-DzN" secondAttribute="height" multiplier="115:24" id="jPh-xa-8IE"/>
                             <constraint firstItem="pRj-ao-PFO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="wYP-Uu-Kyj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JiB-Dt-O5r"/>
                     <connections>
+                        <outlet property="rememberMeButton" destination="WwZ-FF-DzN" id="hKi-BY-xai"/>
+                        <outlet property="selfieAuthButton" destination="uBr-MW-r5B" id="fe5-0e-tJF"/>
                         <segue destination="8s4-Gb-CtX" kind="show" identifier="moveToProfile" id="5HY-vd-smr"/>
                     </connections>
                 </viewController>

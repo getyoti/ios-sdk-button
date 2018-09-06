@@ -52,21 +52,12 @@ public class YotiButton: UIButton {
     
     func initalize() {
         addSubviews()
-        addTarget(self, action: #selector(didClick), for: .touchUpInside)
     }
     
     public override func layoutSubviews() {
         styleSubviews()
     }
-    
-    public override func sendActions(for controlEvents: UIControlEvents) {
-        guard controlEvents == .touchUpInside else {
-            return
-        }
-        
-        didClick()
-    }
-    
+
     public override func setTitle(_ title: String?, for state: UIControlState) {
         messageLabel.text = title
         messageLabel.sizeToFit()
@@ -107,17 +98,5 @@ public class YotiButton: UIButton {
         
         messageWidthConstraint = messageLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: messageLabel.frame.width)
         messageWidthConstraint?.isActive = true
-    }
-    
-    @objc func didClick() {
-        do {
-            guard let useCaseID = useCaseID else {
-                throw GenericError.nilValue("useCaseID")
-            }
-            
-            try YotiSDK.startScenario(for: useCaseID)
-        } catch {
-            print(error)
-        }
     }
 }

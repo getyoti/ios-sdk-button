@@ -12,55 +12,28 @@ import YotiButtonSDK
 class ViewController: UIViewController {
     
     var responseObject: [String: Any]?
+    @IBOutlet weak var rememberMeButton: YotiButton!
+    @IBOutlet weak var selfieAuthButton: YotiButton!
+    
+    
+    @IBAction func yotiButtonDidTouchUpInside(_ sender: YotiButton) {
+        guard let useCaseID = sender.useCaseID else{
+             return
+        }
+        do {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            try YotiSDK.startScenario(for: useCaseID, with: self)
+        } catch {
+            // FIXME
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        do {
-            
-            guard let url = URL(string: "https://android-test-yoti.herokuapp.com/profile-json") else {
-                return
-            }
-            let scenario = try ScenarioBuilder().setUseCaseID("yoti_btn_1")
-                .setClientSDKID("d28feaf4-d62d-40e3-88ae-d619e9a5b906")
-                .setScenarioID("60b8e997-4a5c-40b2-86e8-29c4521b7015")
-                .setClientCompletion({ (baseURL, token, url, error) in
-                    print("token: \(String(describing: token))")
-                    print("url: \(String(describing: url))")
-                    // If you decide to call the callback url via
-                    // your own Service and handle the result, set  isProcessed at true.
-                    // Otherwise, set isProcessed at false and the Yoti SDK
-                    // will make the call.
-                    return false
-                })
-                .setCallbackBackendURL(url)
-                .setBackendCompletion({ (data, error) in
-                    print("=== Backend Completion ===")
-                    print("object: \(String(describing: data))")
-                    print("error: \(String(describing: error))")
-                    
-                    self.responseObject = try? JSONSerialization.jsonObject(with: data!, options: []) as! [String : Any]
-
-                    
-                    if error == nil {
-                        DispatchQueue.main.async {
-                            self.moveToProfile()
-                        }
-                    }
-                    
-                    
-                })
-                .create()
-            YotiSDK.add(scenario: scenario)
-        }
-        catch {
-            
-        }
-
-        // Do any additional setup after loading the view, typically from a nib.
+        rememberMeButton.setTitle("RememberMe Scenario", for: .normal)
+        selfieAuthButton.setTitle("SelfieAuth Scenario", for: .normal)
     }
-    
+
     func moveToProfile() {
         performSegue(withIdentifier: "moveToProfile", sender: self)
     }
@@ -119,9 +92,6 @@ class ViewController: UIViewController {
             if let dateOfBirth = userInfo["dateOfBirth"] as? String {
                 viewController.dateOfBirth = dateOfBirth
             }
-
-            
-
         default:
             break
         }
@@ -131,7 +101,33 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }
+
+extension ViewController: YotiSDKDelegate {
+    func yotiSDKDidFail(for useCaseID: String, with error: Error) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+
+    func yotiSDKDidSucceed(for useCaseID: String, baseURL: URL?, token: String?, url: URL?) {
+        let scenario = YotiSDK.scenario(for: useCaseID)
+        YotiSDK.callbackBackend(scenario: scenario!, token: token!, with: self)
+    }
+
+    func yotiSDKDidOpenYotiApp() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}
+
+extension ViewController: BackendDelegate {
+    func backendDidFinish(with data: Data?, error: Error?) {
+        guard let data = data else {
+            return
+        }
+        let json = try? JSONSerialization.jsonObject(with: data, options: [])
+        
+        //We would have to parse Jason at this point in order to create the `responseObject` Dictionary which will be used in override func prepare(for segue: UIStoryboardSegue, sender: Any?) before moving to profile screen. For now we only printing  the JSON
+        print (json ?? "")
+    }
+}
+
 

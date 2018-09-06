@@ -20,11 +20,11 @@ class KernelSDK: NSObject {
     /**
      * Perform a call to the Yoti API to retrieve the scenario and start the Yoti App
      */
-    func startScenario(for useCaseID: String) {
+    public func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) {
 
         NotificationCenter.default.post(name: YotiSDK.willMakeNetworkRequest, object: nil)
 
-        guard let scenario = YotiSDK.scenario(for: useCaseID) else {
+        guard let scenario = YotiSDK.shared.scenario(for: useCaseID) else {
             return
         }
         
@@ -33,7 +33,7 @@ class KernelSDK: NSObject {
             NotificationCenter.default.post(name: YotiSDK.didFinishNetworkRequest, object: nil)
 
             guard let qrCodeURL = qrCodeURL, error == nil else {
-                _ = scenario.clientCompletion(nil, nil, nil, error)
+                delegate.yotiSDKDidFail(for: useCaseID, with: error!)
                 print("Error while retrieving the scenario from the Yoti API, please check your clientSDKID and scenarioID.")
                 return
             }
@@ -43,7 +43,7 @@ class KernelSDK: NSObject {
                   let sourceSchemes = urlType["CFBundleURLSchemes"] as? [String],
                   !sourceSchemes.isEmpty
             else {
-                _ = scenario.clientCompletion(nil, nil, nil, GenericError.nilValue("CFBundleURLSchemes"))
+                delegate.yotiSDKDidFail(for: useCaseID, with: GenericError.nilValue("CFBundleURLSchemes"))
                 print("CFBundleURLSchemes is undefined this app.")
                 return
             }
@@ -55,12 +55,13 @@ class KernelSDK: NSObject {
                                          URLQueryItem(name: "sourceScheme", value: sourceSchemes.first)]
             
             guard let url = urlComponents?.url else {
-                _ = scenario.clientCompletion(nil, nil, nil, GenericError.malformedValue("qrCodeURL"))
+                delegate.yotiSDKDidFail(for: useCaseID, with: GenericError.malformedValue("qrCodeURL"))
                 return
             }
             
             guard UIApplication.shared.canOpenURL(url) else {
-                _ = scenario.clientCompletion(nil, nil, nil, GenericError.unknown(url.absoluteString))
+                delegate.yotiSDKDidFail(for: useCaseID, with: GenericError.unknown(url.absoluteString))
+
                 print("Cannot Open Yoti, please check LSApplicationQueriesSchemes or install Yoti")
                 return
             }
@@ -68,12 +69,15 @@ class KernelSDK: NSObject {
             if #available(iOS 10, *) {
                 UIApplication.shared.open(url, options: [:]) { (isSuccess) in
                     guard isSuccess else {
-                        _ = scenario.clientCompletion(nil, nil, nil, GenericError.unknown("Cannot Open Yoti"))
+                        delegate.yotiSDKDidFail(for: useCaseID, with: GenericError.unknown("Cannot Open Yoti"))
                         return
                     }
+                    delegate.yotiSDKDidOpenYotiApp()
                 }
             } else {
-                UIApplication.shared.openURL(url)
+                if UIApplication.shared.openURL(url) {
+                    delegate.yotiSDKDidOpenYotiApp()
+                }
             }
         }
     }
@@ -86,15 +90,9 @@ class KernelSDK: NSObject {
         }
     }
     
-    func callbackBackend(scenario: Scenario, token: String) {
-        NotificationCenter.default.post(name: YotiSDK.willMakeNetworkRequest, object: nil)
-        
+    public func callbackBackend(scenario: Scenario, token: String, with delegate: BackendDelegate) {
         callbackBackendService.callbackBackend(scenario: scenario, token: token) { (data, error) in
-
-            NotificationCenter.default.post(name: YotiSDK.didFinishNetworkRequest, object: nil)
-
-            let completion = scenario.backendCompletion
-            completion(data, error)
+            delegate.backendDidFinish(with: data, error: error)
         }
     }
 }
