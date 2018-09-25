@@ -96,7 +96,7 @@ You will now need your SDK ID, Scenario ID and call back URL ready from your app
 The SDK will need to be initialised, please and add the below scenario method. Note that the SDK can support now multiple scenarios:
 
 Swift:
-Please add the scenario method in your appDelegate.swift in `func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions...` like below.
+Please add the scenario method in your appDelegate.swift in `func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool` like below.
 ```swift
 import YotiButtonSDK
 
@@ -105,19 +105,19 @@ do {
                  return false
              }
              //Here we need to add as many scenarios as we want. each scenario is linked to a button in the Main.storyboard.
-             let scenario_1 = try ScenarioBuilder().setUseCaseID("yoti_btn_1")
+             let firstScenario = try ScenarioBuilder().setUseCaseID("yoti_btn_1")
                  .setClientSDKID("YOUR_CLIENT_SDK_ID")
                  .setScenarioID("YOUR_SCENARIO_ID_1")
                  .setCallbackBackendURL(url)
                  .create()
-             YotiSDK.add(scenario: scenario_1)
+             YotiSDK.add(scenario: firstScenario)
              
-             let scenario_2 = try ScenarioBuilder().setUseCaseID("yoti_btn_2")
+             let secondScenario = try ScenarioBuilder().setUseCaseID("yoti_btn_2")
                  .setClientSDKID("YOUR_CLIENT_SDK_ID")
                  .setScenarioID("YOUR_SCENARIO_ID_2")
                  .setCallbackBackendURL(url)
                  .create()
-             YotiSDK.add(scenario: scenario_2)
+             YotiSDK.add(scenario: secondScenario)
              
          } catch {
              // handle error code here
