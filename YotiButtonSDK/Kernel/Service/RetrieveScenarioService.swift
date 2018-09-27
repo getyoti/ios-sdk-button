@@ -53,8 +53,4 @@ class RetrieveScenarioService: HTTPService, URLSessionDelegate {
             completion(qrCodeURL, nil)
         }.resume()
     }
-
-    public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Swift.Void) {
-        completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
-    }
 }
