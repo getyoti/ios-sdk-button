@@ -20,7 +20,7 @@ class KernelSDK: NSObject {
     /**
      * Perform a call to the Yoti API to retrieve the scenario and start the Yoti App
      */
-    public func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) {
+    func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) {
 
         NotificationCenter.default.post(name: YotiSDK.willMakeNetworkRequest, object: nil)
 
