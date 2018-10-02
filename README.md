@@ -149,7 +149,7 @@ your ViewController class should comply to YotiSDKDelegate and to BackendDelegat
 }
 ```
 when the callback returns from the backend we get the data linked to the profile or the error in `func backendDidFinish(with data: Data?, error: Error?)`
-the data can be checked as JSON and parsed in order to display the profile.
+
 ```
 extension ViewController: BackendDelegate {
     func backendDidFinish(with data: Data?, error: Error?) {
