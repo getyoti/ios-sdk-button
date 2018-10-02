@@ -19,9 +19,7 @@ public class YotiSDK: NSObject {
     var kernel = KernelSDK.shared
 
     private var scenarios = [String: Scenario]()
-    
-    weak var delegate: YotiSDKDelegate?
-    
+        
     // MARK: - Static Functions
     @objc(addScenario:)
     public static func add(scenario: Scenario) {
@@ -48,10 +46,6 @@ public class YotiSDK: NSObject {
     // MARK: - Instance Functions
     func add(scenario: Scenario) {
         scenarios[scenario.useCaseID] = scenario
-    }
-    
-    public static func set(delegate: YotiSDKDelegate) {
-        shared.delegate = delegate
     }
     
     func scenario(for useCaseID: String) -> Scenario? {
