@@ -103,7 +103,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: YotiSDKDelegate {
+extension ViewController: SDKDelegate {
     func yotiSDKDidFail(for useCaseID: String, with error: Error) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
