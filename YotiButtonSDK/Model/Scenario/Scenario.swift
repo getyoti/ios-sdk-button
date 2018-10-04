@@ -16,7 +16,7 @@ public class Scenario: NSObject {
     @objc public private(set) var scenarioID: String
     @objc public internal(set) var qrCodeURL: URL?
     @objc public private(set) var callbackBackendURL: URL?
-    weak var currentDelegate: YotiSDKDelegate?
+    weak var currentDelegate: SDKDelegate?
 
     @objc public var isValid: Bool {
         return !useCaseID.isEmpty &&

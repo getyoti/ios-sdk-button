@@ -27,7 +27,7 @@ public class YotiSDK: NSObject {
     }
     
     @objc(startScenarioForUseCaseID:withDelegate:error:)
-    public static func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) throws {
+    public static func startScenario(for useCaseID: String, with delegate: SDKDelegate) throws {
         try shared.startScenario(for: useCaseID, with: delegate)
     }
     
@@ -52,7 +52,7 @@ public class YotiSDK: NSObject {
         return scenarios[useCaseID]
     }
     
-    func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) throws {
+    func startScenario(for useCaseID: String, with delegate: SDKDelegate) throws {
         
         guard let scenario = scenario(for: useCaseID) else {
             throw GenericError.nilValue("scenario")
