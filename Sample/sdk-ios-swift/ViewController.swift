@@ -11,7 +11,7 @@ import YotiButtonSDK
 
 class ViewController: UIViewController {
     
-    var responseObject: [String: Any]?
+    var responseObject:  ProfileDictionary?
     @IBOutlet weak var rememberMeButton: YotiButton!
     @IBOutlet weak var selfieAuthButton: YotiButton!
     
@@ -39,67 +39,58 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let identifier = segue.identifier else {
             return
         }
-        
         switch identifier {
         case "moveToProfile":
             guard let viewController = segue.destination as? ProfileViewController else {
                 break
             }
-            
-            guard let responseObject = responseObject,
-                let userInfo = responseObject["userInfo"] as? [String: Any] else {
-                    break
+            guard let responseObject = responseObject, !responseObject.attributes.isEmpty else {
+                break
             }
-            
-            if let selfie = userInfo["selfie"] as? String
-            {
-                let base64Image = selfie.replacingOccurrences(of: "data:image/jpeg;base64,", with: "")
-                if let imageData = Data(base64Encoded: base64Image) {
-
-                    let photo = UIImage(data: imageData)
-                    viewController.selfie = photo
+            responseObject.attributes.forEach {
+                
+                if $0.name == "selfie" {
+                    let selfieValue = $0.value
+                    if let imageData = Data(base64Encoded: selfieValue) {
+                        let photo = UIImage(data: imageData)
+                        viewController.selfie = photo
+                    }
                 }
-            }
-            
-            if let phone = userInfo["phoneNumber"] as? String {
-                viewController.phone = phone
-            }
-
-            if let givenNames = userInfo["givenNames"] as? String {
-                viewController.givenNames = givenNames
-            }
-            
-            if let postalAddress = userInfo["postalAddress"] as? String {
-                viewController.postalAddress = postalAddress
-            }
-            
-            if let gender = userInfo["gender"] as? String {
-                viewController.gender = gender
-            }
-
-            if let emailAddress = userInfo["emailAddress"] as? String {
-                viewController.emailAddress = emailAddress
-            }
-            
-            if let familyName = userInfo["familyName"] as? String {
-                viewController.familyName = familyName
-            }
-
-            if let dateOfBirth = userInfo["dateOfBirth"] as? String {
-                viewController.dateOfBirth = dateOfBirth
+                if $0.name == "phone_number" {
+                    let phoneNumberValue = $0.value
+                    viewController.phone = phoneNumberValue
+                }
+                if $0.name == "given_names"{
+                    let givenNamesValue = $0.value
+                    viewController.givenNames = givenNamesValue
+                }
+                if $0.name == "postal_address"{
+                    let postalAddressValue = $0.value
+                    viewController.postalAddress = postalAddressValue
+                }
+                if $0.name == "gender"{
+                    let genderValue = $0.value
+                    viewController.gender = genderValue
+                }
+                if $0.name == "email_address"{
+                    let emailAddressValue = $0.value
+                    viewController.emailAddress = emailAddressValue
+                }
+                if $0.name == "family_name"{
+                    let familyNameValue = $0.value
+                    viewController.familyName = familyNameValue
+                }
+                if $0.name == "date_of_birth"{
+                    let dateOfBirthValue = $0.value
+                    viewController.dateOfBirth = dateOfBirthValue
+                }
             }
         default:
             break
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
@@ -123,11 +114,14 @@ extension ViewController: BackendDelegate {
         guard let data = data else {
             return
         }
-        let json = try? JSONSerialization.jsonObject(with: data, options: [])
-        
-        //We would have to parse Jason at this point in order to create the `responseObject` Dictionary which will be used in override func prepare(for segue: UIStoryboardSegue, sender: Any?) before moving to profile screen. For now we only printing  the JSON
-        print (json ?? "")
+        do {
+            let decodedJson = try JSONDecoder().decode(ProfileDictionary.self, from: data)
+            responseObject = decodedJson
+            moveToProfile()
+        }
+        catch let error {
+            print (error)
+        }
     }
 }
-
 
