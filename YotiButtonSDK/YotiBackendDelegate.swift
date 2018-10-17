@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc (YTBBackendDelegate)
+@objc(YTBBackendDelegate)
 public protocol BackendDelegate {
     func backendDidFinish(with data: Data?, error: Error?)
 }

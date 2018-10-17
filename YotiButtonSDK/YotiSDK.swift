@@ -31,10 +31,12 @@ public class YotiSDK: NSObject {
         try shared.startScenario(for: useCaseID, with: delegate)
     }
     
+    @objc(callbackBackendScenario:token:withDelegate:)
     public static func callbackBackend(scenario: Scenario, token: String, with delegate: BackendDelegate) {
         shared.callbackBackend(scenario: scenario, token: token, with: delegate)
     }
     
+    @objc(scenarioforUseCaseID:)
     public static func scenario(for useCaseID: String) -> Scenario? {
         return shared.scenario(for:useCaseID)
     }

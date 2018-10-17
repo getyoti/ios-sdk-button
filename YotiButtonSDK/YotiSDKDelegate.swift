@@ -8,19 +8,19 @@
 
 import Foundation
 
-@objc (YTBScenarioRetrievalDelegate)
+@objc(YTBScenarioRetrievalDelegate)
 public protocol ScenarioRetrievalDelegate {
     func yotiSDKDidFail(`for` useCaseID: String, with error: Error)
     func yotiSDKDidSucceed(`for` useCaseID: String, baseURL: URL?, token: String?, url: URL?)
 
 }
 
-@objc (YTBAppLaunchDelegate)
+@objc(YTBAppLaunchDelegate)
 public protocol AppLaunchDelegate {
     func yotiSDKDidOpenYotiApp()
 }
 
-@objc (YTBSDKDelegate)
+@objc(YTBSDKDelegate)
 public protocol SDKDelegate: ScenarioRetrievalDelegate, AppLaunchDelegate {}
 
 
