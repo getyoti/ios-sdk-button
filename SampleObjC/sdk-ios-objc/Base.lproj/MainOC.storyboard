@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ufu-ZA-uxO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DGp-x2-H1u">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,29 +12,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--OCViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="sdk_ios_objc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="OCViewController" customClass="OCViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eZ5-cA-Dc8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nw9-HR-jH6" customClass="YotiButton" customModule="YotiButtonSDK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nw9-HR-jH6" userLabel="rememberMeButton" customClass="YotiButton" customModule="YotiButtonSDK">
                                 <rect key="frame" x="72" y="487" width="230" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="230" id="5fZ-RE-FLb"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="5fZ-RE-FLb"/>
                                     <constraint firstAttribute="height" constant="48" id="sOw-6f-4tu"/>
                                 </constraints>
                                 <state key="normal" title="RememberMeIDphoto"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="useCaseID" value="yoti_btn_2"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonDidTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X5g-fb-kNC"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZe-HW-Qnr" customClass="YotiButton" customModule="YotiButtonSDK">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZe-HW-Qnr" userLabel="selfieAuthButton" customClass="YotiButton" customModule="YotiButtonSDK">
                                 <rect key="frame" x="72" y="555" width="230" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="230" id="IRb-WH-aAq"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="IRb-WH-aAq"/>
                                     <constraint firstAttribute="width" secondItem="xZe-HW-Qnr" secondAttribute="height" multiplier="115:24" id="Xfd-ko-l2b"/>
                                     <constraint firstAttribute="height" constant="48" id="wjH-vO-162"/>
                                 </constraints>
@@ -42,6 +45,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="useCaseID" value="yoti_btn_1"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonDidTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0p4-cd-F5v"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xEf-Bn-ZPk">
                                 <rect key="frame" x="92" y="128" width="64" height="64"/>
@@ -117,19 +123,19 @@ LTD</string>
                     </view>
                     <navigationItem key="navigationItem" id="eMV-41-5Gx"/>
                     <connections>
-                        <outlet property="rememberMeButton" destination="Nw9-HR-jH6" id="zgG-5z-DO4"/>
-                        <outlet property="selfieAuthButton" destination="xZe-HW-Qnr" id="l96-cN-Vou"/>
+                        <outlet property="rememberMe" destination="Nw9-HR-jH6" id="YKJ-aq-d01"/>
+                        <outlet property="selfieAuth" destination="xZe-HW-Qnr" id="xEc-aj-G4A"/>
                         <segue destination="giJ-um-Orz" kind="show" identifier="moveToProfile" id="eqL-sn-A8w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055.2" y="118.29085457271366"/>
+            <point key="canvasLocation" x="1994.4000000000001" y="118.29085457271366"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--OCProfileViewController-->
         <scene sceneID="6ap-M8-jeL">
             <objects>
-                <viewController id="giJ-um-Orz" customClass="ProfileViewController" customModule="sdk_ios_objc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="giJ-um-Orz" userLabel="OCProfileViewController" customClass="OCProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEf-gg-VaD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,25 +266,25 @@ LTD</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSd-BQ-k4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842" y="112"/>
+            <point key="canvasLocation" x="3047.1999999999998" y="117.39130434782609"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="P4Y-oS-7Ps">
+        <scene sceneID="CQH-Ni-KmL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ufu-ZA-uxO" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DGp-x2-H1u" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HCW-1V-KlA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DOy-3b-KK2">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5WU-oO-WPo"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Pa5-eZ-9Xk"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7W4-wh-KGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmi-Nj-aD1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-20" y="133"/>
+            <point key="canvasLocation" x="1055.2" y="118.29085457271366"/>
         </scene>
     </scenes>
 </document>

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController
+@interface OCProfileViewController : UIViewController
 
 @property NSString* phone;
 @property UIImage* selfie;

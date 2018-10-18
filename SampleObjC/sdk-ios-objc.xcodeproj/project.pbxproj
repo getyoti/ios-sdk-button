@@ -8,16 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		2C17BDA52175EB63009843F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDA42175EB63009843F7 /* AppDelegate.m */; };
-		2C17BDA82175EB63009843F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDA72175EB63009843F7 /* ViewController.m */; };
-		2C17BDAB2175EB63009843F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C17BDA92175EB63009843F7 /* Main.storyboard */; };
+		2C17BDA82175EB63009843F7 /* OCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDA72175EB63009843F7 /* OCViewController.m */; };
 		2C17BDAD2175EB64009843F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C17BDAC2175EB64009843F7 /* Assets.xcassets */; };
 		2C17BDB02175EB64009843F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C17BDAE2175EB64009843F7 /* LaunchScreen.storyboard */; };
 		2C17BDB32175EB64009843F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDB22175EB64009843F7 /* main.m */; };
 		2C17BDBD2175EB64009843F7 /* sdk_ios_objcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDBC2175EB64009843F7 /* sdk_ios_objcTests.m */; };
 		2C17BDC82175EB64009843F7 /* sdk_ios_objcUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDC72175EB64009843F7 /* sdk_ios_objcUITests.m */; };
-		2C17BDD721761A61009843F7 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDD621761A61009843F7 /* ProfileViewController.m */; };
-		2C17BDDA217633EF009843F7 /* YotiButtonSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C17BDD8217633EF009843F7 /* YotiButtonSDK.framework */; };
-		2C17BDDB217633EF009843F7 /* YotiButtonSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2C17BDD8217633EF009843F7 /* YotiButtonSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2C17BDD721761A61009843F7 /* OCProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDD621761A61009843F7 /* OCProfileViewController.m */; };
+		2C17BE2C2177A107009843F7 /* YotiButtonSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C17BE2B2177A106009843F7 /* YotiButtonSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		2C17BE2D2177A107009843F7 /* YotiButtonSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2C17BE2B2177A106009843F7 /* YotiButtonSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2C17BE3121789152009843F7 /* MainOC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C17BE2F21789152009843F7 /* MainOC.storyboard */; };
+		2C17BE3321789DA1009843F7 /* JSON_FromProfile_copy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C17BE3221789DA0009843F7 /* JSON_FromProfile_copy.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,15 +39,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2C17BDDC217633EF009843F7 /* Embed Frameworks */ = {
+		2C17BE2A2177A0DA009843F7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2C17BE2D2177A107009843F7 /* YotiButtonSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C17BE2E2177AA2E009843F7 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2C17BDDB217633EF009843F7 /* YotiButtonSDK.framework in Embed Frameworks */,
 			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -55,9 +65,8 @@
 		2C17BDA02175EB63009843F7 /* sdk-ios-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sdk-ios-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C17BDA32175EB63009843F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C17BDA42175EB63009843F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2C17BDA62175EB63009843F7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2C17BDA72175EB63009843F7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2C17BDAA2175EB63009843F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C17BDA62175EB63009843F7 /* OCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCViewController.h; sourceTree = "<group>"; };
+		2C17BDA72175EB63009843F7 /* OCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCViewController.m; sourceTree = "<group>"; };
 		2C17BDAC2175EB64009843F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C17BDAF2175EB64009843F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C17BDB12175EB64009843F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,10 +77,11 @@
 		2C17BDC32175EB64009843F7 /* sdk-ios-objcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sdk-ios-objcUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C17BDC72175EB64009843F7 /* sdk_ios_objcUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sdk_ios_objcUITests.m; sourceTree = "<group>"; };
 		2C17BDC92175EB64009843F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C17BDD521761A61009843F7 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		2C17BDD621761A61009843F7 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		2C17BDD8217633EF009843F7 /* YotiButtonSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YotiButtonSDK.framework; path = Carthage/Build/iOS/YotiButtonSDK.framework; sourceTree = "<group>"; };
-		2C17BDD9217633EF009843F7 /* YotiButtonSDK.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = YotiButtonSDK.framework.dSYM; path = Carthage/Build/iOS/YotiButtonSDK.framework.dSYM; sourceTree = "<group>"; };
+		2C17BDD521761A61009843F7 /* OCProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCProfileViewController.h; sourceTree = "<group>"; };
+		2C17BDD621761A61009843F7 /* OCProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCProfileViewController.m; sourceTree = "<group>"; };
+		2C17BE2B2177A106009843F7 /* YotiButtonSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YotiButtonSDK.framework; path = Carthage/Build/iOS/YotiButtonSDK.framework; sourceTree = "<group>"; };
+		2C17BE3021789152009843F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainOC.storyboard; sourceTree = "<group>"; };
+		2C17BE3221789DA0009843F7 /* JSON_FromProfile_copy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSON_FromProfile_copy.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C17BDDA217633EF009843F7 /* YotiButtonSDK.framework in Frameworks */,
+				2C17BE2C2177A107009843F7 /* YotiButtonSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,8 +113,8 @@
 		2C17BD972175EB63009843F7 = {
 			isa = PBXGroup;
 			children = (
-				2C17BDD8217633EF009843F7 /* YotiButtonSDK.framework */,
-				2C17BDD9217633EF009843F7 /* YotiButtonSDK.framework.dSYM */,
+				2C17BE3221789DA0009843F7 /* JSON_FromProfile_copy.txt */,
+				2C17BE2B2177A106009843F7 /* YotiButtonSDK.framework */,
 				2C17BDA22175EB63009843F7 /* sdk-ios-objc */,
 				2C17BDBB2175EB64009843F7 /* sdk-ios-objcTests */,
 				2C17BDC62175EB64009843F7 /* sdk-ios-objcUITests */,
@@ -125,13 +135,13 @@
 		2C17BDA22175EB63009843F7 /* sdk-ios-objc */ = {
 			isa = PBXGroup;
 			children = (
-				2C17BDD521761A61009843F7 /* ProfileViewController.h */,
-				2C17BDD621761A61009843F7 /* ProfileViewController.m */,
+				2C17BE2F21789152009843F7 /* MainOC.storyboard */,
+				2C17BDD521761A61009843F7 /* OCProfileViewController.h */,
+				2C17BDD621761A61009843F7 /* OCProfileViewController.m */,
 				2C17BDA32175EB63009843F7 /* AppDelegate.h */,
 				2C17BDA42175EB63009843F7 /* AppDelegate.m */,
-				2C17BDA62175EB63009843F7 /* ViewController.h */,
-				2C17BDA72175EB63009843F7 /* ViewController.m */,
-				2C17BDA92175EB63009843F7 /* Main.storyboard */,
+				2C17BDA62175EB63009843F7 /* OCViewController.h */,
+				2C17BDA72175EB63009843F7 /* OCViewController.m */,
 				2C17BDAC2175EB64009843F7 /* Assets.xcassets */,
 				2C17BDAE2175EB64009843F7 /* LaunchScreen.storyboard */,
 				2C17BDB12175EB64009843F7 /* Info.plist */,
@@ -168,7 +178,8 @@
 				2C17BD9C2175EB63009843F7 /* Sources */,
 				2C17BD9D2175EB63009843F7 /* Frameworks */,
 				2C17BD9E2175EB63009843F7 /* Resources */,
-				2C17BDDC217633EF009843F7 /* Embed Frameworks */,
+				2C17BE2A2177A0DA009843F7 /* Embed Frameworks */,
+				2C17BE2E2177AA2E009843F7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -264,7 +275,8 @@
 			files = (
 				2C17BDB02175EB64009843F7 /* LaunchScreen.storyboard in Resources */,
 				2C17BDAD2175EB64009843F7 /* Assets.xcassets in Resources */,
-				2C17BDAB2175EB63009843F7 /* Main.storyboard in Resources */,
+				2C17BE3121789152009843F7 /* MainOC.storyboard in Resources */,
+				2C17BE3321789DA1009843F7 /* JSON_FromProfile_copy.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,9 +301,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C17BDA82175EB63009843F7 /* ViewController.m in Sources */,
+				2C17BDA82175EB63009843F7 /* OCViewController.m in Sources */,
 				2C17BDB32175EB64009843F7 /* main.m in Sources */,
-				2C17BDD721761A61009843F7 /* ProfileViewController.m in Sources */,
+				2C17BDD721761A61009843F7 /* OCProfileViewController.m in Sources */,
 				2C17BDA52175EB63009843F7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,14 +340,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2C17BDA92175EB63009843F7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2C17BDAA2175EB63009843F7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2C17BDAE2175EB64009843F7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -344,12 +348,21 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		2C17BE2F21789152009843F7 /* MainOC.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C17BE3021789152009843F7 /* Base */,
+			);
+			name = MainOC.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2C17BDCA2175EB64009843F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -408,6 +421,7 @@
 		2C17BDCB2175EB64009843F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
