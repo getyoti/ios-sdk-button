@@ -93,7 +93,7 @@ The front end of the integration is now complete.
 
 You will now need your SDK ID, Scenario ID and call back URL ready from your application dashboard. 
 
-The SDK will need to be initialised, please and add the below scenario method. Note that the SDK can support now multiple scenarios:
+The SDK will need to be initialised, please add like below, your scenarios. Note that the SDK can support now multiple scenarios:
 
 Swift:
 Please add the scenario method in your appDelegate.swift in `func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool` like below.
@@ -105,16 +105,16 @@ do {
                  return false
              }
              //Here we need to add as many scenarios as we want. each scenario is linked to a button in the Main.storyboard.
-             let firstScenario = try ScenarioBuilder().setUseCaseID("yoti_btn_1")
-                 .setClientSDKID("YOUR_CLIENT_SDK_ID")
-                 .setScenarioID("YOUR_SCENARIO_ID_1")
+             let firstScenario = try ScenarioBuilder().setUseCaseID("YOUR_FIRST_USE_CASE_ID")
+                 .setClientSDKID("YOUR_FIRST_CLIENT_SDK_ID")
+                 .setScenarioID("YOUR_FIRST_SCENARIO_ID_1")
                  .setCallbackBackendURL(url)
                  .create()
              YotiSDK.add(scenario: firstScenario)
              
-             let secondScenario = try ScenarioBuilder().setUseCaseID("yoti_btn_2")
-                 .setClientSDKID("YOUR_CLIENT_SDK_ID")
-                 .setScenarioID("YOUR_SCENARIO_ID_2")
+             let secondScenario = try ScenarioBuilder().setUseCaseID("YOUR_SECOND_USE_CASE_ID")
+                 .setClientSDKID("YOUR_SECOND_CLIENT_SDK_ID")
+                 .setScenarioID("YOUR_SECOND_SCENARIO_ID_2")
                  .setCallbackBackendURL(url)
                  .create()
              YotiSDK.add(scenario: secondScenario)
@@ -147,9 +147,9 @@ objective-C
 
     error = nil;
     YTBScenarioBuilder *secondScenarioBuilder = [[YTBScenarioBuilder alloc] init];
-    secondScenarioBuilder.useCaseID = @"YOUR_FIRST_USE_CASE_ID";
-    secondScenarioBuilder.clientSDKID = @"YOUR_FIRST_CLIENT_SDK_ID";
-    secondScenarioBuilder.scenarioID = @"YOUR_FIRST_SCENARIO_ID";
+    secondScenarioBuilder.useCaseID = @"YOUR_SECOND_USE_CASE_ID";
+    secondScenarioBuilder.clientSDKID = @"YOUR_SECOND_CLIENT_SDK_ID";
+    secondScenarioBuilder.scenarioID = @"YOUR_SECOND_SCENARIO_ID";
     secondScenarioBuilder.callbackBackendURL = [NSURL URLWithString:@"YOUR_CALLBACK_URL"];
     YTBScenario *secondScenario = [secondScenarioBuilder create:&error];
     [YotiSDK addScenario: secondScenario];
@@ -193,7 +193,7 @@ objectiveC:
 }
 ```
 
-In Swift your ViewController class should comply to YotiSDKDelegate and to BackendDelegate in order to get the callbacks when the app has opened or not.
+In Swift your ViewController class should comply to YotiSDKDelegate and to BackendDelegate in order to get the callbacks.
 
 ```extension ViewController: YotiSDKDelegate {
     func yotiSDKDidFail(for useCaseID: String, with error: Error) {
