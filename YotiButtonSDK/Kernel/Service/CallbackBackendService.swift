@@ -42,7 +42,6 @@ class CallbackBackendService: HTTPService, URLSessionDelegate {
             
             completion(data, nil)
             
-            }.resume()
+        }.resume()
     }
 }
-
