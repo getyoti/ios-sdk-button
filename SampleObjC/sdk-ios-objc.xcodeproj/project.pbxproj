@@ -18,7 +18,6 @@
 		2C17BE2C2177A107009843F7 /* YotiButtonSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C17BE2B2177A106009843F7 /* YotiButtonSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		2C17BE2D2177A107009843F7 /* YotiButtonSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2C17BE2B2177A106009843F7 /* YotiButtonSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2C17BE3121789152009843F7 /* MainOC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C17BE2F21789152009843F7 /* MainOC.storyboard */; };
-		2C17BE3321789DA1009843F7 /* JSON_FromProfile_copy.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C17BE3221789DA0009843F7 /* JSON_FromProfile_copy.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +80,6 @@
 		2C17BDD621761A61009843F7 /* OCProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCProfileViewController.m; sourceTree = "<group>"; };
 		2C17BE2B2177A106009843F7 /* YotiButtonSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YotiButtonSDK.framework; path = Carthage/Build/iOS/YotiButtonSDK.framework; sourceTree = "<group>"; };
 		2C17BE3021789152009843F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainOC.storyboard; sourceTree = "<group>"; };
-		2C17BE3221789DA0009843F7 /* JSON_FromProfile_copy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSON_FromProfile_copy.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +111,6 @@
 		2C17BD972175EB63009843F7 = {
 			isa = PBXGroup;
 			children = (
-				2C17BE3221789DA0009843F7 /* JSON_FromProfile_copy.txt */,
 				2C17BE2B2177A106009843F7 /* YotiButtonSDK.framework */,
 				2C17BDA22175EB63009843F7 /* sdk-ios-objc */,
 				2C17BDBB2175EB64009843F7 /* sdk-ios-objcTests */,
@@ -276,7 +273,6 @@
 				2C17BDB02175EB64009843F7 /* LaunchScreen.storyboard in Resources */,
 				2C17BDAD2175EB64009843F7 /* Assets.xcassets in Resources */,
 				2C17BE3121789152009843F7 /* MainOC.storyboard in Resources */,
-				2C17BE3321789DA1009843F7 /* JSON_FromProfile_copy.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

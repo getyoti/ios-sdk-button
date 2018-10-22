@@ -84,25 +84,7 @@
 }
 
 - (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID with:(NSError * _Nonnull)error {
-    
-    //test the profile view controller here.
-    
-    /*****/
-    
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"JSON_FromProfile_copy" ofType:@"txt"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSDictionary* jsonObj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    
-    
-    
-    responseObject = [jsonObj objectForKey:@"attributes"];
-    
-    [self moveToProfile];
-    
-    /*****/
-    
-    
+    NSLog(@"yotiSDKDidFailFor useCaseID: %@,  with error: %@", useCaseID, error.localizedDescription);
 }
 
 - (void)yotiSDKDidSucceedFor:(NSString * _Nonnull)useCaseID baseURL:(NSURL * _Nullable)baseURL token:(NSString * _Nullable)token url:(NSURL * _Nullable)url {
@@ -120,7 +102,7 @@
 }
 
 - (void)yotiSDKDidOpenYotiApp {
-    //
+    NSLog(@"yotiSDKDidOpenYotiApp");
 }
 
 
