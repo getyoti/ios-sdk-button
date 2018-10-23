@@ -101,7 +101,7 @@ The SDK will need to be initialised, please add like below, your scenarios. Note
 Swift:
 Please add the scenario method in your appDelegate.swift in :
 
-```
+```Objective-C
 
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
 ``` 
@@ -109,7 +109,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 like below.
 
 
-```
+```swift
 
 import YotiButtonSDK
 
@@ -139,12 +139,15 @@ do {
 ```
 Objective-C:
 Please add the scenarion method in your appDelegate.m in
-```
+
+```objective-c
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 ```
 
-```
+```objective-c
+
 #import <YotiButtonSDK/YotiButtonSDK.h>
 
 
@@ -182,7 +185,7 @@ by passing it the useCaseID and self as delegate like this:
 
 Swift:
 
-```
+```swift
 
 @IBAction func yotiButtonDidTouchUpInside(_ sender: YotiButton) {
 	guard let useCaseID = sender.useCaseID else{
@@ -199,7 +202,7 @@ Swift:
 
 Objective-C: 
 
-```
+```objective-c
 
 - (IBAction)buttonDidTouchUpInside:(YotiButton*)sender {
 	NSString* useCaseID = sender.useCaseID;
@@ -217,7 +220,7 @@ Objective-C:
 
 In Swift your ViewController class should comply to YotiSDKDelegate and to BackendDelegate in order to get the callbacks.
 
-```
+```swift
 
 extension ViewController: YotiSDKDelegate {
     func yotiSDKDidFail(for useCaseID: String, with error: Error) {
@@ -241,14 +244,14 @@ extension ViewController: YotiSDKDelegate {
 
 In Objective-C, your viewController should comply to  YTBSDKDelegate and YTBBackendDelegate like this:
 
-```
+```objective-c
 
 @interface ViewController () <YTBSDKDelegate, YTBBackendDelegate>
 ```
 
 then implement the delegate functions of the protocol it complies to like this:
 
-```
+```objective-c
 
 - (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID with:(NSError * _Nonnull)error {
   // handle failure here
@@ -267,12 +270,14 @@ when the callback returns from the backend we get the data linked to the profile
 
 Swift:
 
-```
+```swift
 
 func backendDidFinish(with data: Data?, error: Error?)
+```
 
 Objective-C:
 
+```objective-c
 - (void)backendDidFinishWith:(NSData * _Nullable)data error:(NSError * _Nullable)error
 
 ```
@@ -280,7 +285,7 @@ Here is one possible implementation for when the callback from the backend happe
 
 Swift:
 
-```
+```swift
 
 extension ViewController: BackendDelegate {
     func backendDidFinish(with data: Data?, error: Error?) {
@@ -302,7 +307,7 @@ extension ViewController: BackendDelegate {
 
 Objective-C:
 
-```
+```objective-c
 
 - (void)backendDidFinishWith:(NSData * _Nullable)data error:(NSError * _Nullable)error {
 	if (data != nil) {
@@ -318,26 +323,26 @@ Objective-C:
 In case you need to change your interface before we are doing a network request, you can subscribe to the `willMakeNetworkRequest` and `didFinishNetworkRequest` notification from the `YotiSDK` class
 
 Swift: 
-```
+```swift
 NotificationCenter.default.addObserver(forName: YotiSDK.willMakeNetworkRequest, object: nil, queue: nil) { (notification) in
     // Disable interface
 }
 ```
 
-```
+```swift
 NotificationCenter.default.addObserver(forName: YotiSDK.didFinishNetworkRequest, object: nil, queue: nil) { (notification) in
     // Re-enable interface
 }
 ```
 
 Objective-C: 
-```
+```objective-c
 [NSNotificationCenter.defaultCenter addObserverForName:YotiSDK.willMakeNetworkRequest object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
     // Disable interface
 }];
 ```
 
-```
+```objective-c
 [NSNotificationCenter.defaultCenter addObserverForName:YotiSDK.didFinishNetworkRequest object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
     // Re-enable interface
 }];
@@ -378,7 +383,7 @@ Yoti SDK would perform an app switch to Yoti app and back to your app to complet
 #### Notify your application lifecycle to Yoti SDK
 
 Swift:
-```
+```swift
 
 import YotiButtonSDK
 
@@ -391,7 +396,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 Objective-C:
-```
+```objective-c
 
 #import <YotiButtonSDK/YotiButtonSDK.h>
 
