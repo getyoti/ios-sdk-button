@@ -177,7 +177,7 @@ Please add the scenarion method in your appDelegate.m in
 ```
 then in your viewController class inside your button IBAction function call the function  : 
 
-```
+```swift
 
 public static func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) throws 
 ```
@@ -347,11 +347,6 @@ Objective-C:
     // Re-enable interface
 }];
 ```
-
-Note:
-`willMakeNetorkRequest` will be called twice if you set `isProcessed` to `false` in the `clientCompletion` block. The first time will be before openning the Yoti application and the second time will be after the Yoti Application re-open your application.
-
-`didFinishNetworkRequest` will only be called once whether the `isProcessed` is set to `true` or `false`. 
 
 ### Inter-app communication
 
