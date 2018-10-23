@@ -74,14 +74,17 @@ Add a **User defined runtime attributes**: `useCaseID` of type String with a val
 
 The SDK provide a custom Button you can use in your layout, do not forget to set the `useCaseID`, it's the link with the `Scenario`. See definitions lower. Or you can also define the button in the code like this:
 
-```swift
+Swift:
+```
+
 import YotiButtonSDK
 
 let button = YotiButton(frame: CGRect(x: 0, y: 0, width: 230, height: 48))
 button.useCaseID = "YOUR_USE_CASE_ID"
 ```
+Objective-C:
+```
 
-```Objective-C
 #import <YotiButtonSDK/YotiButtonSDK.h>                                                                                                                                                                                                                 YotiButton* button = [[YotiButton alloc] initWithFrame:CGRectMake(0, 0, 230, 48)]
 button.useCaseID = "YOUR_USE_CASE_ID"
 ```
@@ -96,8 +99,18 @@ You will now need your SDK ID, Scenario ID and call back URL ready from your app
 The SDK will need to be initialised, please add like below, your scenarios. Note that the SDK can support now multiple scenarios:
 
 Swift:
-Please add the scenario method in your appDelegate.swift in `func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool` like below.
-```swift
+Please add the scenario method in your appDelegate.swift in :
+
+```
+
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+``` 
+
+like below.
+
+
+```
+
 import YotiButtonSDK
 
 do {
@@ -125,11 +138,13 @@ do {
     }
 ```
 Objective-C:
-Please add the scenarion method in your appDelegate.m in `- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions`
+Please add the scenarion method in your appDelegate.m in
+```
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+```
 
 ```
-objective-C
-
 #import <YotiButtonSDK/YotiButtonSDK.h>
 
 
@@ -158,13 +173,17 @@ objective-C
 }
 ```
 then in your viewController class inside your button IBAction function call the function  : 
+
 ```
-public static func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) throws``` 
+
+public static func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) throws 
 ```
 by passing it the useCaseID and self as delegate like this:
 
+Swift:
+
 ```
-swift:
+
 @IBAction func yotiButtonDidTouchUpInside(_ sender: YotiButton) {
 	guard let useCaseID = sender.useCaseID else{
 		return
@@ -176,8 +195,11 @@ swift:
 		// Handle error here
 	}
 }
+```
 
-objectiveC: 
+Objective-C: 
+
+```
 
 - (IBAction)buttonDidTouchUpInside:(YotiButton*)sender {
 	NSString* useCaseID = sender.useCaseID;
@@ -195,7 +217,9 @@ objectiveC:
 
 In Swift your ViewController class should comply to YotiSDKDelegate and to BackendDelegate in order to get the callbacks.
 
-```extension ViewController: YotiSDKDelegate {
+```
+
+extension ViewController: YotiSDKDelegate {
     func yotiSDKDidFail(for useCaseID: String, with error: Error) {
     	//handle here the error opening of Yoti app
     }
@@ -215,12 +239,17 @@ In Swift your ViewController class should comply to YotiSDKDelegate and to Backe
 }
 ```
 
-In Objective C, your viewController should comply to  YTBSDKDelegate and YTBBackendDelegate like this:
-`@interface ViewController () <YTBSDKDelegate, YTBBackendDelegate>`
+In Objective-C, your viewController should comply to  YTBSDKDelegate and YTBBackendDelegate like this:
+
+```
+
+@interface ViewController () <YTBSDKDelegate, YTBBackendDelegate>
+```
 
 then implement the delegate functions of the protocol it complies to like this:
 
 ```
+
 - (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID with:(NSError * _Nonnull)error {
   // handle failure here
 }
@@ -236,8 +265,9 @@ then implement the delegate functions of the protocol it complies to like this:
 ```
 when the callback returns from the backend we get the data linked to the profile or the error in
 
+Swift:
+
 ```
-swift:
 
 func backendDidFinish(with data: Data?, error: Error?)
 
@@ -248,8 +278,9 @@ Objective-C:
 ```
 Here is one possible implementation for when the callback from the backend happens:
 
+Swift:
+
 ```
-swift:
 
 extension ViewController: BackendDelegate {
     func backendDidFinish(with data: Data?, error: Error?) {
@@ -266,8 +297,12 @@ extension ViewController: BackendDelegate {
         }
     }
 }
+```
 
-objective-C:
+
+Objective-C:
+
+```
 
 - (void)backendDidFinishWith:(NSData * _Nullable)data error:(NSError * _Nullable)error {
 	if (data != nil) {
@@ -343,7 +378,8 @@ Yoti SDK would perform an app switch to Yoti app and back to your app to complet
 #### Notify your application lifecycle to Yoti SDK
 
 Swift:
-```swift
+```
+
 import YotiButtonSDK
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -355,7 +391,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 Objective-C:
-```Objective-C
+```
+
 #import <YotiButtonSDK/YotiButtonSDK.h>
 
 @implementation AppDelegate
