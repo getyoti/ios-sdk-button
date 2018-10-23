@@ -75,7 +75,7 @@ Add a **User defined runtime attributes**: `useCaseID` of type String with a val
 The SDK provide a custom Button you can use in your layout, do not forget to set the `useCaseID`, it's the link with the `Scenario`. See definitions lower. Or you can also define the button in the code like this:
 
 Swift:
-```
+```swift
 
 import YotiButtonSDK
 
@@ -83,7 +83,7 @@ let button = YotiButton(frame: CGRect(x: 0, y: 0, width: 230, height: 48))
 button.useCaseID = "YOUR_USE_CASE_ID"
 ```
 Objective-C:
-```
+```objective-C
 
 #import <YotiButtonSDK/YotiButtonSDK.h>                                                                                                                                                                                                                 YotiButton* button = [[YotiButton alloc] initWithFrame:CGRectMake(0, 0, 230, 48)]
 button.useCaseID = "YOUR_USE_CASE_ID"
