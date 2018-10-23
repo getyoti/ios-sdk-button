@@ -114,28 +114,28 @@ like below.
 import YotiButtonSDK
 
 do {
-             guard let url = URL(string: "YOUR_CALLBACK_URL") else {
-                 return false
-             }
-             //Here we need to add as many scenarios as we want. each scenario is linked to a button in the Main.storyboard.
-             let firstScenario = try ScenarioBuilder().setUseCaseID("YOUR_FIRST_USE_CASE_ID")
-                 .setClientSDKID("YOUR_FIRST_CLIENT_SDK_ID")
-                 .setScenarioID("YOUR_FIRST_SCENARIO_ID_1")
-                 .setCallbackBackendURL(url)
-                 .create()
-             YotiSDK.add(scenario: firstScenario)
+        guard let url = URL(string: "YOUR_CALLBACK_URL") else {
+            return false
+        }
+        //Here we need to add as many scenarios as we want. each scenario is linked to a button in the Main.storyboard.
+        let firstScenario = try ScenarioBuilder().setUseCaseID("YOUR_FIRST_USE_CASE_ID")
+        .setClientSDKID("YOUR_FIRST_CLIENT_SDK_ID")
+        .setScenarioID("YOUR_FIRST_SCENARIO_ID_1")
+        .setCallbackBackendURL(url)
+        .create()
+        YotiSDK.add(scenario: firstScenario)
+                 
+        let secondScenario = try ScenarioBuilder().setUseCaseID("YOUR_SECOND_USE_CASE_ID")
+        .setClientSDKID("YOUR_SECOND_CLIENT_SDK_ID")
+        .setScenarioID("YOUR_SECOND_SCENARIO_ID_2")
+        .setCallbackBackendURL(url)
+        .create()
+        YotiSDK.add(scenario: secondScenario)
              
-             let secondScenario = try ScenarioBuilder().setUseCaseID("YOUR_SECOND_USE_CASE_ID")
-                 .setClientSDKID("YOUR_SECOND_CLIENT_SDK_ID")
-                 .setScenarioID("YOUR_SECOND_SCENARIO_ID_2")
-                 .setCallbackBackendURL(url)
-                 .create()
-             YotiSDK.add(scenario: secondScenario)
-             
-         } catch {
-             // handle error code here
-         }
+	} catch {
+		// handle error code here
     }
+}
 ```
 Objective-C:
 Please add the scenarion method in your appDelegate.m in
@@ -279,43 +279,6 @@ Objective-C:
 
 ```objective-c
 - (void)backendDidFinishWith:(NSData * _Nullable)data error:(NSError * _Nullable)error
-
-```
-Here is one possible implementation for when the callback from the backend happens:
-
-Swift:
-
-```swift
-
-extension ViewController: BackendDelegate {
-    func backendDidFinish(with data: Data?, error: Error?) {
-        guard let data = data else {
-        return
-        }
-        do {
-            let decodedJson = try JSONDecoder().decode(ProfileDictionary.self, from: data)
-            responseObject = decodedJson
-            moveToProfile()
-        }
-        catch let error {
-            print (error)
-        }
-    }
-}
-```
-
-
-Objective-C:
-
-```objective-c
-
-- (void)backendDidFinishWith:(NSData * _Nullable)data error:(NSError * _Nullable)error {
-	if (data != nil) {
-		NSError *jsonError = nil;
-		responseObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-		[self moveToProfile];
-    }
-}
 
 ```
 
