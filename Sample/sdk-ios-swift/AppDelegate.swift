@@ -38,8 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .create()
             YotiSDK.add(scenario: rememberMePhotoIDScenario)
             
-        } catch {
-            // 
+        } catch let error {
+            print("\(error.localizedDescription)")
         }
         return true
     }

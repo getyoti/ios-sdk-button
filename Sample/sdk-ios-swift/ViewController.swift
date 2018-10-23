@@ -23,8 +23,8 @@ class ViewController: UIViewController {
         do {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             try YotiSDK.startScenario(for: useCaseID, with: self)
-        } catch {
-            // FIXME
+        } catch let error {
+            print("\(error.localizedDescription)")
         }
     }
     

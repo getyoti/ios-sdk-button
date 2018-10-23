@@ -9,10 +9,10 @@
 import Foundation
 
 struct ProfileDictionary: Decodable {
-    let attributes: [Profile]
+    let attributes: [Attribute]
 }
 
-struct Profile {
+struct Attribute {
     let name: String
     let value: String
     
@@ -22,7 +22,7 @@ struct Profile {
     }
 }
 
-extension Profile: Decodable {
+extension Attribute: Decodable {
     enum ProfileKeys: String, CodingKey {
         case name
         case value
