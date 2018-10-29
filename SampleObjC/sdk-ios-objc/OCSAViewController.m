@@ -6,16 +6,16 @@
 //  Copyright © 2018 Yoti Limited. All rights reserved.
 //
 
-#import "OCViewController.h"
+#import "OCSAViewController.h"
 #import <YotiButtonSDK/YotiButtonSDK.h>
-#import "OCProfileViewController.h"
+#import "OCSAProfileViewController.h"
 
-@interface OCViewController () <YTBSDKDelegate, YTBBackendDelegate>
+@interface OCSAViewController () <YTBSDKDelegate, YTBBackendDelegate>
 @property (weak, nonatomic) IBOutlet YotiButton *rememberMe;
 @property (weak, nonatomic) IBOutlet YotiButton *selfieAuth;
 @end
 
-@implementation OCViewController {
+@implementation OCSAViewController {
     NSArray *responseObject;
 }
 - (IBAction)buttonDidTouchUpInside:(YotiButton*)sender {
@@ -47,7 +47,7 @@
     
     if ([[segue identifier] isEqualToString:@"moveToProfile"])
     {
-        OCProfileViewController* profileViewController = [segue destinationViewController];
+        OCSAProfileViewController* profileViewController = [segue destinationViewController];
         
         for (id element in responseObject) {
             NSString* key = [element objectForKey:@"name"];

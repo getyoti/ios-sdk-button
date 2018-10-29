@@ -6,9 +6,9 @@
 //  Copyright © 2018 Yoti Limited. All rights reserved.
 //
 
-#import "OCProfileViewController.h"
+#import "OCSAProfileViewController.h"
 
-@interface OCProfileViewController ()
+@interface OCSAProfileViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *givenNameView;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation OCProfileViewController
+@implementation OCSAProfileViewController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
