@@ -146,13 +146,11 @@ Please add the scenarion method in your appDelegate.m in
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 ```
 
+like below
+
 ```objective-c
 
 #import <YotiButtonSDK/YotiButtonSDK.h>
-
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
 
     NSError* error = nil;
     YTBScenarioBuilder *firstScenarioBuilder = [[YTBScenarioBuilder alloc] init];
@@ -173,7 +171,6 @@ Please add the scenarion method in your appDelegate.m in
     [YotiSDK addScenario: secondScenario];
 
     return YES;
-}
 ```
 then in your viewController class inside your button IBAction function call the function  : 
 
