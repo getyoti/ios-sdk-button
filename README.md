@@ -113,7 +113,7 @@ like below.
 
 import YotiButtonSDK
 
-do {
+    do {
         guard let url = URL(string: "YOUR_CALLBACK_URL") else {
             return false
         }
@@ -131,9 +131,8 @@ do {
         .setCallbackBackendURL(url)
         .create()
         YotiSDK.add(scenario: secondScenario)
-             
-	} catch {
-		// handle error code here
+    } catch {
+        // handle error code here
     }
 }
 ```
