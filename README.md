@@ -249,7 +249,7 @@ then implement the delegate functions of the protocol it complies to like this:
 ```objective-c
 
 - (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID with:(NSError * _Nonnull)error {
-  // handle failure here
+    // handle failure here
 }
 
 - (void)yotiSDKDidSucceedFor:(NSString * _Nonnull)useCaseID baseURL:(NSURL * _Nullable)baseURL token:(NSString * _Nullable)token url:(NSURL * _Nullable)url {
