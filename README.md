@@ -96,7 +96,7 @@ The front end of the integration is now complete.
 
 You will now need your SDK ID, Scenario ID and call back URL ready from your application dashboard. 
 
-The SDK will need to be initialised, please add like below, your scenarios. Note that the SDK can support now multiple scenarios:
+For each of the scenarios you want to handle, you would need to add them to the YotiSDK like below:
 
 Swift:
 Please add the scenario method in your appDelegate.swift in :
@@ -178,22 +178,22 @@ then in your viewController class inside your button IBAction function call the 
 
 public static func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) throws 
 ```
-by passing it the useCaseID and self as delegate like this:
+Next, go to the view controller containing the YotiButton outlet. On its IBAction, call the sdk method signature in swift or signature in objective-c.
 
 Swift:
 
 ```swift
 
 @IBAction func yotiButtonDidTouchUpInside(_ sender: YotiButton) {
-	guard let useCaseID = sender.useCaseID else{
-		return
-	}
-	do {
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		try YotiSDK.startScenario(for: useCaseID, with: self)
+    guard let useCaseID = sender.useCaseID else {
+        return
+    }
+    do {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        try YotiSDK.startScenario(for: useCaseID, with: self)
     } catch {
-		// Handle error here
-	}
+        // Handle error here
+    }
 }
 ```
 
