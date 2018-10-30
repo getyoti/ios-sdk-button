@@ -201,16 +201,16 @@ Objective-C:
 ```objective-c
 
 - (IBAction)buttonDidTouchUpInside:(YotiButton*)sender {
-	NSString* useCaseID = sender.useCaseID;
-	NSError* error = nil;
+    NSString* useCaseID = sender.useCaseID;
+    NSError* error = nil;
 
-	if (![useCaseID isEqual:@""]) {
-		[YotiSDK startScenarioForUseCaseID:useCaseID withDelegate:self error:&error];
+    if (![useCaseID isEqual:@""]) {
+        [YotiSDK startScenarioForUseCaseID:useCaseID withDelegate:self error:&error];
 
-		if (error != nil) {
-			NSLog(@"error : %@", error.description);
-		}
-	}
+        if (error != nil) {
+            NSLog(@"error : %@", error.description);
+        }
+    }
 }
 ```
 
@@ -220,20 +220,19 @@ In Swift your ViewController class should comply to YotiSDKDelegate and to Backe
 
 extension ViewController: YotiSDKDelegate {
     func yotiSDKDidFail(for useCaseID: String, with error: Error) {
-    	//handle here the error opening of Yoti app
+    	// handle here the error related to the failing of retrieving a usecaseID and a token
     }
 
     func yotiSDKDidSucceed(for useCaseID: String, baseURL: URL?, token: String?, url: URL?) {
-        //Handle here the success of the opening of Yoti app for example by requesting a profile from the backend like below
-        //Get the specific scenario by calling  
+        // Handle here the success of the opening of Yoti app for example by requesting a profile from the backend like below
+        // Get the specific scenario by calling  
         let scenario = YotiSDK.scenario(for: useCaseID)
-        //request the backend to get the profile linked to a specific scenario by passing the token returned and self as delegate for a call back
+        // request the backend to get the profile linked to a specific scenario by passing the token returned and self as delegate for a call back
         YotiSDK.callbackBackend(scenario: scenario!, token: token!, with: self)
     }
 
     func yotiSDKDidOpenYotiApp() {
-    //Handle specific behaviour if needed when the Yoti App didOpen
-
+        // Handle specific behaviour if needed when the Yoti App didOpen
     }
 }
 ```
@@ -259,7 +258,7 @@ then implement the delegate functions of the protocol it complies to like this:
 }
 
 - (void)yotiSDKDidOpenYotiApp {
-	//behaviour when SDK opens yoti app (if needed)
+	// behaviour when SDK opens yoti app (if needed)
 }
 ```
 when the callback returns from the backend we get the data linked to the profile or the error in
