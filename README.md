@@ -244,6 +244,8 @@ In Objective-C, your viewController should comply to  YTBSDKDelegate and YTBBack
 @interface ViewController () <YTBSDKDelegate, YTBBackendDelegate>
 ```
 
+Note that complying to YTBBackendDelegate is optional. BackendDelegate is its name in swift, YTBBackendDelegate namespace is for Objective-C
+
 then implement the delegate functions of the protocol it complies to like this:
 
 ```objective-c
