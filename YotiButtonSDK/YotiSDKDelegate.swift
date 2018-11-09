@@ -22,5 +22,3 @@ public protocol AppLaunchDelegate {
 
 @objc(YTBSDKDelegate)
 public protocol SDKDelegate: ScenarioRetrievalDelegate, AppLaunchDelegate {}
-
-

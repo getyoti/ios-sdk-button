@@ -10,14 +10,13 @@ import UIKit
 import YotiButtonSDK
 
 class ViewController: UIViewController {
-    
-    var responseObject:  ProfileDictionary?
+
+    var responseObject: ProfileDictionary?
     @IBOutlet weak var rememberMeButton: YotiButton!
     @IBOutlet weak var selfieAuthButton: YotiButton!
-    
-    
+
     @IBAction func yotiButtonDidTouchUpInside(_ sender: YotiButton) {
-        guard let useCaseID = sender.useCaseID else{
+        guard let useCaseID = sender.useCaseID else {
              return
         }
         do {
@@ -27,7 +26,7 @@ class ViewController: UIViewController {
             print("\(error.localizedDescription)")
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         rememberMeButton.setTitle("RememberMe Scenario", for: .normal)
@@ -37,7 +36,7 @@ class ViewController: UIViewController {
     func moveToProfile() {
         performSegue(withIdentifier: "moveToProfile", sender: self)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {
             return
@@ -51,7 +50,7 @@ class ViewController: UIViewController {
                 break
             }
             responseObject.attributes.forEach {
-                
+
                 if $0.name == "selfie" {
                     let selfieValue = $0.value
                     if let imageData = Data(base64Encoded: selfieValue) {
@@ -118,10 +117,8 @@ extension ViewController: BackendDelegate {
             let decodedJson = try JSONDecoder().decode(ProfileDictionary.self, from: data)
             responseObject = decodedJson
             moveToProfile()
-        }
-        catch let error {
+        } catch let error {
             print (error)
         }
     }
 }
-

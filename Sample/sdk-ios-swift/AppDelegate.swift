@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         do {
@@ -30,14 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 .setCallbackBackendURL(url)
                 .create()
             YotiSDK.add(scenario: selfieAuthScenario)
-            
+
             let rememberMePhotoIDScenario = try ScenarioBuilder().setUseCaseID("yoti_btn_2")
                 .setClientSDKID("ac00adbd-d298-42c7-b596-07638762c618")
                 .setScenarioID("82cfc365-38f1-4657-a646-1d04791c8780")
                 .setCallbackBackendURL(url)
                 .create()
             YotiSDK.add(scenario: rememberMePhotoIDScenario)
-            
+
         } catch let error {
             print("\(error.localizedDescription)")
         }
@@ -67,10 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func application(_ app: UIApplication,
                      open url: URL,
-                     options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return YotiSDK.application(app, open:url, options:options)
+                     options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
+        return YotiSDK.application(app, open: url, options: options)
     }
 
 }
-
-

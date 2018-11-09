@@ -23,12 +23,12 @@ public class Scenario: NSObject {
             !clientSDKID.isEmpty &&
             !scenarioID.isEmpty
     }
-    
+
     init(useCaseID: String,
          clientSDKID: String,
          scenarioID: String,
          callbackBackendURL: URL?) {
-        
+
         self.useCaseID = useCaseID
         self.clientSDKID = clientSDKID
         self.scenarioID = scenarioID
