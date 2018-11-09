@@ -243,10 +243,10 @@ In Objective-C, your viewController should comply to  YTBSDKDelegate and YTBBack
 
 @interface ViewController () <YTBSDKDelegate, YTBBackendDelegate>
 ```
+BackendDelegate is its name in swift, YTBBackendDelegate namespace is for Objective-C
+Note that complying to YTBBackendDelegate is optional because you might or not rely on a backend to implement your scenarios. Our current implementation relies on a backend to implement our scenarios.
 
-Note that complying to YTBBackendDelegate is optional. BackendDelegate is its name in swift, YTBBackendDelegate namespace is for Objective-C
-
-then implement the delegate functions of the protocol it complies to like this:
+We implemented the delegate functions of the protocols our ViewController complies to like this:
 
 ```objective-c
 
