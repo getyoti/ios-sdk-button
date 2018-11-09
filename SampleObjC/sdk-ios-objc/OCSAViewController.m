@@ -16,7 +16,7 @@
 @end
 
 @implementation OCSAViewController {
-    NSArray *responseObject;
+    NSArray<NSDictionary*> *attributes;
 }
 - (IBAction)buttonDidTouchUpInside:(YotiButton*)sender {
     
@@ -49,34 +49,34 @@
     {
         OCSAProfileViewController* profileViewController = [segue destinationViewController];
         
-        for (id element in responseObject) {
-            NSString* key = [element objectForKey:@"name"];
-            id value = [element objectForKey:@"value"];
+        for (NSDictionary* attribute in attributes) {
+            NSString* key = [attribute objectForKey:@"name"];
+            NSString* value = [attribute objectForKey:@"value"];
             if ([key isEqual:@"selfie"]) {
-                NSData* imageData = [[NSData alloc] initWithBase64EncodedString:(NSString*)value options:0];
+                NSData* imageData = [[NSData alloc] initWithBase64EncodedString:value options:0];
                 UIImage* photo = [[UIImage alloc] initWithData:imageData];
                 profileViewController.selfie = photo;
             }
             if ([key isEqual:@"phone_number"]) {
-                profileViewController.phone = (NSString*)value;
+                profileViewController.phone = value;
             }
             if ([key isEqual:@"given_names"]) {
-                profileViewController.givenNames = (NSString*)value;
+                profileViewController.givenNames = value;
             }
             if ([key isEqual:@"postal_address"]) {
-                profileViewController.postalAddress = (NSString*)value;
+                profileViewController.postalAddress = value;
             }
             if ([key isEqual:@"gender"]) {
-                profileViewController.gender = (NSString*)value;
+                profileViewController.gender = value;
             }
             if ([key isEqual:@"email_address"]) {
-                profileViewController.emailAddress = (NSString*)value;
+                profileViewController.emailAddress = value;
             }
             if ([key isEqual:@"family_name"]) {
-                profileViewController.familyName = (NSString*)value;
+                profileViewController.familyName = value;
             }
             if ([key isEqual:@"date_of_birth"]) {
-                profileViewController.dateOfBirth = (NSString*)value;
+                profileViewController.dateOfBirth = value;
             }
         }
     }
@@ -95,7 +95,7 @@
 - (void)backendDidFinishWith:(NSData * _Nullable)data error:(NSError * _Nullable)error {
     if (data != nil) {
         NSError *jsonError = nil;
-        responseObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        attributes = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
         
         [self moveToProfile];
     }
