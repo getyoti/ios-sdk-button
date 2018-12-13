@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C17BD58217500AD009843F7 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BD57217500AD009843F7 /* Profile.swift */; };
 		F9AFBE892028669B00F635EC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AFBE882028669B00F635EC /* ProfileViewController.swift */; };
 		F9F5CF09201F5BF30088DCDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5CF08201F5BF30088DCDC /* AppDelegate.swift */; };
 		F9F5CF0B201F5BF30088DCDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5CF0A201F5BF30088DCDC /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2C17BD57217500AD009843F7 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		F9AFBE882028669B00F635EC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F9F5CF05201F5BF30088DCDC /* sdk-ios-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sdk-ios-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F5CF08201F5BF30088DCDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				F9F5CF0F201F5BF30088DCDC /* Assets.xcassets */,
 				F9F5CF11201F5BF30088DCDC /* LaunchScreen.storyboard */,
 				F9F5CF14201F5BF30088DCDC /* Info.plist */,
+				2C17BD57217500AD009843F7 /* Profile.swift */,
 			);
 			path = "sdk-ios-swift";
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9AFBE892028669B00F635EC /* ProfileViewController.swift in Sources */,
+				2C17BD58217500AD009843F7 /* Profile.swift in Sources */,
 				F9F5CF0B201F5BF30088DCDC /* ViewController.swift in Sources */,
 				F9F5CF09201F5BF30088DCDC /* AppDelegate.swift in Sources */,
 			);

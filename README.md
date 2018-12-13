@@ -74,14 +74,17 @@ Add a **User defined runtime attributes**: `useCaseID` of type String with a val
 
 The SDK provide a custom Button you can use in your layout, do not forget to set the `useCaseID`, it's the link with the `Scenario`. See definitions lower. Or you can also define the button in the code like this:
 
+Swift:
 ```swift
+
 import YotiButtonSDK
 
 let button = YotiButton(frame: CGRect(x: 0, y: 0, width: 230, height: 48))
 button.useCaseID = "YOUR_USE_CASE_ID"
 ```
+Objective-C:
+```objective-C
 
-```Objective-C
 #import <YotiButtonSDK/YotiButtonSDK.h>                                                                                                                                                                                                                 YotiButton* button = [[YotiButton alloc] initWithFrame:CGRectMake(0, 0, 230, 48)]
 button.useCaseID = "YOUR_USE_CASE_ID"
 ```
@@ -91,112 +94,219 @@ The front end of the integration is now complete.
 
 ### Create a Scenario
 
-You will now need to your SDK ID, Scenario ID and call back URL ready from your application dashboard. 
+You will now need your SDK ID, Scenario ID and call back URL ready from your application dashboard. 
 
-The SDK will need to be initialised, please and add the below scenario method:
+For each of the scenarios you want to handle, you would need to add them to the YotiSDK like below:
 
 Swift:
+Please add the scenario method in your appDelegate.swift in :
+
+```Objective-C
+
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+``` 
+
+like below.
+
+
 ```swift
+
 import YotiButtonSDK
 
-do {
-            let scenario = try ScenarioBuilder()
-                .setUseCaseID("YOUR_USE_CASE_ID")
-                .setClientSDKID("YOUR_CLIENT_SDK_ID")
-                .setScenarioID("YOUR_SCENARIO_ID")
-                .setCallbackBackendURL(URL(string:"YOUR_CALLBACK_URL")!)
-                .setClientCompletion({ (baseURL, token, url, error) in
-                    // If you decide to call the callback url via
-                    // your own Service and handle the result, set  isProcessed at true.
-                    // Otherwise, set isProcessed at false and the Yoti SDK
-                    // will make the call.
-                    return false
-                })
-                .setBackendCompletion({ (data, error) in
-                    // when the callback has been invoked from the SDK, you can get the
-                    // data/error here. This needs to be defined even if it is empty.
-                })
-                .create()
-            
-        } catch {
-            // error management here
-            print(error)
+    do {
+        guard let url = URL(string: "YOUR_CALLBACK_URL") else {
+            return false
         }
-```
-
-Objective-C
-```objective-c
-#import <YotiButtonSDK/YotiButtonSDK.h>
-
-NSError* error = nil;
-
-YTBScenarioBuilder *myBuilder = [[YTBScenarioBuilder alloc] init];
-
-myBuilder.useCaseID = @"YOUR_USE_CASE_ID";
-myBuilder.clientSDKID = @"YOUR_CLIENT_SDK_ID";
-myBuilder.scenarioID = @"YOUR_SCENARIO_ID";
-myBuilder.callbackBackendURL = [NSURL URLWithString:@"YOUR_CALLBACK_URL"]
-myBuilder.clientCompletion = (^BOOL(NSURL * _Nullable baseURL,
-                                    NSString * _Nullable token,
-                                    NSURL * _Nullable url,
-                                    NSError * _Nullable error) {
-  // If you decide to call the callback url via
-  // your own Service and handle the result, set isProcessed at true.
-  // Otherwise, set isProcessed at false and the Yoti SDK
-  // will make the call.
-  return isProcessed
-});
-myBuilder.backendCompletion = ((NSData * data, NSError * _Nullable error) {
-    // when the callback has been invoked from the SDK, you can get the
-    // data/error here. This needs to be defined even if it is empty.
-});
-
-YTBScenario *myScenario = [myBuilder create:&error];
-```
-And then you can add the scenario to Yoti SDK with
-
-Swift:
-```swift
-YotiSDK.add(scenario: scenario)
+        //Here we need to add as many scenarios as we want. each scenario is linked to a button in the Main.storyboard.
+        let firstScenario = try ScenarioBuilder().setUseCaseID("YOUR_FIRST_USE_CASE_ID")
+        .setClientSDKID("YOUR_FIRST_CLIENT_SDK_ID")
+        .setScenarioID("YOUR_FIRST_SCENARIO_ID_1")
+        .setCallbackBackendURL(url)
+        .create()
+        YotiSDK.add(scenario: firstScenario)
+                 
+        let secondScenario = try ScenarioBuilder().setUseCaseID("YOUR_SECOND_USE_CASE_ID")
+        .setClientSDKID("YOUR_SECOND_CLIENT_SDK_ID")
+        .setScenarioID("YOUR_SECOND_SCENARIO_ID_2")
+        .setCallbackBackendURL(url)
+        .create()
+        YotiSDK.add(scenario: secondScenario)
+    } catch {
+        // handle error code here
+    }
+}
 ```
 Objective-C:
+Please add the scenarion method in your appDelegate.m in
+
 ```objective-c
-[YotiSDK addScenario:scenario];
+
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+```
+
+like below
+
+```objective-c
+
+#import <YotiButtonSDK/YotiButtonSDK.h>
+
+    NSError* error = nil;
+    YTBScenarioBuilder *firstScenarioBuilder = [[YTBScenarioBuilder alloc] init];
+    firstScenarioBuilder.useCaseID = @"YOUR_FIRST_USE_CASE_ID";
+    firstScenarioBuilder.clientSDKID = @"YOUR_FIRST_CLIENT_SDK_ID";
+    firstScenarioBuilder.scenarioID = @"YOUR_FIRST_SCENARIO_ID";
+    firstScenarioBuilder.callbackBackendURL = [NSURL URLWithString:@"YOUR_CALLBACK_URL"];
+    YTBScenario *firstScenario = [firstScenarioBuilder create:&error];
+    [YotiSDK addScenario: firstScenario];
+
+    error = nil;
+    YTBScenarioBuilder *secondScenarioBuilder = [[YTBScenarioBuilder alloc] init];
+    secondScenarioBuilder.useCaseID = @"YOUR_SECOND_USE_CASE_ID";
+    secondScenarioBuilder.clientSDKID = @"YOUR_SECOND_CLIENT_SDK_ID";
+    secondScenarioBuilder.scenarioID = @"YOUR_SECOND_SCENARIO_ID";
+    secondScenarioBuilder.callbackBackendURL = [NSURL URLWithString:@"YOUR_CALLBACK_URL"];
+    YTBScenario *secondScenario = [secondScenarioBuilder create:&error];
+    [YotiSDK addScenario: secondScenario];
+
+    return YES;
+```
+then in your viewController class inside your button IBAction function call the function  : 
+
+```swift
+
+public static func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) throws 
+```
+Next, go to the view controller containing the YotiButton outlet. On its IBAction, call the sdk method signature in swift or signature in objective-c.
+
+Swift:
+
+```swift
+
+@IBAction func yotiButtonDidTouchUpInside(_ sender: YotiButton) {
+    guard let useCaseID = sender.useCaseID else {
+        return
+    }
+    do {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        try YotiSDK.startScenario(for: useCaseID, with: self)
+    } catch {
+        // Handle error here
+    }
+}
+```
+
+Objective-C: 
+
+```objective-c
+
+- (IBAction)buttonDidTouchUpInside:(YotiButton*)sender {
+    NSString* useCaseID = sender.useCaseID;
+    NSError* error = nil;
+
+    if (![useCaseID isEqual:@""]) {
+        [YotiSDK startScenarioForUseCaseID:useCaseID withDelegate:self error:&error];
+
+        if (error != nil) {
+            NSLog(@"error : %@", error.description);
+        }
+    }
+}
+```
+
+In Swift your ViewController class should comply to YotiSDKDelegate and to BackendDelegate in order to get the callbacks.
+
+```swift
+
+extension ViewController: YotiSDKDelegate {
+    func yotiSDKDidFail(for useCaseID: String, with error: Error) {
+    	// handle here the error related to the failing of retrieving a usecaseID and a token
+    }
+
+    func yotiSDKDidSucceed(for useCaseID: String, baseURL: URL?, token: String?, url: URL?) {
+        // Handle here the success of the opening of Yoti app for example by requesting a profile from the backend like below
+        // Get the specific scenario by calling  
+        let scenario = YotiSDK.scenario(for: useCaseID)
+        // request the backend to get the profile linked to a specific scenario by passing the token returned and self as delegate for a call back
+        YotiSDK.callbackBackend(scenario: scenario!, token: token!, with: self)
+    }
+
+    func yotiSDKDidOpenYotiApp() {
+        // Handle specific behaviour if needed when the Yoti App didOpen
+    }
+}
+```
+
+In Objective-C, your viewController should comply to  YTBSDKDelegate and YTBBackendDelegate like this:
+
+```objective-c
+
+@interface ViewController () <YTBSDKDelegate, YTBBackendDelegate>
+```
+BackendDelegate is its name in swift, YTBBackendDelegate namespace is for Objective-C
+Note that complying to YTBBackendDelegate is optional because you might or not rely on a backend to implement your scenarios. Our current implementation relies on a backend to implement our scenarios.
+
+We implemented the delegate functions of the protocols our ViewController complies to like this:
+
+```objective-c
+
+- (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID with:(NSError * _Nonnull)error {
+    // handle failure here
+}
+
+- (void)yotiSDKDidSucceedFor:(NSString * _Nonnull)useCaseID baseURL:(NSURL * _Nullable)baseURL token:(NSString * _Nullable)token url:(NSURL * _Nullable)url {
+	YTBScenario *scenario = [YotiSDK scenarioforUseCaseID:useCaseID];
+	[YotiSDK callbackBackendScenario:scenario token:token withDelegate:self];
+}
+
+- (void)yotiSDKDidOpenYotiApp {
+	// behaviour when SDK opens yoti app (if needed)
+}
+```
+when the callback returns from the backend we get the data linked to the profile or the error in
+
+Swift:
+
+```swift
+
+func backendDidFinish(with data: Data?, error: Error?)
+```
+
+Objective-C:
+
+```objective-c
+- (void)backendDidFinishWith:(NSData * _Nullable)data error:(NSError * _Nullable)error
+
 ```
 
 ### Notifications
 In case you need to change your interface before we are doing a network request, you can subscribe to the `willMakeNetworkRequest` and `didFinishNetworkRequest` notification from the `YotiSDK` class
 
 Swift: 
-```
+```swift
 NotificationCenter.default.addObserver(forName: YotiSDK.willMakeNetworkRequest, object: nil, queue: nil) { (notification) in
     // Disable interface
 }
 ```
 
-```
+```swift
 NotificationCenter.default.addObserver(forName: YotiSDK.didFinishNetworkRequest, object: nil, queue: nil) { (notification) in
     // Re-enable interface
 }
 ```
 
 Objective-C: 
-```
+```objective-c
 [NSNotificationCenter.defaultCenter addObserverForName:YotiSDK.willMakeNetworkRequest object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
     // Disable interface
 }];
 ```
 
-```
+```objective-c
 [NSNotificationCenter.defaultCenter addObserverForName:YotiSDK.didFinishNetworkRequest object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
     // Re-enable interface
 }];
 ```
-
-Note:
-`willMakeNetorkRequest` will be called twice if you set `isProcessed` to `false` in the `clientCompletion` block. The first time will be before openning the Yoti application and the second time will be after the Yoti Application re-open your application.
-
-`didFinishNetworkRequest` will only be called once whether the `isProcessed` is set to `true` or `false`. 
 
 ### Inter-app communication
 
@@ -229,6 +339,7 @@ Yoti SDK would perform an app switch to Yoti app and back to your app to complet
 
 Swift:
 ```swift
+
 import YotiButtonSDK
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -240,7 +351,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 Objective-C:
-```Objective-C
+```objective-c
+
 #import <YotiButtonSDK/YotiButtonSDK.h>
 
 @implementation AppDelegate

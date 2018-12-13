@@ -10,128 +10,115 @@ import UIKit
 import YotiButtonSDK
 
 class ViewController: UIViewController {
-    
-    var responseObject: [String: Any]?
-    
+
+    var responseObject: ProfileDictionary?
+    @IBOutlet weak var rememberMeButton: YotiButton!
+    @IBOutlet weak var selfieAuthButton: YotiButton!
+
+    @IBAction func yotiButtonDidTouchUpInside(_ sender: YotiButton) {
+        guard let useCaseID = sender.useCaseID else {
+             return
+        }
+        do {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            try YotiSDK.startScenario(for: useCaseID, with: self)
+        } catch let error {
+            print("\(error.localizedDescription)")
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        do {
-            
-            guard let url = URL(string: "https://android-test-yoti.herokuapp.com/profile-json") else {
-                return
-            }
-            let scenario = try ScenarioBuilder().setUseCaseID("yoti_btn_1")
-                .setClientSDKID("d28feaf4-d62d-40e3-88ae-d619e9a5b906")
-                .setScenarioID("60b8e997-4a5c-40b2-86e8-29c4521b7015")
-                .setClientCompletion({ (baseURL, token, url, error) in
-                    print("token: \(String(describing: token))")
-                    print("url: \(String(describing: url))")
-                    // If you decide to call the callback url via
-                    // your own Service and handle the result, set  isProcessed at true.
-                    // Otherwise, set isProcessed at false and the Yoti SDK
-                    // will make the call.
-                    return false
-                })
-                .setCallbackBackendURL(url)
-                .setBackendCompletion({ (data, error) in
-                    print("=== Backend Completion ===")
-                    print("object: \(String(describing: data))")
-                    print("error: \(String(describing: error))")
-                    
-                    self.responseObject = try? JSONSerialization.jsonObject(with: data!, options: []) as! [String : Any]
-
-                    
-                    if error == nil {
-                        DispatchQueue.main.async {
-                            self.moveToProfile()
-                        }
-                    }
-                    
-                    
-                })
-                .create()
-            YotiSDK.add(scenario: scenario)
-        }
-        catch {
-            
-        }
-
-        // Do any additional setup after loading the view, typically from a nib.
+        rememberMeButton.setTitle("RememberMe Scenario", for: .normal)
+        selfieAuthButton.setTitle("SelfieAuth Scenario", for: .normal)
     }
-    
+
     func moveToProfile() {
         performSegue(withIdentifier: "moveToProfile", sender: self)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let identifier = segue.identifier else {
             return
         }
-        
         switch identifier {
         case "moveToProfile":
             guard let viewController = segue.destination as? ProfileViewController else {
                 break
             }
-            
-            guard let responseObject = responseObject,
-                let userInfo = responseObject["userInfo"] as? [String: Any] else {
-                    break
+            guard let responseObject = responseObject, !responseObject.attributes.isEmpty else {
+                break
             }
-            
-            if let selfie = userInfo["selfie"] as? String
-            {
-                let base64Image = selfie.replacingOccurrences(of: "data:image/jpeg;base64,", with: "")
-                if let imageData = Data(base64Encoded: base64Image) {
+            responseObject.attributes.forEach {
 
-                    let photo = UIImage(data: imageData)
-                    viewController.selfie = photo
+                if $0.name == "selfie" {
+                    let selfieValue = $0.value
+                    if let imageData = Data(base64Encoded: selfieValue) {
+                        let photo = UIImage(data: imageData)
+                        viewController.selfie = photo
+                    }
+                }
+                if $0.name == "phone_number" {
+                    let phoneNumberValue = $0.value
+                    viewController.phone = phoneNumberValue
+                }
+                if $0.name == "given_names"{
+                    let givenNamesValue = $0.value
+                    viewController.givenNames = givenNamesValue
+                }
+                if $0.name == "postal_address"{
+                    let postalAddressValue = $0.value
+                    viewController.postalAddress = postalAddressValue
+                }
+                if $0.name == "gender"{
+                    let genderValue = $0.value
+                    viewController.gender = genderValue
+                }
+                if $0.name == "email_address"{
+                    let emailAddressValue = $0.value
+                    viewController.emailAddress = emailAddressValue
+                }
+                if $0.name == "family_name"{
+                    let familyNameValue = $0.value
+                    viewController.familyName = familyNameValue
+                }
+                if $0.name == "date_of_birth"{
+                    let dateOfBirthValue = $0.value
+                    viewController.dateOfBirth = dateOfBirthValue
                 }
             }
-            
-            if let phone = userInfo["phoneNumber"] as? String {
-                viewController.phone = phone
-            }
-
-            if let givenNames = userInfo["givenNames"] as? String {
-                viewController.givenNames = givenNames
-            }
-            
-            if let postalAddress = userInfo["postalAddress"] as? String {
-                viewController.postalAddress = postalAddress
-            }
-            
-            if let gender = userInfo["gender"] as? String {
-                viewController.gender = gender
-            }
-
-            if let emailAddress = userInfo["emailAddress"] as? String {
-                viewController.emailAddress = emailAddress
-            }
-            
-            if let familyName = userInfo["familyName"] as? String {
-                viewController.familyName = familyName
-            }
-
-            if let dateOfBirth = userInfo["dateOfBirth"] as? String {
-                viewController.dateOfBirth = dateOfBirth
-            }
-
-            
-
         default:
             break
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
 }
 
+extension ViewController: SDKDelegate {
+    func yotiSDKDidFail(for useCaseID: String, with error: Error) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+
+    func yotiSDKDidSucceed(for useCaseID: String, baseURL: URL?, token: String?, url: URL?) {
+        let scenario = YotiSDK.scenario(for: useCaseID)
+        YotiSDK.callbackBackend(scenario: scenario!, token: token!, with: self)
+    }
+
+    func yotiSDKDidOpenYotiApp() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+}
+
+extension ViewController: BackendDelegate {
+    func backendDidFinish(with data: Data?, error: Error?) {
+        guard let data = data else {
+            return
+        }
+        do {
+            let decodedJson = try JSONDecoder().decode(ProfileDictionary.self, from: data)
+            responseObject = decodedJson
+            moveToProfile()
+        } catch let error {
+            print (error)
+        }
+    }
+}
