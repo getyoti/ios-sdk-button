@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "yoti-sdk"
-  s.version      = "2.1"
+  s.version      = "1.1"
   s.summary      = "A button SDK that uses Yoti app to complete the share"
 
   # This description is used to generate tags and improve search results.

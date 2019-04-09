@@ -58,14 +58,14 @@ public class YotiButton: UIButton {
         styleSubviews()
     }
 
-    public override func setTitle(_ title: String?, for state: UIControl.State) {
+    public override func setTitle(_ title: String?, for state: UIControlState) {
         messageLabel.text = title
         messageLabel.sizeToFit()
         messageWidthConstraint?.constant = messageLabel.frame.width
 
     }
 
-    public override func setTitleColor(_ color: UIColor?, for state: UIControl.State) {
+    public override func setTitleColor(_ color: UIColor?, for state: UIControlState) {
         if let color = color {
             messageLabel.textColor = color
         }

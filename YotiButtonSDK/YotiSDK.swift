@@ -71,13 +71,13 @@ public class YotiSDK: NSObject {
 
     // MARK: - UIApplication Delegate
 
-    @objc public static func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+    @objc public static func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
         return shared.application(app, open: url, options: options)
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
 
-        guard let bundleID = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+        guard let bundleID = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                   bundleID == EnvironmentConfiguation.YotiApp.bundleID
         else {
             return false
