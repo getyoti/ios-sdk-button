@@ -6,6 +6,7 @@ This repo contains the tools and step by step instructions so that your users ca
 ## Requirements
 - You will need to have the Yoti app on your phone
 - You will need to ensure the minimum version of the deployment target is 9.0 or above.
+- You will need Xcode 10.2 or above
 
 ## Installing the SDK
 
@@ -38,7 +39,7 @@ $ brew install carthage
 To integrate Yoti into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "getyoti/ios-sdk-button" ~> 1.0
+github "getyoti/ios-sdk-button" ~> 2.0
 ```
 
 This will allow you to type `carthage update ios-sdk-button` in your Terminal to fetch and build the latest version of the framework.
@@ -48,13 +49,35 @@ Drag the built `YotiButtonSDK.framework` into your Xcode project without copying
 
 Each time you want to fetch the dependency, you can type  `carthage bootstrap`.
 
+### CocoaPods
+
+[CocoaPods](https://cocoapods.org) is a dependency manager for Swift and Objective-C Cocoa projects.
+
+Using the default Ruby install can require you to use sudo when installing gems. Further installation instructions are in [the guides](https://guides.cocoapods.org/using/getting-started.html#getting-started).
+
+```
+$ sudo gem install cocoapods
+```
+
+To integrate Yoti into your Xcode project using Cocoapods, specify it in your `Podfile`:
+
+```
+pod 'yoti-sdk' ~> 2.0
+```
+
+Tip: CocoaPods provides a `pod init` command to create a Podfile with smart defaults. You should use it.
+
+Now you can install the dependencies in your project:
+
+```
+$ pod install
+```
+
+Make sure to always open the Xcode workspace instead of the project file when building your project.
+
 ### Drag & Drop (not recommended)
 
 You can also add the Yoti SDK by adding the project via a submodule and dragging the Yoti's project file into yours.
-
-### Pod
-
-We don't currently support Pod but it's coming soon.
 
 ## Configuration
 Before we start the configuration you have to add Yoti SDK as a build phase:
