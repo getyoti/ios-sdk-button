@@ -77,10 +77,12 @@ public class YotiSDK: NSObject {
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
 
-        guard let bundleID = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-                  bundleID == EnvironmentConfiguation.YotiApp.bundleID
-        else {
-            return false
+        if #available(iOS 13, *) { } else {
+            guard let bundleID = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                      bundleID == EnvironmentConfiguation.YotiApp.bundleID
+            else {
+                return false
+            }
         }
 
         var callbackComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
