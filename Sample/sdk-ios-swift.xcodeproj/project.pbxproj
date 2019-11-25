@@ -17,7 +17,6 @@
 		F9F5CF1E201F5BF40088DCDC /* sdk_ios_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5CF1D201F5BF40088DCDC /* sdk_ios_swiftTests.swift */; };
 		F9F5CF29201F5BF40088DCDC /* sdk_ios_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5CF28201F5BF40088DCDC /* sdk_ios_swiftUITests.swift */; };
 		F9F5CF37201F5DA00088DCDC /* YotiButtonSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F5CF36201F5DA00088DCDC /* YotiButtonSDK.framework */; };
-		F9F5CF39201F60690088DCDC /* YotiButtonSDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F9F5CF36201F5DA00088DCDC /* YotiButtonSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,19 +35,6 @@
 			remoteInfo = "sdk-ios-swift";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		F9F5CF38201F60480088DCDC /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F9F5CF39201F60690088DCDC /* YotiButtonSDK.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2C17BD57217500AD009843F7 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -159,7 +145,7 @@
 				F9F5CF01201F5BF30088DCDC /* Sources */,
 				F9F5CF02201F5BF30088DCDC /* Frameworks */,
 				F9F5CF03201F5BF30088DCDC /* Resources */,
-				F9F5CF38201F60480088DCDC /* CopyFiles */,
+				1438B9D0238C430700B41F5B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -278,6 +264,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1438B9D0238C430700B41F5B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/YotiButtonSDK.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/YotiButtonSDK.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F9F5CF01201F5BF30088DCDC /* Sources */ = {
