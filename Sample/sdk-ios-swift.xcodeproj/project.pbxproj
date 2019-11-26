@@ -145,7 +145,7 @@
 				F9F5CF01201F5BF30088DCDC /* Sources */,
 				F9F5CF02201F5BF30088DCDC /* Frameworks */,
 				F9F5CF03201F5BF30088DCDC /* Resources */,
-				1438B9D0238C430700B41F5B /* ShellScript */,
+				1438B9D0238C430700B41F5B /* Carthage Copy Framework Files */,
 			);
 			buildRules = (
 			);
@@ -266,7 +266,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1438B9D0238C430700B41F5B /* ShellScript */ = {
+		1438B9D0238C430700B41F5B /* Carthage Copy Framework Files */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -276,6 +276,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/YotiButtonSDK.framework",
 			);
+			name = "Carthage Copy Framework Files";
 			outputFileListPaths = (
 			);
 			outputPaths = (
