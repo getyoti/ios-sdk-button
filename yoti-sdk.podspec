@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "yoti-sdk"
-  s.version      = "2.2"
+  s.version      = "2.3"
   s.summary      = "A button SDK that uses Yoti app to complete the share"
 
   # This description is used to generate tags and improve search results.
@@ -134,5 +134,12 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
+
+  # ――― Script Phases ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  s.script_phase = {
+    :name => 'Ensure generated compatibility header is visible',
+    :script => 'COMPATIBILITY_HEADER_PATH="${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h" && if [ -s "${COMPATIBILITY_HEADER_PATH}" ]; then ditto "${COMPATIBILITY_HEADER_PATH}" "${BUILT_PRODUCTS_DIR}" && ditto "${COMPATIBILITY_HEADER_PATH}" "${PODS_ROOT}/Headers/Public/${PRODUCT_MODULE_NAME}/${PRODUCT_MODULE_NAME}-Swift.h" && ditto "${COMPATIBILITY_HEADER_PATH}" "${PODS_ROOT}/Target Support Files/${PRODUCT_MODULE_NAME}/${PRODUCT_MODULE_NAME}-Swift.h"; fi;',
+    :execution_position => :after_compile
+  }
 
 end
