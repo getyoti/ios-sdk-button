@@ -39,7 +39,7 @@ $ brew install carthage
 To integrate Yoti into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "getyoti/ios-sdk-button" ~> 2.0
+github "getyoti/ios-sdk-button" ~> 2.3
 ```
 
 This will allow you to type `carthage update ios-sdk-button` in your Terminal to fetch and build the latest version of the framework.
@@ -62,7 +62,7 @@ $ sudo gem install cocoapods
 To integrate Yoti into your Xcode project using Cocoapods, specify it in your `Podfile`:
 
 ```
-pod 'yoti-sdk' ~> 2.0
+pod 'yoti-sdk' ~> 2.3
 ```
 
 Tip: CocoaPods provides a `pod init` command to create a Podfile with smart defaults. You should use it.
