@@ -91,8 +91,8 @@ public class YotiSDK: NSObject {
             return false
         }
 
-        let useCaseIDValue = queryItems.first() { $0.name == "useCaseID" }?.value
-        let tokenValue = queryItems.first() { $0.name == "token" }?.value
+        let useCaseIDValue = queryItems.first { $0.name == "useCaseID" }?.value
+        let tokenValue = queryItems.first { $0.name == "token" }?.value
 
         guard let useCaseID = useCaseIDValue, let token = tokenValue,
               let scenario = scenario(for: useCaseID)

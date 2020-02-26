@@ -30,7 +30,7 @@
 		B43B0E5A1F22075A00CD5E4E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B43B0E591F22075A00CD5E4E /* UIKit.framework */; };
 		B43B0E5C1F2208A500CD5E4E /* YotiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E5B1F2208A500CD5E4E /* YotiButton.swift */; };
 		B43B0E771F220D2D00CD5E4E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E761F220D2D00CD5E4E /* UIColorExtension.swift */; };
-		B4D1ED061F221F27002C01DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D1ED051F221F27002C01DE /* Images.xcassets */; };
+		B4D1ED061F221F27002C01DE /* YotiButtonSDKAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D1ED051F221F27002C01DE /* YotiButtonSDKAssets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +70,7 @@
 		B43B0E591F22075A00CD5E4E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B43B0E5B1F2208A500CD5E4E /* YotiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YotiButton.swift; sourceTree = "<group>"; };
 		B43B0E761F220D2D00CD5E4E /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		B4D1ED051F221F27002C01DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B4D1ED051F221F27002C01DE /* YotiButtonSDKAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = YotiButtonSDKAssets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				B42E94351F22B26500159300 /* Roboto-Medium.ttf */,
-				B4D1ED051F221F27002C01DE /* Images.xcassets */,
+				B4D1ED051F221F27002C01DE /* YotiButtonSDKAssets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B42E94361F22B26500159300 /* Roboto-Medium.ttf in Resources */,
-				B4D1ED061F221F27002C01DE /* Images.xcassets in Resources */,
+				B4D1ED061F221F27002C01DE /* YotiButtonSDKAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

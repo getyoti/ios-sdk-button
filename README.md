@@ -22,8 +22,8 @@ There are three sections to complete installing the mobile SDK:
     For more information please follow our developer page instructions located [here](https://www.yoti.com/developers/ ).
 3.  Installing the Mobile SDK. This can be done using one of the three methods below:
     - Carthage - desired preference
+    - Pod
     - Drag and drop 
-    - Pod - coming soon.
 
 ### Carthage (recommended)
 
@@ -62,7 +62,7 @@ $ sudo gem install cocoapods
 To integrate Yoti into your Xcode project using Cocoapods, specify it in your `Podfile`:
 
 ```
-pod 'yoti-sdk' ~> 2.3
+pod 'yoti-sdk', '~> 2.3'
 ```
 
 Tip: CocoaPods provides a `pod init` command to create a Podfile with smart defaults. You should use it.
@@ -97,7 +97,7 @@ Add a **User defined runtime attributes**: `useCaseID` of type String with a val
 
 The SDK provide a custom Button you can use in your layout, do not forget to set the `useCaseID`, it's the link with the `Scenario`. See definitions lower. Or you can also define the button in the code like this:
 
-Swift:
+#### Swift:
 ```swift
 
 import YotiButtonSDK
@@ -105,10 +105,21 @@ import YotiButtonSDK
 let button = YotiButton(frame: CGRect(x: 0, y: 0, width: 230, height: 48))
 button.useCaseID = "YOUR_USE_CASE_ID"
 ```
-Objective-C:
+In case you used Cocoapods please use the following:
+
+```swift
+
+import yoti_sdk
+
+let button = YotiButton(frame: CGRect(x: 0, y: 0, width: 230, height: 48))
+button.useCaseID = "YOUR_USE_CASE_ID"
+```
+
+#### Objective-C:
 ```objective-C
 
-#import <YotiButtonSDK/YotiButtonSDK.h>                                                                                                                                                                                                                 YotiButton* button = [[YotiButton alloc] initWithFrame:CGRectMake(0, 0, 230, 48)]
+#import <YotiButtonSDK/YotiButtonSDK.h>                                                                                                           
+YotiButton* button = [[YotiButton alloc] initWithFrame:CGRectMake(0, 0, 230, 48)]
 button.useCaseID = "YOUR_USE_CASE_ID"
 ```
 
@@ -122,7 +133,7 @@ You will now need your SDK ID, Scenario ID and call back URL ready from your app
 For each of the scenarios you want to handle, you would need to add them to the YotiSDK like below:
 
 Swift:
-Please add the scenario method in your appDelegate.swift in :
+Please add the scenario method in your AppDelegate.swift in :
 
 ```Objective-C
 
