@@ -1,3 +1,7 @@
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Cocoapods compatible](https://img.shields.io/badge/Cocoapods-compatible-4BC51D.svg?style=flat)](http://cocoapods.org/pods/yoti-sdk) 
+[![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg?style=flat)](https://developer.apple.com/documentation)
+
 # ios-sdk-button
 
 The mobile SDK purpose is to provide 3rd party applications the ability to request attributes from a Yoti user while leveraging the Yoti mobile App. It is an interaction between a 3rd Party app and Yoti app facilitated by a very lightweight SDKs.
@@ -39,7 +43,7 @@ $ brew install carthage
 To integrate Yoti into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "getyoti/ios-sdk-button" ~> 2.3
+github "getyoti/ios-sdk-button" ~> 2.4.0
 ```
 
 This will allow you to type `carthage update ios-sdk-button` in your Terminal to fetch and build the latest version of the framework.
@@ -62,7 +66,7 @@ $ sudo gem install cocoapods
 To integrate Yoti into your Xcode project using Cocoapods, specify it in your `Podfile`:
 
 ```
-pod 'yoti-sdk', '~> 2.3'
+pod 'yoti-sdk', '~> 2.4.0'
 ```
 
 Tip: CocoaPods provides a `pod init` command to create a Podfile with smart defaults. You should use it.
