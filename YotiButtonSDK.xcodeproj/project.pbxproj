@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DBBCC0A2407CDB300F9226E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBBCC092407CDB300F9226E /* Resource.swift */; };
 		1C68C5E421242BE400228878 /* YotiSDKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */; };
 		1C68C5E62124364100228878 /* YotiBackendDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C68C5E52124364100228878 /* YotiBackendDelegate.swift */; };
 		B42E94331F22AD6400159300 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E94321F22AD6400159300 /* UIFontExtension.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DBBCC092407CDB300F9226E /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiSDKDelegate.swift; sourceTree = "<group>"; };
 		1C68C5E52124364100228878 /* YotiBackendDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiBackendDelegate.swift; sourceTree = "<group>"; };
 		B42E94321F22AD6400159300 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				B42E94351F22B26500159300 /* Roboto-Medium.ttf */,
 				B4D1ED051F221F27002C01DE /* YotiButtonSDKAssets.xcassets */,
+				0DBBCC092407CDB300F9226E /* Resource.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				1C68C5E421242BE400228878 /* YotiSDKDelegate.swift in Sources */,
 				B43B0E531F22070000CD5E4E /* NetworkError.swift in Sources */,
 				B43B0E451F2206B600CD5E4E /* RetrieveScenarioService.swift in Sources */,
+				0DBBCC0A2407CDB300F9226E /* Resource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

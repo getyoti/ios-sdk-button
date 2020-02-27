@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "yoti-sdk"
-  s.version      = "2.3"
+  s.version      = "2.4"
   s.summary      = "A button SDK that uses Yoti app to complete the share"
 
   # This description is used to generate tags and improve search results.
@@ -106,7 +106,9 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "YotiButtonSDK/Resources/*.xcassets"
+  # s.resources = "Resources/*.png"
+  s.resource_bundles = {
+    'YotiButtonResourcesSDK' => ['YotiButtonSDK/Resources/*.{xcassets}'] }
   
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"

@@ -26,7 +26,7 @@ There are three sections to complete installing the mobile SDK:
     For more information please follow our developer page instructions located [here](https://www.yoti.com/developers/ ).
 3.  Installing the Mobile SDK. This can be done using one of the three methods below:
     - Carthage - desired preference
-    - Pod
+    - Cocoapods
     - Drag and drop 
 
 ### Carthage (recommended)
