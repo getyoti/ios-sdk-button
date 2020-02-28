@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 class ProfileViewController: UIViewController {
-    
+
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var phoneLabel: UILabel!
-    
+
     @IBOutlet weak var givenNameView: UILabel!
     @IBOutlet weak var postalAddressView: UILabel!
     @IBOutlet weak var genderView: UILabel!
@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController {
     var emailAddress: String?
     var familyName: String?
     var dateOfBirth: String?
-    
+
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         photoView?.image = selfie
@@ -41,7 +41,5 @@ class ProfileViewController: UIViewController {
         familyNameView.text = familyName
         dateOfBirthView.text = dateOfBirth
     }
-    
-    
-    
+
 }

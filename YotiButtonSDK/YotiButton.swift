@@ -17,7 +17,7 @@ public class YotiButton: UIButton {
 
     lazy var brandLogoView: UIImageView = {
         let bundle = Bundle(for: type(of: self))
-        let image = UIImage(named: "BrandLogo", in: bundle, compatibleWith: nil)
+        let image = Resource.loadImage(name: "BrandLogo")
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         imageView.sizeToFit()
