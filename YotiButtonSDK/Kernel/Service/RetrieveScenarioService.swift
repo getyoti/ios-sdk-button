@@ -1,9 +1,5 @@
 //
-//  RetrieveScenarioService.swift
-//  YotiButtonSDK
-//
-//  Created by Casper Lee on 21/07/2017.
-//  Copyright © 2017 Yoti Limited. All rights reserved.
+// Copyright © 2017 Yoti Limited. All rights reserved.
 //
 
 import Foundation
@@ -15,11 +11,11 @@ class RetrieveScenarioService: HTTPService, URLSessionDelegate {
     func retrieve(scenario: Scenario, completion: @escaping (_ qrCodeURL: URL?, _ error: Error?) -> Void) {
 
         var urlComponents = URLComponents()
-        urlComponents.scheme = EnvironmentConfiguation.URL.scheme
-        urlComponents.host = EnvironmentConfiguation.URL.host
-        urlComponents.port = EnvironmentConfiguation.URL.port
-        urlComponents.path = String(format: EnvironmentConfiguation.URL.endpoint, scenario.clientSDKID, scenario.scenarioID)
-        urlComponents.queryItems = [URLQueryItem(name: EnvironmentConfiguation.Transport.key, value: EnvironmentConfiguation.Transport.uri)]
+        urlComponents.scheme = EnvironmentConfiguration.URL.scheme
+        urlComponents.host = EnvironmentConfiguration.URL.host
+        urlComponents.port = EnvironmentConfiguration.URL.port
+        urlComponents.path = String(format: EnvironmentConfiguration.URL.endpoint, scenario.clientSDKID, scenario.scenarioID)
+        urlComponents.queryItems = [URLQueryItem(name: EnvironmentConfiguration.Transport.key, value: EnvironmentConfiguration.Transport.uri)]
 
         guard let url = urlComponents.url else {
             completion(nil, GenericError.malformedValue("url"))

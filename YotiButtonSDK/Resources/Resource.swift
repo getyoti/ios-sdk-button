@@ -1,9 +1,5 @@
 //
-//  Resource.swift
-//  YotiButtonSDK
-//
-//  Created by Marios Kotsiandris on 27/02/2020.
-//  Copyright © 2020 Yoti Limited. All rights reserved.
+// Copyright © 2020 Yoti Limited. All rights reserved.
 //
 
 import Foundation

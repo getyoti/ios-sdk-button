@@ -1,16 +1,14 @@
 //
-//  CallbackBackendService.swift
-//  YotiButtonSDK
-//
-//  Created by Casper Lee on 22/07/2017.
-//  Copyright © 2017 Yoti Limited. All rights reserved.
+// Copyright © 2017 Yoti Limited. All rights reserved.
 //
 
 import Foundation
 
-class CallbackBackendService: HTTPService, URLSessionDelegate {
+final class CallbackBackendService: HTTPService, URLSessionDelegate {
 
-    lazy var urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
+    lazy var urlSession = URLSession(configuration: .default,
+                                     delegate: self,
+                                     delegateQueue: nil)
 
     func callbackBackend(scenario: Scenario, token: String, completion: @escaping (Data?, Error?) -> Void) {
 

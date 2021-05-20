@@ -1,9 +1,5 @@
 //
-//  YotiButton.swift
-//  YotiButtonSDK
-//
-//  Created by Casper Lee on 21/07/2017.
-//  Copyright © 2017 Yoti Limited. All rights reserved.
+// Copyright © 2017 Yoti Limited. All rights reserved.
 //
 
 import Foundation

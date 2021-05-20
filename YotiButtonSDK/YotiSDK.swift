@@ -1,9 +1,5 @@
 //
-//  YotiSDK.swift
-//  YotiButtonSDK
-//
-//  Created by Casper Lee on 20/07/2017.
-//  Copyright © 2017 Yoti Limited. All rights reserved.
+// Copyright © 2017 Yoti Limited. All rights reserved.
 //
 
 import Foundation
@@ -79,7 +75,7 @@ public class YotiSDK: NSObject {
 
         if #available(iOS 13, *) { } else {
             guard let bundleID = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-                      bundleID == EnvironmentConfiguation.YotiApp.bundleID
+                      bundleID == EnvironmentConfiguration.YotiApp.bundleID
             else {
                 return false
             }
