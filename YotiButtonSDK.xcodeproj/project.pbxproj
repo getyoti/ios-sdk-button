@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D07DC112657D14100786C68 /* ShareRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D07DC102657D14100786C68 /* ShareRequestError.swift */; };
+		0D7AA269265688B30070E683 /* SetUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7AA268265688B30070E683 /* SetUpError.swift */; };
 		0DBBCC0A2407CDB300F9226E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBBCC092407CDB300F9226E /* Resource.swift */; };
 		1C68C5E421242BE400228878 /* YotiSDKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */; };
 		1C68C5E62124364100228878 /* YotiBackendDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C68C5E52124364100228878 /* YotiBackendDelegate.swift */; };
@@ -18,14 +20,10 @@
 		B43B0E211F22063800CD5E4E /* YotiButtonSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = B43B0E131F22063800CD5E4E /* YotiButtonSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B43B0E421F2206B600CD5E4E /* EnvironmentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E2E1F2206B600CD5E4E /* EnvironmentConfiguration.swift */; };
 		B43B0E431F2206B600CD5E4E /* KernelSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E2F1F2206B600CD5E4E /* KernelSDK.swift */; };
-		B43B0E441F2206B600CD5E4E /* HTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E311F2206B600CD5E4E /* HTTPService.swift */; };
 		B43B0E451F2206B600CD5E4E /* RetrieveScenarioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E321F2206B600CD5E4E /* RetrieveScenarioService.swift */; };
 		B43B0E491F2206B600CD5E4E /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E3A1F2206B600CD5E4E /* Scenario.swift */; };
 		B43B0E4A1F2206B600CD5E4E /* ScenarioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E3B1F2206B600CD5E4E /* ScenarioBuilder.swift */; };
-		B43B0E4B1F2206B600CD5E4E /* ScenarioError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E3C1F2206B600CD5E4E /* ScenarioError.swift */; };
 		B43B0E4F1F2206B600CD5E4E /* YotiSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E411F2206B600CD5E4E /* YotiSDK.swift */; };
-		B43B0E521F22070000CD5E4E /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E501F22070000CD5E4E /* GenericError.swift */; };
-		B43B0E531F22070000CD5E4E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E511F22070000CD5E4E /* NetworkError.swift */; };
 		B43B0E561F22075100CD5E4E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B43B0E551F22075100CD5E4E /* Security.framework */; };
 		B43B0E581F22075500CD5E4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B43B0E571F22075500CD5E4E /* Foundation.framework */; };
 		B43B0E5A1F22075A00CD5E4E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B43B0E591F22075A00CD5E4E /* UIKit.framework */; };
@@ -45,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D07DC102657D14100786C68 /* ShareRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareRequestError.swift; sourceTree = "<group>"; };
+		0D7AA268265688B30070E683 /* SetUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpError.swift; sourceTree = "<group>"; };
 		0DBBCC092407CDB300F9226E /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiSDKDelegate.swift; sourceTree = "<group>"; };
 		1C68C5E52124364100228878 /* YotiBackendDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiBackendDelegate.swift; sourceTree = "<group>"; };
@@ -59,14 +59,10 @@
 		B43B0E201F22063800CD5E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B43B0E2E1F2206B600CD5E4E /* EnvironmentConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentConfiguration.swift; sourceTree = "<group>"; };
 		B43B0E2F1F2206B600CD5E4E /* KernelSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KernelSDK.swift; sourceTree = "<group>"; };
-		B43B0E311F2206B600CD5E4E /* HTTPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPService.swift; sourceTree = "<group>"; };
 		B43B0E321F2206B600CD5E4E /* RetrieveScenarioService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrieveScenarioService.swift; sourceTree = "<group>"; };
 		B43B0E3A1F2206B600CD5E4E /* Scenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		B43B0E3B1F2206B600CD5E4E /* ScenarioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioBuilder.swift; sourceTree = "<group>"; };
-		B43B0E3C1F2206B600CD5E4E /* ScenarioError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioError.swift; sourceTree = "<group>"; };
 		B43B0E411F2206B600CD5E4E /* YotiSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YotiSDK.swift; sourceTree = "<group>"; };
-		B43B0E501F22070000CD5E4E /* GenericError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
-		B43B0E511F22070000CD5E4E /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		B43B0E551F22075100CD5E4E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B43B0E571F22075500CD5E4E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B43B0E591F22075A00CD5E4E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -97,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D7AA26A26568DA10070E683 /* RetrieveScenario */ = {
+			isa = PBXGroup;
+			children = (
+				B43B0E321F2206B600CD5E4E /* RetrieveScenarioService.swift */,
+			);
+			path = RetrieveScenario;
+			sourceTree = "<group>";
+		};
 		B43B0E061F22063800CD5E4E = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +123,7 @@
 		B43B0E121F22063800CD5E4E /* YotiButtonSDK */ = {
 			isa = PBXGroup;
 			children = (
+				B43B0E361F2206B600CD5E4E /* Error */,
 				B43B0E2D1F2206B600CD5E4E /* Kernel */,
 				B43B0E331F2206B600CD5E4E /* Model */,
 				B43B0E3D1F2206B600CD5E4E /* Resources */,
@@ -145,6 +150,7 @@
 		B43B0E2D1F2206B600CD5E4E /* Kernel */ = {
 			isa = PBXGroup;
 			children = (
+				0D7AA26A26568DA10070E683 /* RetrieveScenario */,
 				B43B0E2E1F2206B600CD5E4E /* EnvironmentConfiguration.swift */,
 				B43B0E2F1F2206B600CD5E4E /* KernelSDK.swift */,
 				B43B0E301F2206B600CD5E4E /* Service */,
@@ -155,8 +161,6 @@
 		B43B0E301F2206B600CD5E4E /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				B43B0E311F2206B600CD5E4E /* HTTPService.swift */,
-				B43B0E321F2206B600CD5E4E /* RetrieveScenarioService.swift */,
 				B42E94831F2368D000159300 /* CallbackBackendService.swift */,
 			);
 			path = Service;
@@ -165,7 +169,6 @@
 		B43B0E331F2206B600CD5E4E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B43B0E361F2206B600CD5E4E /* Error */,
 				B43B0E391F2206B600CD5E4E /* Scenario */,
 			);
 			path = Model;
@@ -174,8 +177,8 @@
 		B43B0E361F2206B600CD5E4E /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				B43B0E501F22070000CD5E4E /* GenericError.swift */,
-				B43B0E511F22070000CD5E4E /* NetworkError.swift */,
+				0D7AA268265688B30070E683 /* SetUpError.swift */,
+				0D07DC102657D14100786C68 /* ShareRequestError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -185,7 +188,6 @@
 			children = (
 				B43B0E3A1F2206B600CD5E4E /* Scenario.swift */,
 				B43B0E3B1F2206B600CD5E4E /* ScenarioBuilder.swift */,
-				B43B0E3C1F2206B600CD5E4E /* ScenarioError.swift */,
 			);
 			path = Scenario;
 			sourceTree = "<group>";
@@ -335,21 +337,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D7AA269265688B30070E683 /* SetUpError.swift in Sources */,
 				B43B0E5C1F2208A500CD5E4E /* YotiButton.swift in Sources */,
+				0D07DC112657D14100786C68 /* ShareRequestError.swift in Sources */,
 				B42E94841F2368D000159300 /* CallbackBackendService.swift in Sources */,
-				B43B0E441F2206B600CD5E4E /* HTTPService.swift in Sources */,
 				B43B0E4A1F2206B600CD5E4E /* ScenarioBuilder.swift in Sources */,
 				B43B0E421F2206B600CD5E4E /* EnvironmentConfiguration.swift in Sources */,
 				B43B0E491F2206B600CD5E4E /* Scenario.swift in Sources */,
 				B43B0E771F220D2D00CD5E4E /* UIColorExtension.swift in Sources */,
 				B43B0E431F2206B600CD5E4E /* KernelSDK.swift in Sources */,
 				B43B0E4F1F2206B600CD5E4E /* YotiSDK.swift in Sources */,
-				B43B0E4B1F2206B600CD5E4E /* ScenarioError.swift in Sources */,
 				B42E94331F22AD6400159300 /* UIFontExtension.swift in Sources */,
-				B43B0E521F22070000CD5E4E /* GenericError.swift in Sources */,
 				1C68C5E62124364100228878 /* YotiBackendDelegate.swift in Sources */,
 				1C68C5E421242BE400228878 /* YotiSDKDelegate.swift in Sources */,
-				B43B0E531F22070000CD5E4E /* NetworkError.swift in Sources */,
 				B43B0E451F2206B600CD5E4E /* RetrieveScenarioService.swift in Sources */,
 				0DBBCC0A2407CDB300F9226E /* Resource.swift in Sources */,
 			);

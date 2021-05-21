@@ -37,15 +37,15 @@ public class ScenarioBuilder: NSObject {
     public func create() throws -> Scenario {
 
         guard let useCaseID = useCaseID else {
-            throw GenericError.nilValue("useCaseID")
+            throw ShareRequestError.generic("Invalid UseCaseID")
         }
 
         guard let clientSDKID = clientSDKID else {
-            throw GenericError.nilValue("clientSDKID")
+            throw ShareRequestError.generic("Invalid ClientSDKID")
         }
 
         guard let scenarioID = scenarioID else {
-            throw GenericError.nilValue("scenarioID")
+            throw ShareRequestError.generic("Invalid ScenarioID")
         }
 
         let scenario = Scenario(useCaseID: useCaseID,
@@ -54,7 +54,7 @@ public class ScenarioBuilder: NSObject {
                                 callbackBackendURL: callbackBackendURL)
 
         guard scenario.isValid else {
-            throw ScenarioError.invalidScenario
+            throw ShareRequestError.generic("Invalid value on UseCaseID, ClientSDKID, ScenarioID")
         }
 
         return scenario

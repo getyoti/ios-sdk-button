@@ -4,16 +4,18 @@
 
 import Foundation
 
-final class CallbackBackendService: HTTPService, URLSessionDelegate {
+final class CallbackBackendService: NSObject, URLSessionDelegate {
 
-    lazy var urlSession = URLSession(configuration: .default,
+    private lazy var urlSession = URLSession(configuration: .default,
                                      delegate: self,
                                      delegateQueue: nil)
 
-    func callbackBackend(scenario: Scenario, token: String, completion: @escaping (Data?, Error?) -> Void) {
+    func callbackBackend(scenario: Scenario,
+                         token: String,
+                         completion: @escaping (Data?, Error?) -> Void) {
 
         guard let callbackBackendURL = scenario.callbackBackendURL else {
-            completion(nil, GenericError.nilValue("callbackBackendURL"))
+            completion(nil, ShareRequestError.generic("Invalid callbackBackendURL. Value received \(String(describing: scenario.callbackBackendURL?.absoluteString))"))
             return
         }
 
@@ -21,7 +23,7 @@ final class CallbackBackendService: HTTPService, URLSessionDelegate {
         urlComponments?.queryItems = [URLQueryItem(name: "token", value: token)]
 
         guard let url = urlComponments?.url else {
-            completion(nil, GenericError.malformedValue("url"))
+            completion(nil, ShareRequestError.generic("Invalid callbackBackendURL. Value received \(String(describing: scenario.callbackBackendURL?.absoluteString))"))
             return
         }
 
@@ -34,7 +36,7 @@ final class CallbackBackendService: HTTPService, URLSessionDelegate {
             let statusCode = httpResponse.statusCode
 
             guard 200...299 ~= statusCode else {
-                completion(nil, NetworkError.httpError(httpResponse.statusCode))
+                completion(nil, ShareRequestError.httpRequestError(statusCode))
                 return
             }
 

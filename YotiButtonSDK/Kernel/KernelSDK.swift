@@ -1,9 +1,5 @@
 //
-//  KernelSDK.swift
-//  YotiButtonSDK
-//
-//  Created by Casper Lee on 20/07/2017.
-//  Copyright © 2017 Yoti Limited. All rights reserved.
+// Copyright © 2017 Yoti Limited. All rights reserved.
 //
 
 import Foundation
@@ -24,9 +20,7 @@ class KernelSDK: NSObject {
 
         NotificationCenter.default.post(name: YotiSDK.willMakeNetworkRequest, object: nil)
 
-        guard let scenario = YotiSDK.shared.scenario(for: useCaseID) else {
-            return
-        }
+        guard let scenario = YotiSDK.shared.scenario(for: useCaseID) else { return }
 
         retrieve(scenario: scenario) { (qrCodeURL, error) in
 
@@ -43,7 +37,7 @@ class KernelSDK: NSObject {
                   let sourceSchemes = urlType["CFBundleURLSchemes"] as? [String],
                   !sourceSchemes.isEmpty
             else {
-                delegate.yotiSDKDidFail(for: useCaseID, with: GenericError.nilValue("CFBundleURLSchemes"))
+                delegate.yotiSDKDidFail(for: useCaseID, with: SetupError.invalidBundleURLSchemes)
                 print("CFBundleURLSchemes is undefined this app.")
                 return
             }
@@ -55,21 +49,21 @@ class KernelSDK: NSObject {
                                          URLQueryItem(name: "sourceScheme", value: sourceSchemes.first)]
 
             guard let url = urlComponents?.url else {
-                delegate.yotiSDKDidFail(for: useCaseID, with: GenericError.malformedValue("qrCodeURL"))
+                delegate.yotiSDKDidFail(for: useCaseID, with: ShareRequestError.startScenarioError("Malformed value received"))
                 return
             }
 
             guard UIApplication.shared.canOpenURL(url) else {
-                delegate.yotiSDKDidFail(for: useCaseID, with: GenericError.unknown(url.absoluteString))
+                delegate.yotiSDKDidFail(for: useCaseID, with: SetupError.invalidApplicationQueriesSchemes(url))
 
                 print("Cannot Open Yoti, please check LSApplicationQueriesSchemes or install Yoti")
                 return
             }
 
             if #available(iOS 10, *) {
-                UIApplication.shared.open(url, options: [:]) { (isSuccess) in
-                    guard isSuccess else {
-                        delegate.yotiSDKDidFail(for: useCaseID, with: GenericError.unknown("Cannot Open Yoti"))
+                UIApplication.shared.open(url, options: [:]) { isSuccessful in
+                    guard isSuccessful else {
+                        delegate.yotiSDKDidFail(for: useCaseID, with: ShareRequestError.startScenarioError("Yoti application could not be opened"))
                         return
                     }
                     delegate.yotiSDKDidOpenYotiApp()
