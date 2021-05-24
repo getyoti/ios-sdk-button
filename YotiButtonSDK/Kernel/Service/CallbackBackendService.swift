@@ -15,7 +15,7 @@ final class CallbackBackendService: NSObject, URLSessionDelegate {
                          completion: @escaping (Data?, Error?) -> Void) {
 
         guard let callbackBackendURL = scenario.callbackBackendURL else {
-            completion(nil, ShareRequestError.generic("Invalid callbackBackendURL. Value received \(String(describing: scenario.callbackBackendURL?.absoluteString))"))
+            completion(nil, CallbackBackendError.invalidCallbackBackendURL("Value received \(String(describing: scenario.callbackBackendURL?.absoluteString))"))
             return
         }
 
@@ -23,7 +23,7 @@ final class CallbackBackendService: NSObject, URLSessionDelegate {
         urlComponments?.queryItems = [URLQueryItem(name: "token", value: token)]
 
         guard let url = urlComponments?.url else {
-            completion(nil, ShareRequestError.generic("Invalid callbackBackendURL. Value received \(String(describing: scenario.callbackBackendURL?.absoluteString))"))
+            completion(nil, CallbackBackendError.invalidCallbackBackendURL("Value received \(String(describing: scenario.callbackBackendURL?.absoluteString))"))
             return
         }
 
