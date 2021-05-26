@@ -4,13 +4,14 @@
 
 # ios-sdk-button
 
-The mobile SDK purpose is to provide 3rd party applications the ability to request attributes from a Yoti user while leveraging the Yoti mobile App. It is an interaction between a 3rd Party app and Yoti app facilitated by a very lightweight SDKs.
+The mobile SDK purpose is to provide 3rd party applications the ability to request attributes from a Yoti user while leveraging the Yoti mobile App. It is an interaction between a 3rd Party app and Yoti app, facilitated by a very lightweight SDKs.
 This repo contains the tools and step by step instructions so that your users can share their identity details with your application in a secure and trusted way. 
 
 ## Requirements
-- You will need to have the Yoti app on your phone
-- You will need to ensure the minimum version of the deployment target is 9.0 or above.
-- You will need Xcode 10.2 or above
+- Yoti application should be installed on the device
+- The minimum version of the deployment target should be 12.0 or above.
+- You will need Xcode 12.0 or above
+----
 
 ## Installing the SDK
 
@@ -33,17 +34,10 @@ There are three sections to complete installing the mobile SDK:
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
 
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```
-$ brew update
-$ brew install carthage
-```
-
 To integrate Yoti into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "getyoti/ios-sdk-button" ~> 2.4.0
+github "getyoti/ios-sdk-button" ~> 3.0.0
 ```
 
 This will allow you to type `carthage update ios-sdk-button` in your Terminal to fetch and build the latest version of the framework.
@@ -55,18 +49,13 @@ Each time you want to fetch the dependency, you can type  `carthage bootstrap`.
 
 ### CocoaPods
 
-[CocoaPods](https://cocoapods.org) is a dependency manager for Swift and Objective-C Cocoa projects.
+[CocoaPods](https://cocoapods.org) is a dependency manager for Swift and Objective-C Cocoa projects. Installation instructions are in [the guides](https://guides.cocoapods.org/using/getting-started.html#getting-started).
 
-Using the default Ruby install can require you to use sudo when installing gems. Further installation instructions are in [the guides](https://guides.cocoapods.org/using/getting-started.html#getting-started).
-
-```
-$ sudo gem install cocoapods
-```
 
 To integrate Yoti into your Xcode project using Cocoapods, specify it in your `Podfile`:
 
 ```
-pod 'yoti-sdk', '~> 2.4.0'
+pod 'yoti-sdk', '~> 3.0.0'
 ```
 
 Tip: CocoaPods provides a `pod init` command to create a Podfile with smart defaults. You should use it.
@@ -81,9 +70,10 @@ Make sure to always open the Xcode workspace instead of the project file when bu
 
 ### Drag & Drop (not recommended)
 
-You can also add the Yoti SDK by adding the project via a submodule and dragging the Yoti's project file into yours.
+You can also add Yoti SDK by adding the project via a submodule and dragging the Yoti's project file into yours.
 
 ## Configuration
+
 Before we start the configuration you have to add Yoti SDK as a build phase:
 Go to your project, and go to the `Build Phases` tab, press the `+` on the top left, select `New Copy Files Phase` and change the `Destination` to `Frameworks`.
 
