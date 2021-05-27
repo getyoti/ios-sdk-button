@@ -53,6 +53,8 @@ playground.xcworkspace
 # Carthage/Checkouts
 
 Carthage/Build
+Sample/Carthage/
+SampleObjC/Frameworks/
 
 # fastlane
 #

@@ -1,9 +1,5 @@
 //
-//  ViewController.swift
-//  sdk-ios-swift
-//
-//  Created by Luke Ashley-Fenn on 29/01/2018.
-//  Copyright © 2018 Luke Ashley-Fenn. All rights reserved.
+//  Copyright © 2018 Yoti Ltd. All rights reserved.
 //
 
 import UIKit
@@ -38,17 +34,11 @@ class ViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else {
-            return
-        }
+        guard let identifier = segue.identifier else { return }
         switch identifier {
         case "moveToProfile":
-            guard let viewController = segue.destination as? ProfileViewController else {
-                break
-            }
-            guard let responseObject = responseObject, !responseObject.attributes.isEmpty else {
-                break
-            }
+            guard let viewController = segue.destination as? ProfileViewController else { break }
+            guard let responseObject = responseObject, !responseObject.attributes.isEmpty else { break }
             responseObject.attributes.forEach {
 
                 if $0.name == "selfie" {
