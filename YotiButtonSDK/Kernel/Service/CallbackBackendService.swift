@@ -36,7 +36,7 @@ final class CallbackBackendService: NSObject, URLSessionDelegate {
             let statusCode = httpResponse.statusCode
 
             guard 200...299 ~= statusCode else {
-                completion(nil, ShareRequestError.httpRequestError(statusCode))
+                completion(nil, CallbackBackendError.httpRequestError(statusCode))
                 return
             }
 

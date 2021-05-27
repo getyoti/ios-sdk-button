@@ -4,6 +4,7 @@
 
 import Foundation
 
+/// Describes potential errors during the process of retrieving the scenario and performing the share request.
 public enum ShareRequestError: Error {
     case httpRequestError(Int)
     case scenarioRetrievalError(String)

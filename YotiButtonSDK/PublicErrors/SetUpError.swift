@@ -4,6 +4,7 @@
 
 import Foundation
 
+/// Describes potential errors during the setup process of the SDK
 public enum SetupError: Error {
     case invalidBundleURLSchemes
     case invalidApplicationQueriesSchemes(URL)
