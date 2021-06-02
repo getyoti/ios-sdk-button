@@ -53,7 +53,7 @@ public class YotiSDK: NSObject {
     func startScenario(for useCaseID: String, with delegate: SDKDelegate) throws {
 
         guard let scenario = scenario(for: useCaseID) else {
-            throw ShareRequestError.startScenarioError("No ScenarioID found")
+            throw ShareRequestError.startScenarioError("No ScenarioID associated with this useCaseID")
         }
 
         guard scenario.isValid else {
