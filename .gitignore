@@ -55,6 +55,7 @@ playground.xcworkspace
 Carthage/Build
 Sample/Carthage/
 SampleObjC/Frameworks/
+SampleObjC/Carthage/
 
 # fastlane
 #
@@ -67,4 +68,5 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
-SampleObjC/Carthage/
+
+.DS_Store

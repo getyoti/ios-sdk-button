@@ -53,9 +53,15 @@ class KernelSDK: NSObject {
                 return
             }
             
-            guard UIApplication.shared.canOpenURL(url) else {
+            guard let applicationQuerySchemes = Bundle.main.object(forInfoDictionaryKey: "LSApplicationQueriesSchemes") as? [String],
+                  applicationQuerySchemes.contains("yoti") else {
                 delegate.yotiSDKDidFail(for: useCaseID, with: SetupError.invalidApplicationQueriesSchemes(url))
-                print("Cannot Open Yoti, please check LSApplicationQueriesSchemes or install Yoti")
+                return
+            }
+            
+            guard let yotiAppUrl = URL(string: "yoti://send?text=Hello%2C%20World!"),
+                  UIApplication.shared.canOpenURL(yotiAppUrl) else {
+                delegate.yotiSDKDidFail(for: useCaseID, with: SetupError.invalidApplicationQueriesSchemes(url))
                 return
             }
             
