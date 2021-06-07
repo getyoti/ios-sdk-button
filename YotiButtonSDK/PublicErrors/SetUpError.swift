@@ -7,7 +7,7 @@ import Foundation
 /// Describes potential errors during the setup process of the SDK
 public enum SetupError: Error {
     case invalidBundleURLSchemes
-    case invalidApplicationQueriesSchemes(URL)
+    case invalidApplicationQueriesSchemes(URL?)
 }
 
 extension SetupError: LocalizedError {
@@ -16,7 +16,11 @@ extension SetupError: LocalizedError {
             case .invalidBundleURLSchemes:
                 return "CFBundleURLSchemes not defined properly."
             case .invalidApplicationQueriesSchemes(let url):
-                return "Cannot launch Yoti app with url: \(url.path). Check LSApplicationQueriesSchemes or install Yoti. "
+                if let url = url {
+                    return "Cannot launch Yoti app with url: \(url.path). Check LSApplicationQueriesSchemes or install Yoti."
+                } else {
+                    return "Cannot launch Yoti app. Check LSApplicationQueriesSchemes or install Yoti."
+                }
         }
     }
 }
