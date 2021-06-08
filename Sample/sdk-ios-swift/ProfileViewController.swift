@@ -1,9 +1,5 @@
 //
-//  ProfileViewController.swift
-//  YotiButtonSDK
-//
-//  Created by Casper Lee on 23/07/2017.
-//  Copyright © 2017 Yoti Limited. All rights reserved.
+//  Copyright © 2018 Yoti Ltd. All rights reserved.
 //
 
 import Foundation

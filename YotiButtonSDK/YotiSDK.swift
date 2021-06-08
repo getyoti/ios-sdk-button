@@ -1,9 +1,5 @@
 //
-//  YotiSDK.swift
-//  YotiButtonSDK
-//
-//  Created by Casper Lee on 20/07/2017.
-//  Copyright © 2017 Yoti Limited. All rights reserved.
+// Copyright © 2017 Yoti Limited. All rights reserved.
 //
 
 import Foundation
@@ -57,11 +53,11 @@ public class YotiSDK: NSObject {
     func startScenario(for useCaseID: String, with delegate: SDKDelegate) throws {
 
         guard let scenario = scenario(for: useCaseID) else {
-            throw GenericError.nilValue("scenario")
+            throw ShareRequestError.startScenarioError("No ScenarioID associated with this useCaseID")
         }
 
         guard scenario.isValid else {
-            throw ScenarioError.invalidScenario
+            throw ShareRequestError.generic("Invalid value on UseCaseID, ClientSDKID, ScenarioID")
         }
 
         scenario.currentDelegate = delegate
@@ -79,7 +75,7 @@ public class YotiSDK: NSObject {
 
         if #available(iOS 13, *) { } else {
             guard let bundleID = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-                      bundleID == EnvironmentConfiguation.YotiApp.bundleID
+                      bundleID == EnvironmentConfiguration.YotiApp.bundleID
             else {
                 return false
             }

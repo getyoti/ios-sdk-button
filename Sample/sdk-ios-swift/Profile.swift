@@ -1,9 +1,5 @@
 //
-//  Profile.swift
-//  sdk-ios-swift
-//
-//  Created by Simon Hamadene on 15/10/2018.
-//  Copyright © 2018 Luke Ashley-Fenn. All rights reserved.
+//  Copyright © 2018 Yoti Ltd. All rights reserved.
 //
 
 import Foundation

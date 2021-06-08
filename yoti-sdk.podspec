@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "yoti-sdk"
-  s.version      = "2.4.0"
+  s.version      = "3.0.0"
   s.summary      = "A button SDK that uses Yoti app to complete the share"
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,8 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  The mobile SDK purpose is to provide 3rd party applications the ability to request attributes from a Yoti user while leveraging the Yoti mobile App. It is an interaction between a 3rd Party app and Yoti app facilitated by a very lightweight SDKs. This repo contains the tools and step by step instructions so that your users can share their identity details with your application in a secure and trusted way.
+  The mobile SDK purpose is to provide 3rd party applications the ability to request attributes from a Yoti user while leveraging the Yoti mobile App. It is an interaction between a 3rd Party app and Yoti app, facilitated by a very lightweight SDKs.
+This repo contains the tools and step by step instructions so that your users can share their identity details with your application in a secure and trusted way.
                    DESC
 
   s.homepage     = "https://github.com/getyoti/ios-sdk-button"
@@ -64,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "12.0"
   s.swift_version = '5.0'
 
   #  When using multiple platforms

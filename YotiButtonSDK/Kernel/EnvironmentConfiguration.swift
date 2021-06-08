@@ -1,15 +1,8 @@
 //
-//  EnvironmentConfiguration.swift
-//  YotiButtonSDK
-//
-//  Created by Casper Lee on 20/07/2017.
-//  Copyright © 2017 Yoti Limited. All rights reserved.
+// Copyright © 2017 Yoti Limited. All rights reserved.
 //
 
-import Foundation
-
-struct EnvironmentConfiguation {
-
+struct EnvironmentConfiguration {
     struct Transport {
         static let key = "transport"
         static let uri = "URI"

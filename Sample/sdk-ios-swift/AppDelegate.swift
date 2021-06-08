@@ -1,9 +1,5 @@
 //
-//  AppDelegate.swift
-//  sdk-ios-swift
-//
-//  Created by Luke Ashley-Fenn on 29/01/2018.
-//  Copyright © 2018 Luke Ashley-Fenn. All rights reserved.
+//  Copyright © 2018 Yoti Ltd. All rights reserved.
 //
 
 import UIKit
@@ -24,15 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             //Here we need to add as many scenarios as we want. each scenario is linked to a button in the Main.storyboard.
             let selfieAuthScenario = try ScenarioBuilder().setUseCaseID("yoti_btn_1")
-                .setClientSDKID("ac00adbd-d298-42c7-b596-07638762c618")
-                .setScenarioID("de20ed05-3c43-4e62-b212-331ade746ef8")
+                .setClientSDKID("d10b19d3-fa50-48ab-bd8c-f5a099205e6c")
+                .setScenarioID("17807359-a933-4b77-baa2-3c2fdb5608f2")
                 .setCallbackBackendURL(url)
                 .create()
             YotiSDK.add(scenario: selfieAuthScenario)
 
             let rememberMePhotoIDScenario = try ScenarioBuilder().setUseCaseID("yoti_btn_2")
-                .setClientSDKID("ac00adbd-d298-42c7-b596-07638762c618")
-                .setScenarioID("82cfc365-38f1-4657-a646-1d04791c8780")
+                .setClientSDKID("d10b19d3-fa50-48ab-bd8c-f5a099205e6c")
+                .setScenarioID("17807359-a933-4b77-baa2-3c2fdb5608f2")
                 .setCallbackBackendURL(url)
                 .create()
             YotiSDK.add(scenario: rememberMePhotoIDScenario)
@@ -43,31 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
     func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
         return YotiSDK.application(app, open: url, options: options)
     }
-
 }

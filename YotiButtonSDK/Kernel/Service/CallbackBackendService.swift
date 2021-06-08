@@ -1,21 +1,21 @@
 //
-//  CallbackBackendService.swift
-//  YotiButtonSDK
-//
-//  Created by Casper Lee on 22/07/2017.
-//  Copyright © 2017 Yoti Limited. All rights reserved.
+// Copyright © 2017 Yoti Limited. All rights reserved.
 //
 
 import Foundation
 
-class CallbackBackendService: HTTPService, URLSessionDelegate {
+final class CallbackBackendService: NSObject, URLSessionDelegate {
 
-    lazy var urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
+    private lazy var urlSession = URLSession(configuration: .default,
+                                     delegate: self,
+                                     delegateQueue: nil)
 
-    func callbackBackend(scenario: Scenario, token: String, completion: @escaping (Data?, Error?) -> Void) {
+    func callbackBackend(scenario: Scenario,
+                         token: String,
+                         completion: @escaping (Data?, Error?) -> Void) {
 
         guard let callbackBackendURL = scenario.callbackBackendURL else {
-            completion(nil, GenericError.nilValue("callbackBackendURL"))
+            completion(nil, CallbackBackendError.invalidCallbackBackendURL("Value received \(String(describing: scenario.callbackBackendURL?.absoluteString))"))
             return
         }
 
@@ -23,7 +23,7 @@ class CallbackBackendService: HTTPService, URLSessionDelegate {
         urlComponments?.queryItems = [URLQueryItem(name: "token", value: token)]
 
         guard let url = urlComponments?.url else {
-            completion(nil, GenericError.malformedValue("url"))
+            completion(nil, CallbackBackendError.invalidCallbackBackendURL("Value received \(String(describing: scenario.callbackBackendURL?.absoluteString))"))
             return
         }
 
@@ -36,7 +36,7 @@ class CallbackBackendService: HTTPService, URLSessionDelegate {
             let statusCode = httpResponse.statusCode
 
             guard 200...299 ~= statusCode else {
-                completion(nil, NetworkError.httpError(httpResponse.statusCode))
+                completion(nil, CallbackBackendError.httpRequestError(statusCode))
                 return
             }
 
