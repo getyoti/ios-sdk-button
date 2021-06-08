@@ -81,7 +81,7 @@ This repo contains the tools and step by step instructions so that your users ca
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/getyoti/ios-sdk-button.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/getyoti/ios-sdk-button.git", :tag => "v#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
