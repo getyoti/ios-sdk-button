@@ -13,8 +13,12 @@
 		0DCE9D03265BDF8A0009954A /* CallbackBackendError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE9D02265BDF8A0009954A /* CallbackBackendError.swift */; };
 		1C68C5E421242BE400228878 /* YotiSDKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */; };
 		1C68C5E62124364100228878 /* YotiBackendDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C68C5E52124364100228878 /* YotiBackendDelegate.swift */; };
+		5281A2C32689F2A200EEA5BB /* YotiTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2C22689F2A200EEA5BB /* YotiTheme.swift */; };
+		5281A2C6268A14DC00EEA5BB /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5281A2C4268A14DC00EEA5BB /* NunitoSans-Bold.ttf */; };
+		5281A2C7268A14DC00EEA5BB /* GT-Eesti-Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5281A2C5268A14DC00EEA5BB /* GT-Eesti-Display-Bold.ttf */; };
+		5281A2C9268A16A200EEA5BB /* Theme+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2C8268A16A200EEA5BB /* Theme+Font.swift */; };
+		5281A2F6268A297D00EEA5BB /* Theme+Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */; };
 		B42E94331F22AD6400159300 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E94321F22AD6400159300 /* UIFontExtension.swift */; };
-		B42E94361F22B26500159300 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B42E94351F22B26500159300 /* Roboto-Medium.ttf */; };
 		B42E94841F2368D000159300 /* CallbackBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E94831F2368D000159300 /* CallbackBackendService.swift */; };
 		B43B0E1A1F22063800CD5E4E /* YotiButtonSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B43B0E101F22063800CD5E4E /* YotiButtonSDK.framework */; };
 		B43B0E1F1F22063800CD5E4E /* YotiButtonSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E1E1F22063800CD5E4E /* YotiButtonSDKTests.swift */; };
@@ -29,7 +33,7 @@
 		B43B0E581F22075500CD5E4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B43B0E571F22075500CD5E4E /* Foundation.framework */; };
 		B43B0E5A1F22075A00CD5E4E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B43B0E591F22075A00CD5E4E /* UIKit.framework */; };
 		B43B0E5C1F2208A500CD5E4E /* YotiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E5B1F2208A500CD5E4E /* YotiButton.swift */; };
-		B43B0E771F220D2D00CD5E4E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E761F220D2D00CD5E4E /* UIColorExtension.swift */; };
+		B43B0E771F220D2D00CD5E4E /* Theme+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E761F220D2D00CD5E4E /* Theme+Color.swift */; };
 		B4D1ED061F221F27002C01DE /* YotiButtonSDKAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4D1ED051F221F27002C01DE /* YotiButtonSDKAssets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +54,12 @@
 		0DCE9D02265BDF8A0009954A /* CallbackBackendError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackBackendError.swift; sourceTree = "<group>"; };
 		1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiSDKDelegate.swift; sourceTree = "<group>"; };
 		1C68C5E52124364100228878 /* YotiBackendDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiBackendDelegate.swift; sourceTree = "<group>"; };
+		5281A2C22689F2A200EEA5BB /* YotiTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiTheme.swift; sourceTree = "<group>"; };
+		5281A2C4268A14DC00EEA5BB /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
+		5281A2C5268A14DC00EEA5BB /* GT-Eesti-Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GT-Eesti-Display-Bold.ttf"; sourceTree = "<group>"; };
+		5281A2C8268A16A200EEA5BB /* Theme+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Font.swift"; sourceTree = "<group>"; };
+		5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Logo.swift"; sourceTree = "<group>"; };
 		B42E94321F22AD6400159300 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
-		B42E94351F22B26500159300 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		B42E94831F2368D000159300 /* CallbackBackendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallbackBackendService.swift; sourceTree = "<group>"; };
 		B43B0E101F22063800CD5E4E /* YotiButtonSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YotiButtonSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B43B0E131F22063800CD5E4E /* YotiButtonSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YotiButtonSDK.h; sourceTree = "<group>"; };
@@ -69,7 +77,7 @@
 		B43B0E571F22075500CD5E4E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B43B0E591F22075A00CD5E4E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B43B0E5B1F2208A500CD5E4E /* YotiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YotiButton.swift; sourceTree = "<group>"; };
-		B43B0E761F220D2D00CD5E4E /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		B43B0E761F220D2D00CD5E4E /* Theme+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Theme+Color.swift"; sourceTree = "<group>"; };
 		B4D1ED051F221F27002C01DE /* YotiButtonSDKAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = YotiButtonSDKAssets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +139,7 @@
 				B43B0E3D1F2206B600CD5E4E /* Resources */,
 				B43B0E751F220D1F00CD5E4E /* Extension */,
 				B43B0E411F2206B600CD5E4E /* YotiSDK.swift */,
+				5281A2C22689F2A200EEA5BB /* YotiTheme.swift */,
 				1C68C5E52124364100228878 /* YotiBackendDelegate.swift */,
 				1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */,
 				B43B0E5B1F2208A500CD5E4E /* YotiButton.swift */,
@@ -198,7 +207,8 @@
 		B43B0E3D1F2206B600CD5E4E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B42E94351F22B26500159300 /* Roboto-Medium.ttf */,
+				5281A2C5268A14DC00EEA5BB /* GT-Eesti-Display-Bold.ttf */,
+				5281A2C4268A14DC00EEA5BB /* NunitoSans-Bold.ttf */,
 				B4D1ED051F221F27002C01DE /* YotiButtonSDKAssets.xcassets */,
 				0DBBCC092407CDB300F9226E /* Resource.swift */,
 			);
@@ -218,7 +228,9 @@
 		B43B0E751F220D1F00CD5E4E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B43B0E761F220D2D00CD5E4E /* UIColorExtension.swift */,
+				B43B0E761F220D2D00CD5E4E /* Theme+Color.swift */,
+				5281A2C8268A16A200EEA5BB /* Theme+Font.swift */,
+				5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */,
 				B42E94321F22AD6400159300 /* UIFontExtension.swift */,
 			);
 			path = Extension;
@@ -321,7 +333,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B42E94361F22B26500159300 /* Roboto-Medium.ttf in Resources */,
+				5281A2C7268A14DC00EEA5BB /* GT-Eesti-Display-Bold.ttf in Resources */,
+				5281A2C6268A14DC00EEA5BB /* NunitoSans-Bold.ttf in Resources */,
 				B4D1ED061F221F27002C01DE /* YotiButtonSDKAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +361,9 @@
 				B43B0E4A1F2206B600CD5E4E /* ScenarioBuilder.swift in Sources */,
 				B43B0E421F2206B600CD5E4E /* EnvironmentConfiguration.swift in Sources */,
 				B43B0E491F2206B600CD5E4E /* Scenario.swift in Sources */,
-				B43B0E771F220D2D00CD5E4E /* UIColorExtension.swift in Sources */,
+				B43B0E771F220D2D00CD5E4E /* Theme+Color.swift in Sources */,
+				5281A2C32689F2A200EEA5BB /* YotiTheme.swift in Sources */,
+				5281A2C9268A16A200EEA5BB /* Theme+Font.swift in Sources */,
 				B43B0E431F2206B600CD5E4E /* KernelSDK.swift in Sources */,
 				B43B0E4F1F2206B600CD5E4E /* YotiSDK.swift in Sources */,
 				B42E94331F22AD6400159300 /* UIFontExtension.swift in Sources */,
@@ -356,6 +371,7 @@
 				1C68C5E421242BE400228878 /* YotiSDKDelegate.swift in Sources */,
 				B43B0E451F2206B600CD5E4E /* RetrieveScenarioService.swift in Sources */,
 				0DBBCC0A2407CDB300F9226E /* Resource.swift in Sources */,
+				5281A2F6268A297D00EEA5BB /* Theme+Logo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +457,7 @@
 		39C6B0812020C30C002C2CEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -454,7 +471,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoti.mobile.ios.sdk.YotiButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				STRIP_SWIFT_SYMBOLS = NO;
 			};
 			name = Debug;
@@ -532,6 +549,7 @@
 		B43B0E261F22063800CD5E4E /* Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -544,7 +562,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoti.mobile.ios.sdk.YotiButton;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 			};
 			name = Production;
 		};

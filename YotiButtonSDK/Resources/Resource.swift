@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class Resource {
     private static var bundle: Bundle { Bundle(for: Self.self) }
@@ -16,6 +17,10 @@ final class Resource {
         } else {
             return UIImage()
         }
+    }
+
+    static func color(named name: String) -> UIColor {
+        UIColor(named: name, in: bundle, compatibleWith: .none)!
     }
 }
 

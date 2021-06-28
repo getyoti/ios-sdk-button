@@ -7,13 +7,18 @@ import UIKit
 
 @IBDesignable
 public class YotiButton: UIButton {
+    struct Colors {
+        let background: UIColor
+        let foreground: UIColor
+        let border: UIColor
+    }
 
     @IBInspectable public var useCaseID: String?
+    public var theme = Theme.yoti
     var messageWidthConstraint: NSLayoutConstraint?
 
     lazy var brandLogoView: UIImageView = {
-        let bundle = Bundle(for: type(of: self))
-        let image = Resource.loadImage(name: "BrandLogo")
+        let image = theme.logo
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         imageView.sizeToFit()
@@ -24,9 +29,9 @@ public class YotiButton: UIButton {
         let label = UILabel()
         label.text = "Use Yoti"
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = theme.colors(for: state).foreground
         label.adjustsFontSizeToFitWidth = true
-        label.font = UIFont.bodyFont()
+        label.font = theme.font
         label.baselineAdjustment = .alignCenters
         label.sizeToFit()
         return label
@@ -51,14 +56,14 @@ public class YotiButton: UIButton {
     }
 
     public override func layoutSubviews() {
-        styleSubviews()
+        setupSubviews()
+        applyTheme()
     }
 
     public override func setTitle(_ title: String?, for state: UIControl.State) {
         messageLabel.text = title
         messageLabel.sizeToFit()
         messageWidthConstraint?.constant = messageLabel.frame.width
-
     }
 
     public override func setTitleColor(_ color: UIColor?, for state: UIControl.State) {
@@ -72,10 +77,9 @@ public class YotiButton: UIButton {
         addSubview(messageLabel)
     }
 
-    func styleSubviews() {
+    func setupSubviews() {
         // Button Styles
-        backgroundColor = backgroundColor ?? .brandBlue
-        layer.cornerRadius = 4
+        layer.cornerRadius = 8
         layoutMargins = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         widthAnchor.constraint(equalTo: heightAnchor, multiplier: 230/48).isActive = true
 
@@ -94,5 +98,11 @@ public class YotiButton: UIButton {
 
         messageWidthConstraint = messageLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: messageLabel.frame.width)
         messageWidthConstraint?.isActive = true
+    }
+
+    func applyTheme() {
+        backgroundColor = theme.colors(for: state).background
+        messageLabel.textColor = theme.colors(for: state).foreground
+        brandLogoView.image = theme.logo
     }
 }
