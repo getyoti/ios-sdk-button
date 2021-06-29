@@ -80,8 +80,9 @@ public class YotiButton: UIButton {
     func setupSubviews() {
         // Button Styles
         layer.cornerRadius = 8
-        layoutMargins = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
-        widthAnchor.constraint(equalTo: heightAnchor, multiplier: 230/48).isActive = true
+        layer.borderWidth = 2.0
+        layoutMargins = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 12)
+        widthAnchor.constraint(equalTo: heightAnchor, multiplier: 300/44).isActive = true
 
         brandLogoView.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -102,7 +103,10 @@ public class YotiButton: UIButton {
 
     func applyTheme() {
         backgroundColor = theme.colors(for: state).background
+        layer.borderColor = theme.colors(for: state).border.cgColor
         messageLabel.textColor = theme.colors(for: state).foreground
+        messageLabel.font = theme.font
+        messageLabel.text = theme.stockCopy
         brandLogoView.image = theme.logo
     }
 }
