@@ -5,7 +5,7 @@
 import UIKit
 
 extension Theme {
-    func colors(for state: UIControl.State) -> InnerButton.Colors  {
+    func colors(for state: UIControl.State) -> InnerButton.Colors {
         switch self {
             case .yoti, .yotiUK: return yotiColors(for: state)
             case .easyID: return easyIDColors(for: state)

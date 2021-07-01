@@ -43,9 +43,15 @@ private extension SupportView {
         translatesAutoresizingMaskIntoConstraints = false
     }
 
-    func addContent(){
+    func addContent() {
         supportText.font = Theme.yotiFont(ofSize: 12)
-        supportText.text = "Works with:"
+        supportText.text = LocalizationKey.support.stringValue.localization(stockValue: "Works with:")
         supportText.textColor = Resource.color(named: "support_text")
+    }
+}
+
+private extension SupportView {
+    enum LocalizationKey: String, CodingKey {
+        case support = "YotiButton_partner_support_message"
     }
 }

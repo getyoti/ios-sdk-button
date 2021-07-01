@@ -21,6 +21,7 @@
 		5281A2F6268A297D00EEA5BB /* Theme+Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */; };
 		52C4159F268E2ED500FD1081 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4159E268E2ED500FD1081 /* SupportView.swift */; };
 		52C415A2268E460100FD1081 /* InnerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C415A1268E460100FD1081 /* InnerButton.swift */; };
+		52C415DE268E610100FD1081 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C415DD268E610100FD1081 /* String+Localization.swift */; };
 		B42E94331F22AD6400159300 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E94321F22AD6400159300 /* UIFontExtension.swift */; };
 		B42E94841F2368D000159300 /* CallbackBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E94831F2368D000159300 /* CallbackBackendService.swift */; };
 		B43B0E1A1F22063800CD5E4E /* YotiButtonSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B43B0E101F22063800CD5E4E /* YotiButtonSDK.framework */; };
@@ -65,6 +66,7 @@
 		5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Logo.swift"; sourceTree = "<group>"; };
 		52C4159E268E2ED500FD1081 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
 		52C415A1268E460100FD1081 /* InnerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerButton.swift; sourceTree = "<group>"; };
+		52C415DD268E610100FD1081 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		B42E94321F22AD6400159300 /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		B42E94831F2368D000159300 /* CallbackBackendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallbackBackendService.swift; sourceTree = "<group>"; };
 		B43B0E101F22063800CD5E4E /* YotiButtonSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YotiButtonSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +246,7 @@
 		B43B0E751F220D1F00CD5E4E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				52C415DD268E610100FD1081 /* String+Localization.swift */,
 				B43B0E761F220D2D00CD5E4E /* Theme+Color.swift */,
 				5281A2C8268A16A200EEA5BB /* Theme+Font.swift */,
 				527C7144268BA7DC00BAA350 /* Theme+Localization.swift */,
@@ -382,6 +385,7 @@
 				B43B0E771F220D2D00CD5E4E /* Theme+Color.swift in Sources */,
 				5281A2C32689F2A200EEA5BB /* YotiTheme.swift in Sources */,
 				5281A2C9268A16A200EEA5BB /* Theme+Font.swift in Sources */,
+				52C415DE268E610100FD1081 /* String+Localization.swift in Sources */,
 				B43B0E431F2206B600CD5E4E /* KernelSDK.swift in Sources */,
 				52C4159F268E2ED500FD1081 /* SupportView.swift in Sources */,
 				B43B0E4F1F2206B600CD5E4E /* YotiSDK.swift in Sources */,
