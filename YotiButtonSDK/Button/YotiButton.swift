@@ -8,18 +8,21 @@ import UIKit
 @IBDesignable
 public class YotiButton: UIView {
     private static let defaultFrame = CGRect(x: 0, y: 0, width: 300, height: 44)
+    private var button = InnerButton(frame: YotiButton.defaultFrame)
+    private var heightConstraint: NSLayoutConstraint?
+    private var buttonConstraints: [NSLayoutConstraint] = []
+    private var supportConstraints: [NSLayoutConstraint] = []
+    private lazy var supportView = SupportView(frame: .zero)
+
     @IBInspectable public var useCaseID: String?
     public var theme = Theme.yoti {
         didSet {
             button.apply(theme: theme)
+            removeConstraints()
             addSupportViewIfNecessary()
-            adjustConstraints()
+            addConstraints()
         }
     }
-    var button = InnerButton(frame: YotiButton.defaultFrame)
-    var heightConstraint: NSLayoutConstraint?
-    var buttonBottomConstraint: NSLayoutConstraint?
-    lazy var supportView = SupportView(frame: .zero)
 
     public convenience init() {
         self.init(frame: YotiButton.defaultFrame)
@@ -35,11 +38,6 @@ public class YotiButton: UIView {
         initalize()
     }
 
-    func initalize() {
-        translatesAutoresizingMaskIntoConstraints = false
-        addSubview(button)
-    }
-
     public func setTitle(_ title: String?, for state: UIControl.State) {
         button.setTitle(title, for: state)
     }
@@ -47,11 +45,30 @@ public class YotiButton: UIView {
     public func setTitleColor(_ color: UIColor?, for state: UIControl.State) {
         button.setTitleColor(color, for: state)
     }
+}
 
-    func adjustConstraints() {
+private extension YotiButton {
+    func initalize() {
+        translatesAutoresizingMaskIntoConstraints = false
+        addSubview(button)
+        addConstraints()
+    }
+
+    func addSupportViewIfNecessary() {
+        switch theme {
+            case .partnership: addSubview(supportView)
+            default: supportView.removeFromSuperview()
+        }
+    }
+
+    func removeConstraints() {
+        NSLayoutConstraint.deactivate(supportConstraints + buttonConstraints)
         if let heightConstraint = heightConstraint {
             removeConstraint(heightConstraint)
         }
+    }
+
+    func addConstraints() {
         switch theme {
             case .partnership:
                 heightConstraint = heightAnchor.constraint(equalToConstant: YotiButton.defaultFrame.height + 28)
@@ -59,35 +76,28 @@ public class YotiButton: UIView {
                 heightConstraint = heightAnchor.constraint(equalToConstant: YotiButton.defaultFrame.height)
 
         }
-        heightConstraint!.isActive = true
+        heightConstraint?.isActive = true
         constrainButtonToEdges()
+        constrainSupportView()
     }
 
     func constrainButtonToEdges() {
-        button.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
-        button.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
-        button.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive = true
+        buttonConstraints = [button.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+                             button.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
+                             button.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),]
         if theme != .partnership {
-            buttonBottomConstraint = button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
-            buttonBottomConstraint?.isActive = true
+            buttonConstraints += [button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)]
         }
+        NSLayoutConstraint.activate(buttonConstraints)
+
     }
 
-    func addSupportViewIfNecessary() {
-        switch theme {
-            case .partnership: addSupportView()
-            default: supportView.removeFromSuperview()
-        }
-    }
-
-    func addSupportView() {
-        if let buttonBottomConstraint = buttonBottomConstraint {
-            removeConstraint(buttonBottomConstraint)
-        }
-        addSubview(supportView)
-        supportView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
-        supportView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive = true
-        supportView.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 8).isActive = true
-        supportView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+    func constrainSupportView() {
+        guard supportView.superview != nil else { return }
+        supportConstraints = [supportView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
+                              supportView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
+                              supportView.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 8),
+                              supportView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),]
+        NSLayoutConstraint.activate(supportConstraints)
     }
 }

@@ -22,7 +22,9 @@ class SupportView: UIView {
         super.init(coder: aDecoder)
         initalize()
     }
+}
 
+private extension SupportView {
     func initalize() {
         addSubviews()
         addContent()

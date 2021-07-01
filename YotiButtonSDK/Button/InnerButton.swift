@@ -12,10 +12,10 @@ class InnerButton: UIButton {
         let border: UIColor
     }
 
-    var currentTheme: Theme = .yoti
-    var messageWidthConstraint: NSLayoutConstraint?
+    private var currentTheme: Theme = .yoti
+    private var messageWidthConstraint: NSLayoutConstraint?
 
-    lazy var brandLogoView: UIImageView = {
+    private lazy var brandLogoView: UIImageView = {
         let image = currentTheme.logo
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
@@ -23,7 +23,7 @@ class InnerButton: UIButton {
         return imageView
     }()
 
-    lazy var messageLabel: UILabel = {
+    private lazy var messageLabel: UILabel = {
         let label = UILabel()
         label.text = "Use Yoti"
         label.textAlignment = .center
@@ -68,6 +68,18 @@ class InnerButton: UIButton {
         }
     }
 
+    func apply(theme: Theme) {
+        currentTheme = theme
+        backgroundColor = theme.colors(for: state).background
+        layer.borderColor = theme.colors(for: state).border.cgColor
+        messageLabel.textColor = theme.colors(for: state).foreground
+        messageLabel.font = theme.font
+        messageLabel.text = theme.stockCopy
+        brandLogoView.image = theme.logo
+    }
+}
+
+private extension InnerButton {
     func addSubviews() {
         addSubview(brandLogoView)
         addSubview(messageLabel)
@@ -95,15 +107,5 @@ class InnerButton: UIButton {
 
         messageWidthConstraint = messageLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: messageLabel.frame.width)
         messageWidthConstraint?.isActive = true
-    }
-
-    func apply(theme: Theme) {
-        currentTheme = theme
-        backgroundColor = theme.colors(for: state).background
-        layer.borderColor = theme.colors(for: state).border.cgColor
-        messageLabel.textColor = theme.colors(for: state).foreground
-        messageLabel.font = theme.font
-        messageLabel.text = theme.stockCopy
-        brandLogoView.image = theme.logo
     }
 }
