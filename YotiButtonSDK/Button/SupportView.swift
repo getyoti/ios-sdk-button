@@ -15,17 +15,17 @@ class SupportView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initalize()
+        setUpView()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initalize()
+        setUpView()
     }
 }
 
 private extension SupportView {
-    func initalize() {
+    func setUpView() {
         addSubviews()
         addContent()
     }

@@ -39,15 +39,15 @@ class InnerButton: UIButton {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initalize()
+        setUpView()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initalize()
+        setUpView()
     }
 
-    func initalize() {
+    func setUpView() {
         addSubviews()
     }
 

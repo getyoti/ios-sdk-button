@@ -5,8 +5,10 @@
 import Foundation
 import UIKit
 
-@IBDesignable
-public class YotiButton: UIView {
+/// A button which can be used to begin the action of requesting attributes from the Digital ID applications
+///
+/// The button must be customized with at least a ``useCaseID`` to allow the SDK to identify this particular button
+@IBDesignable public class YotiButton: UIView {
     private static let defaultFrame = CGRect(x: 0, y: 0, width: 300, height: 44)
     private var button = InnerButton(frame: YotiButton.defaultFrame)
     private var heightConstraint: NSLayoutConstraint?
@@ -30,12 +32,12 @@ public class YotiButton: UIView {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        initalize()
+        setUpView()
     }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initalize()
+        setUpView()
     }
 
     public func setTitle(_ title: String?, for state: UIControl.State) {
@@ -48,7 +50,7 @@ public class YotiButton: UIView {
 }
 
 private extension YotiButton {
-    func initalize() {
+    func setUpView() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(button)
         addConstraints()
