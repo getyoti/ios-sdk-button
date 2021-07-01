@@ -8,7 +8,7 @@ import UIKit
 final class Resource {
     private static var bundle: Bundle { Bundle(for: Self.self) }
 
-    static func loadImage(name: String) -> UIImage {
+    static func loadImage(named name: String) -> UIImage {
         if let image = UIImage(named: name, in: bundle, compatibleWith: nil) {
             return image
         } else if let resourceBundle = resourceBundle(),

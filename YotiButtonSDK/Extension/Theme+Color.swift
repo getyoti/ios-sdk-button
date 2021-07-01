@@ -5,7 +5,7 @@
 import UIKit
 
 extension Theme {
-    func colors(for state: UIControl.State) -> YotiButton.Colors  {
+    func colors(for state: UIControl.State) -> InnerButton.Colors  {
         switch self {
             case .yoti, .yotiUK: return yotiColors(for: state)
             case .easyID: return easyIDColors(for: state)
@@ -13,7 +13,7 @@ extension Theme {
         }
     }
 
-    func yotiColors(for state: UIControl.State) -> YotiButton.Colors {
+    func yotiColors(for state: UIControl.State) -> InnerButton.Colors {
         switch state {
             case .normal: return ButtonColor.Yoti.normal
             case .highlighted, .selected: return ButtonColor.Yoti.selected
@@ -21,7 +21,7 @@ extension Theme {
         }
     }
 
-    func easyIDColors(for state: UIControl.State) -> YotiButton.Colors {
+    func easyIDColors(for state: UIControl.State) -> InnerButton.Colors {
         switch state {
             case .normal: return ButtonColor.EasyID.normal
             case .highlighted, .selected: return ButtonColor.EasyID.selected
@@ -29,7 +29,7 @@ extension Theme {
         }
     }
 
-    func partnershipColors(for state: UIControl.State) -> YotiButton.Colors {
+    func partnershipColors(for state: UIControl.State) -> InnerButton.Colors {
         switch state {
             case .normal: return ButtonColor.Partnership.normal
             case .highlighted, .selected: return ButtonColor.Partnership.selected
@@ -39,37 +39,37 @@ extension Theme {
 
     struct ButtonColor {
         struct Yoti {
-            static let normal = YotiButton.Colors(background: Resource.color(named: "yoti_background"),
-                                                  foreground: Resource.color(named: "yoti_foreground"),
-                                                  border: Resource.color(named: "yoti_border"))
-            static let selected = YotiButton.Colors(background: Resource.color(named: "yoti_backgroundSelected"),
-                                                    foreground: Resource.color(named: "yoti_foregroundSelected"),
-                                                    border: Resource.color(named: "yoti_borderSelected"))
-            static let disabled = YotiButton.Colors(background: Resource.color(named: "yoti_backgroundDisabled"),
-                                                    foreground: Resource.color(named: "yoti_foregroundDisabled"),
-                                                    border: Resource.color(named: "yoti_borderDisabled"))
+            static let normal = InnerButton.Colors(background: Resource.color(named: "yoti_background"),
+                                              foreground: Resource.color(named: "yoti_foreground"),
+                                              border: Resource.color(named: "yoti_border"))
+            static let selected = InnerButton.Colors(background: Resource.color(named: "yoti_backgroundSelected"),
+                                                foreground: Resource.color(named: "yoti_foregroundSelected"),
+                                                border: Resource.color(named: "yoti_borderSelected"))
+            static let disabled = InnerButton.Colors(background: Resource.color(named: "yoti_backgroundDisabled"),
+                                                foreground: Resource.color(named: "yoti_foregroundDisabled"),
+                                                border: Resource.color(named: "yoti_borderDisabled"))
         }
         struct EasyID {
-            static let normal = YotiButton.Colors(background: Resource.color(named: "easyid_background"),
-                                                  foreground: Resource.color(named: "easyid_foreground"),
-                                                  border: Resource.color(named: "easyid_border"))
-            static let selected = YotiButton.Colors(background: Resource.color(named: "easyid_backgroundSelected"),
-                                                    foreground: Resource.color(named: "easyid_foregroundSelected"),
-                                                    border: Resource.color(named: "easyid_borderSelected"))
-            static let disabled = YotiButton.Colors(background: Resource.color(named: "easyid_backgroundDisabled"),
-                                                    foreground: Resource.color(named: "easyid_foregroundDisabled"),
-                                                    border: Resource.color(named: "easyid_borderDisabled"))
+            static let normal = InnerButton.Colors(background: Resource.color(named: "easyid_background"),
+                                              foreground: Resource.color(named: "easyid_foreground"),
+                                              border: Resource.color(named: "easyid_border"))
+            static let selected = InnerButton.Colors(background: Resource.color(named: "easyid_backgroundSelected"),
+                                                foreground: Resource.color(named: "easyid_foregroundSelected"),
+                                                border: Resource.color(named: "easyid_borderSelected"))
+            static let disabled = InnerButton.Colors(background: Resource.color(named: "easyid_backgroundDisabled"),
+                                                foreground: Resource.color(named: "easyid_foregroundDisabled"),
+                                                border: Resource.color(named: "easyid_borderDisabled"))
         }
         struct Partnership {
-            static let normal = YotiButton.Colors(background: Resource.color(named: "partner_background"),
-                                                  foreground: Resource.color(named: "partner_foreground"),
-                                                  border: Resource.color(named: "partner_border"))
-            static let selected = YotiButton.Colors(background: Resource.color(named: "partner_backgroundSelected"),
-                                                    foreground: Resource.color(named: "partner_foregroundSelected"),
-                                                    border: Resource.color(named: "partner_borderSelected"))
-            static let disabled = YotiButton.Colors(background: Resource.color(named: "partner_backgroundDisabled"),
-                                                    foreground: Resource.color(named: "partner_foregroundDisabled"),
-                                                    border: Resource.color(named: "partner_borderDisabled"))
+            static let normal = InnerButton.Colors(background: Resource.color(named: "partner_background"),
+                                              foreground: Resource.color(named: "partner_foreground"),
+                                              border: Resource.color(named: "partner_border"))
+            static let selected = InnerButton.Colors(background: Resource.color(named: "partner_backgroundSelected"),
+                                                foreground: Resource.color(named: "partner_foregroundSelected"),
+                                                border: Resource.color(named: "partner_borderSelected"))
+            static let disabled = InnerButton.Colors(background: Resource.color(named: "partner_backgroundDisabled"),
+                                                foreground: Resource.color(named: "partner_foregroundDisabled"),
+                                                border: Resource.color(named: "partner_borderDisabled"))
         }
     }
 }

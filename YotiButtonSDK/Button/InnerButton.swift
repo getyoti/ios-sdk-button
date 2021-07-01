@@ -5,20 +5,18 @@
 import Foundation
 import UIKit
 
-@IBDesignable
-public class YotiButton: UIButton {
+class InnerButton: UIButton {
     struct Colors {
         let background: UIColor
         let foreground: UIColor
         let border: UIColor
     }
 
-    @IBInspectable public var useCaseID: String?
-    public var theme = Theme.yoti
+    var currentTheme: Theme = .yoti
     var messageWidthConstraint: NSLayoutConstraint?
 
     lazy var brandLogoView: UIImageView = {
-        let image = theme.logo
+        let image = currentTheme.logo
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         imageView.sizeToFit()
@@ -29,24 +27,22 @@ public class YotiButton: UIButton {
         let label = UILabel()
         label.text = "Use Yoti"
         label.textAlignment = .center
-        label.textColor = theme.colors(for: state).foreground
         label.adjustsFontSizeToFitWidth = true
-        label.font = theme.font
         label.baselineAdjustment = .alignCenters
         label.sizeToFit()
         return label
     }()
 
-    public convenience init() {
-        self.init(frame: CGRect(x: 0, y: 0, width: 230, height: 48))
+    convenience init() {
+        self.init(frame: CGRect(x: 0, y: 0, width: 300, height: 44))
     }
 
-    public override init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         initalize()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initalize()
     }
@@ -55,18 +51,18 @@ public class YotiButton: UIButton {
         addSubviews()
     }
 
-    public override func layoutSubviews() {
+    override func layoutSubviews() {
         setupSubviews()
-        applyTheme()
+        apply(theme: currentTheme)
     }
 
-    public override func setTitle(_ title: String?, for state: UIControl.State) {
+    override func setTitle(_ title: String?, for state: UIControl.State) {
         messageLabel.text = title
         messageLabel.sizeToFit()
         messageWidthConstraint?.constant = messageLabel.frame.width
     }
 
-    public override func setTitleColor(_ color: UIColor?, for state: UIControl.State) {
+    override func setTitleColor(_ color: UIColor?, for state: UIControl.State) {
         if let color = color {
             messageLabel.textColor = color
         }
@@ -78,16 +74,16 @@ public class YotiButton: UIButton {
     }
 
     func setupSubviews() {
-        // Button Styles
         layer.cornerRadius = 8
         layer.borderWidth = 2.0
-        layoutMargins = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 12)
-        widthAnchor.constraint(equalTo: heightAnchor, multiplier: 300/44).isActive = true
+        layoutMargins = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
 
+        translatesAutoresizingMaskIntoConstraints = false
         brandLogoView.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
 
         brandLogoView.widthAnchor.constraint(equalTo: brandLogoView.heightAnchor).isActive = true
+        brandLogoView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         brandLogoView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         brandLogoView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).isActive = true
         brandLogoView.topAnchor.constraint(greaterThanOrEqualTo: layoutMarginsGuide.topAnchor).isActive = true
@@ -101,7 +97,8 @@ public class YotiButton: UIButton {
         messageWidthConstraint?.isActive = true
     }
 
-    func applyTheme() {
+    func apply(theme: Theme) {
+        currentTheme = theme
         backgroundColor = theme.colors(for: state).background
         layer.borderColor = theme.colors(for: state).border.cgColor
         messageLabel.textColor = theme.colors(for: state).foreground
