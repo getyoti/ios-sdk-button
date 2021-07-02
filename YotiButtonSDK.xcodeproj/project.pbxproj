@@ -64,6 +64,7 @@
 		5281A2C5268A14DC00EEA5BB /* GT-Eesti-Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GT-Eesti-Display-Bold.ttf"; sourceTree = "<group>"; };
 		5281A2C8268A16A200EEA5BB /* Theme+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Font.swift"; sourceTree = "<group>"; };
 		5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Logo.swift"; sourceTree = "<group>"; };
+		52895764268F27E000B2EA8D /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
 		52C4159E268E2ED500FD1081 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
 		52C415A1268E460100FD1081 /* InnerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerButton.swift; sourceTree = "<group>"; };
 		52C415DD268E610100FD1081 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
@@ -170,6 +171,7 @@
 		B43B0E1D1F22063800CD5E4E /* YotiButtonSDKTests */ = {
 			isa = PBXGroup;
 			children = (
+				52895764268F27E000B2EA8D /* UnitTestPlan.xctestplan */,
 				B43B0E1E1F22063800CD5E4E /* YotiButtonSDKTests.swift */,
 				B43B0E201F22063800CD5E4E /* Info.plist */,
 			);
@@ -456,7 +458,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -489,6 +490,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 2.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = YotiButtonSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
