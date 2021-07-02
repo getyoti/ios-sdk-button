@@ -52,6 +52,6 @@ private extension SupportView {
 
 private extension SupportView {
     enum LocalizationKey: String, CodingKey {
-        case support = "YotiButton_partner_support_message"
+        case support = "yoti.sdk.support_info.text"
     }
 }

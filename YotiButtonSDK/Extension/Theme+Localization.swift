@@ -22,8 +22,8 @@ extension Theme {
     }
 
     enum LocalizationKey: String, CodingKey {
-        case yoti = "YotiButton_yoti_button_message"
-        case easyID = "YotiButton_easyid_button_message"
-        case partnership = "YotiButton_partner_button_message"
+        case yoti = "yoti.sdk.yoti.button.label"
+        case easyID = "yoti.sdk.easyid.button.label"
+        case partnership = "yoti.sdk.partnership.button.label"
     }
 }
