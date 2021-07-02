@@ -2,7 +2,7 @@
 // Copyright © 2021 Yoti Ltd. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension Theme {
     var stockCopyValue: String {
