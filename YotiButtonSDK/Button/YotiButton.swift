@@ -9,6 +9,8 @@ import UIKit
 ///
 /// The button must be customized with at least a ``useCaseID`` to allow the SDK to identify this particular button
 @IBDesignable public class YotiButton: UIView {
+    public typealias TouchedUpInside = (YotiButton) -> Void
+
     private static let defaultFrame = CGRect(x: 0, y: 0, width: 300, height: 44)
     private var button = InnerButton(frame: YotiButton.defaultFrame)
     private var heightConstraint: NSLayoutConstraint?
@@ -17,6 +19,8 @@ import UIKit
     private lazy var supportView = SupportView(frame: .zero)
 
     @IBInspectable public var useCaseID: String?
+    public var action: TouchedUpInside?
+
     public var theme = Theme.yoti {
         didSet {
             button.apply(theme: theme)
@@ -52,8 +56,13 @@ import UIKit
 private extension YotiButton {
     func setUpView() {
         translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(buttonTouchedUpInside), for: UIControl.Event.touchUpInside)
         addSubview(button)
         addConstraints()
+    }
+
+    @objc func buttonTouchedUpInside() {
+        action?(self)
     }
 
     func addSupportViewIfNecessary() {
