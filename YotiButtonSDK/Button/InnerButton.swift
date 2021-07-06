@@ -12,7 +12,7 @@ class InnerButton: UIButton {
         let border: UIColor
     }
 
-    private var currentTheme: Theme = .yoti
+    private var currentTheme: Theme = .default
     private var messageWidthConstraint: NSLayoutConstraint?
 
     private lazy var brandLogoView: UIImageView = {
