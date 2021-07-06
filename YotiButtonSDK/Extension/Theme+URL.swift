@@ -13,3 +13,12 @@ extension Theme {
         }
     }
 }
+
+extension Theme {
+    var scheme: String {
+        switch self {
+            case .easyID: return "easyid"
+            default: return "https"
+        }
+    }
+}

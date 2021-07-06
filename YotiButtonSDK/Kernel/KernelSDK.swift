@@ -16,7 +16,7 @@ final class KernelSDK: NSObject {
     /**
      * Perform a call to the Yoti API to retrieve the scenario and start the Yoti App
      */
-    func startScenario(_ scenario: Scenario, with delegate: SDKDelegate) {
+    func startScenario(_ scenario: Scenario, theme: Theme, with delegate: SDKDelegate) {
 
         NotificationCenter.default.post(name: YotiSDK.willMakeNetworkRequest, object: nil)
 
@@ -44,6 +44,7 @@ final class KernelSDK: NSObject {
             scenario.qrCodeURL = qrCodeURL
 
             var urlComponents = URLComponents(url: qrCodeURL, resolvingAgainstBaseURL: false)
+            urlComponents?.scheme = theme.scheme
             urlComponents?.queryItems = [URLQueryItem(name: "useCaseID", value: scenario.useCaseID),
                                          URLQueryItem(name: "sourceScheme", value: sourceSchemes.first)]
 

@@ -22,6 +22,11 @@ public class YotiSDK: NSObject {
         shared.add(scenario: scenario)
     }
 
+    @objc(startScenarioForUseCaseID:withDelegate:error:)
+    public static func startScenario(for useCaseID: String, with delegate: SDKDelegate) throws {
+        try shared.startScenario(for: useCaseID, theme: Theme.default, with: delegate)
+    }
+
     @objc(startScenarioForUseCaseID:theme:withDelegate:error:)
     public static func startScenario(for useCaseID: String, theme: Theme, with delegate: SDKDelegate) throws {
         try shared.startScenario(for: useCaseID, theme: theme, with: delegate)
@@ -86,7 +91,7 @@ public class YotiSDK: NSObject {
         }
 
         scenario.currentDelegate = delegate
-        kernel.startScenario(scenario, with: delegate)
+        kernel.startScenario(scenario, theme: theme, with: delegate)
     }
 
     // MARK: - UIApplication Delegate
