@@ -58,6 +58,7 @@ private extension YotiButton {
         translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(buttonTouchedUpInside), for: UIControl.Event.touchUpInside)
         addSubview(button)
+        addSupportViewIfNecessary()
         addConstraints()
     }
 

@@ -12,6 +12,8 @@ class InnerButton: UIButton {
         let border: UIColor
     }
 
+    private static let margins = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+    private static let brandLogoWidth: CGFloat = 20
     private var currentTheme: Theme = .default
     private var messageWidthConstraint: NSLayoutConstraint?
 
@@ -57,8 +59,9 @@ class InnerButton: UIButton {
     }
 
     override func setTitle(_ title: String?, for state: UIControl.State) {
+        let padding = InnerButton.margins.left + InnerButton.margins.right + InnerButton.brandLogoWidth
         messageLabel.text = title
-        messageLabel.sizeToFit()
+        messageLabel.preferredMaxLayoutWidth = frame.offsetBy(dx: -padding, dy: 0).width
         messageWidthConstraint?.constant = messageLabel.frame.width
     }
 
@@ -88,14 +91,14 @@ private extension InnerButton {
     func setupSubviews() {
         layer.cornerRadius = 8
         layer.borderWidth = 2.0
-        layoutMargins = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+        layoutMargins = InnerButton.margins
 
         translatesAutoresizingMaskIntoConstraints = false
         brandLogoView.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
 
         brandLogoView.widthAnchor.constraint(equalTo: brandLogoView.heightAnchor).isActive = true
-        brandLogoView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        brandLogoView.heightAnchor.constraint(equalToConstant: InnerButton.brandLogoWidth).isActive = true
         brandLogoView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         brandLogoView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).isActive = true
         brandLogoView.topAnchor.constraint(greaterThanOrEqualTo: layoutMarginsGuide.topAnchor).isActive = true
