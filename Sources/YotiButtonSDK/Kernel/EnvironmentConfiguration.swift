@@ -9,7 +9,7 @@ struct EnvironmentConfiguration {
     }
 
     struct URL {
-        static let host       = "connect.public.stg1.dmz.yoti.com"
+        static let host       = "api.yoti.com"
         static let port       = 443
 
         static let scheme = "https"
@@ -17,6 +17,6 @@ struct EnvironmentConfiguration {
     }
 
     struct YotiApp {
-        static let bundleID = "com.yoti.mobile.ios.staging"
+        static let bundleID = "com.yoti.mobile.ios.live"
     }
 }
