@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gnP-Sy-O24">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gnP-Sy-O24">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,38 +20,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwZ-FF-DzN" customClass="YotiButton" customModule="YotiButtonSDK">
-                                <rect key="frame" x="72.5" y="487" width="230" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwZ-FF-DzN" customClass="YotiButton" customModule="YotiButtonSDK">
+                                <rect key="frame" x="37.5" y="495" width="300" height="44"/>
                                 <accessibility key="accessibilityConfiguration" hint="scenario no selfie"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="59W-BZ-o9L"/>
-                                    <constraint firstAttribute="width" constant="230" id="AZ0-yf-XqT"/>
+                                    <constraint firstAttribute="height" constant="44" placeholder="YES" id="59W-BZ-o9L"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="AZ0-yf-XqT"/>
+                                    <constraint firstAttribute="width" secondItem="WwZ-FF-DzN" secondAttribute="height" multiplier="75:11" placeholder="YES" id="FhK-2y-kYS"/>
                                 </constraints>
                                 <state key="normal" title="RememberMeIDphoto"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="useCaseID" value="yoti_btn_2"/>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="yotiButtonDidTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vLd-Dj-RFu"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBr-MW-r5B" customClass="YotiButton" customModule="YotiButtonSDK">
-                                <rect key="frame" x="72" y="555" width="230" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBr-MW-r5B" customClass="YotiButton" customModule="YotiButtonSDK">
+                                <rect key="frame" x="37.5" y="559" width="300" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="uBr-MW-r5B" secondAttribute="height" multiplier="115:24" id="WAh-24-zCT"/>
-                                    <constraint firstAttribute="height" constant="48" id="YD8-ry-uWM"/>
-                                    <constraint firstAttribute="width" constant="230" id="sfk-kX-vzL"/>
+                                    <constraint firstAttribute="width" secondItem="uBr-MW-r5B" secondAttribute="height" multiplier="75:11" placeholder="YES" id="HZh-dG-PN2"/>
+                                    <constraint firstAttribute="height" constant="44" placeholder="YES" id="YD8-ry-uWM"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="sfk-kX-vzL"/>
                                 </constraints>
                                 <state key="normal" title="SelfieAuthentication"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="useCaseID" value="yoti_btn_1"/>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="yotiButtonDidTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HCn-Ka-ryM"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRj-ao-PFO">
-                                <rect key="frame" x="91.5" y="128" width="64" height="64"/>
+                                <rect key="frame" x="91.5" y="108" width="64" height="64"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7B-TE-ADg">
                                         <rect key="frame" x="8" y="8" width="48" height="48"/>
@@ -80,7 +73,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ukK-Xp-ZXu">
-                                        <rect key="frame" x="25.5" y="26" width="12" height="12"/>
+                                        <rect key="frame" x="26" y="26" width="12" height="12"/>
                                         <color key="backgroundColor" red="0.31653249259999999" green="0.35272172089999998" blue="0.3736464679" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="hnX-PP-ruA"/>
@@ -101,24 +94,38 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHH-sv-wEc">
-                                <rect key="frame" x="171.5" y="126.5" width="141.5" height="67"/>
+                                <rect key="frame" x="171.5" y="106.5" width="141.5" height="67"/>
                                 <string key="text">COMPANY
 LTD</string>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" name="text"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXl-ym-rWR" customClass="YotiButton" customModule="YotiButtonSDK">
+                                <rect key="frame" x="37.5" y="431" width="300" height="44"/>
+                                <accessibility key="accessibilityConfiguration" hint="scenario no selfie"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="XG0-eA-Mbi"/>
+                                    <constraint firstAttribute="height" constant="44" placeholder="YES" id="n70-bH-3VE"/>
+                                </constraints>
+                                <state key="normal" title="Unfulfilled"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="useCaseID" value="yoti_btn_2"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.31764705882352939" green="0.3529411764705882" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="background"/>
                         <constraints>
                             <constraint firstItem="uBr-MW-r5B" firstAttribute="top" secondItem="WwZ-FF-DzN" secondAttribute="bottom" constant="20" id="0T2-x6-P1K"/>
                             <constraint firstItem="YHH-sv-wEc" firstAttribute="centerY" secondItem="pRj-ao-PFO" secondAttribute="centerY" id="25y-o3-OIx"/>
                             <constraint firstItem="WwZ-FF-DzN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7df-n7-Me9"/>
+                            <constraint firstItem="WwZ-FF-DzN" firstAttribute="top" secondItem="VXl-ym-rWR" secondAttribute="bottom" constant="20" id="CyX-W7-4OJ"/>
+                            <constraint firstItem="VXl-ym-rWR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F8e-Hf-VhN"/>
                             <constraint firstItem="YHH-sv-wEc" firstAttribute="leading" secondItem="pRj-ao-PFO" secondAttribute="trailing" constant="16" id="HVb-AE-h2m"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uBr-MW-r5B" secondAttribute="bottom" constant="64" id="bcw-uX-9Of"/>
+                            <constraint firstItem="VXl-ym-rWR" firstAttribute="width" secondItem="VXl-ym-rWR" secondAttribute="height" multiplier="75:11" placeholder="YES" id="cIo-aL-bob"/>
                             <constraint firstItem="uBr-MW-r5B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e46-yC-xQS"/>
                             <constraint firstItem="pRj-ao-PFO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-64" id="eSV-hj-KJw"/>
-                            <constraint firstItem="WwZ-FF-DzN" firstAttribute="width" secondItem="WwZ-FF-DzN" secondAttribute="height" multiplier="115:24" id="jPh-xa-8IE"/>
                             <constraint firstItem="pRj-ao-PFO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="wYP-Uu-Kyj"/>
                         </constraints>
                     </view>
@@ -126,6 +133,7 @@ LTD</string>
                     <connections>
                         <outlet property="rememberMeButton" destination="WwZ-FF-DzN" id="hKi-BY-xai"/>
                         <outlet property="selfieAuthButton" destination="uBr-MW-r5B" id="fe5-0e-tJF"/>
+                        <outlet property="unfulfilledButton" destination="VXl-ym-rWR" id="QUw-Fh-elI"/>
                         <segue destination="8s4-Gb-CtX" kind="show" identifier="moveToProfile" id="5HY-vd-smr"/>
                     </connections>
                 </viewController>
@@ -146,7 +154,7 @@ LTD</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5I-nF-nIE">
-                                <rect key="frame" x="0.0" y="244" width="375" height="423"/>
+                                <rect key="frame" x="0.0" y="224" width="375" height="443"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QNY-Ip-DTN">
                                         <rect key="frame" x="16" y="114" width="343" height="126"/>
@@ -232,7 +240,7 @@ LTD</string>
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="QNY-Ip-DTN" secondAttribute="trailing" constant="16" id="2pc-sL-lwb"/>
                                     <constraint firstItem="QNY-Ip-DTN" firstAttribute="leading" secondItem="a5I-nF-nIE" secondAttribute="leading" constant="16" id="Yfz-DP-RGZ"/>
@@ -240,7 +248,7 @@ LTD</string>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dhB-ZX-D40">
-                                <rect key="frame" x="117.5" y="174" width="140" height="140"/>
+                                <rect key="frame" x="117.5" y="154" width="140" height="140"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="ACR-vu-C9j"/>
                                     <constraint firstAttribute="width" secondItem="dhB-ZX-D40" secondAttribute="height" multiplier="1:1" id="aXh-Po-3Op"/>
@@ -278,7 +286,7 @@ LTD</string>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gnP-Sy-O24" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C81-ZF-jpL">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -291,4 +299,15 @@ LTD</string>
             <point key="canvasLocation" x="-260" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
