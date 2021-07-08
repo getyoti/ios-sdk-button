@@ -44,11 +44,11 @@ import UIKit
         setUpView()
     }
 
-    public func setTitle(_ title: String?, for state: UIControl.State) {
+    @objc public func setTitle(_ title: String?, for state: UIControl.State) {
         button.setTitle(title, for: state)
     }
 
-    public func setTitleColor(_ color: UIColor?, for state: UIControl.State) {
+    @objc public func setTitleColor(_ color: UIColor?, for state: UIControl.State) {
         button.setTitleColor(color, for: state)
     }
 }
