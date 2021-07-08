@@ -36,8 +36,9 @@
     [self.rememberMe setTheme:YTBThemeYoti];
     [self.unfulfilled setTheme:YTBThemeEasyID];
 
+    OCSAViewController * __weak weakSelf = self;
     void (^action)(YotiButton*) = ^void(YotiButton* button) {
-        [self buttonDidTouchUpInside:button];
+        [weakSelf buttonDidTouchUpInside:button];
     };
 
     [self.rememberMe setAction:action];
