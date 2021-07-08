@@ -19,9 +19,9 @@ import UIKit
     private lazy var supportView = SupportView(frame: .zero)
 
     @IBInspectable public var useCaseID: String?
-    public var action: TouchedUpInside?
+    @objc public var action: TouchedUpInside?
 
-    public var theme = Theme.default {
+    @objc public var theme = Theme.default {
         didSet {
             button.apply(theme: theme)
             removeConstraints()
