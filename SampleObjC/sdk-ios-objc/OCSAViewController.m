@@ -2,11 +2,12 @@
 //  Copyright © 2018 Yoti Ltd. All rights reserved.
 //
 
-#import "OCSAViewController.h"
 #import <YotiButtonSDK/YotiButtonSDK.h>
+#import "OCSAViewController.h"
 #import "OCSAProfileViewController.h"
 
 @interface OCSAViewController () <YTBSDKDelegate, YTBBackendDelegate>
+@property (weak, nonatomic) IBOutlet YotiButton *unfulfilled;
 @property (weak, nonatomic) IBOutlet YotiButton *rememberMe;
 @property (weak, nonatomic) IBOutlet YotiButton *selfieAuth;
 @end
@@ -14,7 +15,8 @@
 @implementation OCSAViewController {
     NSArray<NSDictionary*> *attributes;
 }
-- (IBAction)buttonDidTouchUpInside:(YotiButton*)sender {
+
+- (void)buttonDidTouchUpInside:(YotiButton*)sender {
     
     NSString* useCaseID = sender.useCaseID;
     NSError* error = nil;
@@ -30,9 +32,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.rememberMe setTitle:@"OC RememberMe Scenario" forState: UIControlStateNormal ];
-    [self.selfieAuth setTitle:@"OC SelfieAuth Scenario" forState: UIControlStateNormal ];
+
+    [self.rememberMe setTheme:YTBThemeYoti];
+    [self.unfulfilled setTheme:YTBThemeEasyID];
+
+    void (^action)(YotiButton*) = ^void(YotiButton* button) {
+        [self buttonDidTouchUpInside:button];
+    };
+
+    [self.rememberMe setAction:action];
+    [self.selfieAuth setAction:action];
+    [self.unfulfilled setAction:action];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    [self.rememberMe setTitle:@"OC RememberMe Scenario" for:UIControlStateNormal];
+    [self.selfieAuth setTitle:@"OC SelfieAuth Scenario" for:UIControlStateNormal];
 }
 
 -(void) moveToProfile {
@@ -100,6 +117,5 @@
 - (void)yotiSDKDidOpenYotiApp {
     NSLog(@"yotiSDKDidOpenYotiApp");
 }
-
 
 @end
