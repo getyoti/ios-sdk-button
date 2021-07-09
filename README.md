@@ -75,7 +75,7 @@ Tip: CocoaPods provides a `pod init` command to create a Podfile with smart defa
 
 Now you can install the dependencies in your project:
 
-```
+```bash
 $ pod install
 ```
 
