@@ -97,7 +97,7 @@
     
 }
 
-- (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID with:(NSError * _Nonnull)error {
+- (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID appStoreURL:(NSURL * _Nullable)appStoreURL with:(NSError * _Nonnull)error {
     NSLog(@"yotiSDKDidFailFor useCaseID: %@,  with error: %@", useCaseID, error.localizedDescription);
 }
 
