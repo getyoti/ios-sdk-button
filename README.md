@@ -287,9 +287,9 @@ In Swift your ViewController class should comply to YotiSDKDelegate and to Backe
 ```swift
 
 extension ViewController: YotiSDKDelegate {
-    func yotiSDKDidFail(for useCaseID: String, with error: Error) {
+    func yotiSDKDidFail(for useCaseID: String, appStoreURL: URL?, with error: Error) {
     	// Handle the errors related to the failure of retrieving a useCaseID and a token or opening the Digital ID app on the user's device
-        // Note the error will contain an associated App Store URL where the user can download the application in case the iOS Button SDK was not able to open the Digital ID app.
+        // Note the error will contain an associated App Store URL where the user can download the application in case the iOS Button SDK was not able to open the Digital ID app. The appStoreURL parameter is for Objective-C compatibility and is redundant.
     }
 
     func yotiSDKDidSucceed(for useCaseID: String, baseURL: URL?, token: String?, url: URL?) {
@@ -319,7 +319,7 @@ We implemented the delegate functions of the protocols our ViewController compli
 
 ```objective-c
 
-- (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID with:(NSError * _Nonnull)error {
+- (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID appStoreURL:(NSURL * _Nullable)appStoreURL with:(NSError * _Nonnull)error {
     // Handle the errors related to the failure of retrieving a useCaseID and a token or opening the Digital ID app on the user's device
 }
 
