@@ -67,7 +67,7 @@ Each time you want to fetch the dependency, you can type  `carthage bootstrap --
 
 To integrate Yoti into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
-```
+```ruby
 pod 'yoti-sdk', '~> 3.1.0'
 ```
 
@@ -93,9 +93,8 @@ You can also add iOS Button SDK by adding the project via a submodule and draggi
 
 **Module**: YotiButtonSDK
 
-Navigate to where you want to integrate the button, add a UIView and change class to YotiButton.
-Add layout constraints 
-Add a **User defined runtime attributes**: `useCaseID` of type String with a value that will allow us to identify the button.
+Navigate to where you want to integrate the button, add a UIView and change the class to YotiButton. 
+Add layout constraints and then add a **User defined runtime attributes**: `useCaseID` of type String with a value that will allow us to identify the button.
 Link the button view with an appropriate IBOutlet.
 Programatically assign a block/closure to the action property.
 This action property returns the button instance to allow the same block/closure to be reused across multiple buttons.
@@ -120,6 +119,9 @@ import yoti_sdk
 
 let button = YotiButton(frame: CGRect(x: 0, y: 0, width: 300, height: 44))
 button.useCaseID = "YOUR_USE_CASE_ID"
+button.action = { [weak self] (button)  in
+    self?.handleButtonTap(button)
+}
 ```
 
 #### Objective-C:
@@ -127,11 +129,41 @@ button.useCaseID = "YOUR_USE_CASE_ID"
 
 #import <YotiButtonSDK/YotiButtonSDK.h>                                                                                                           
 YotiButton* button = [[YotiButton alloc] initWithFrame:CGRectMake(0, 0, 300, 44)]
-button.useCaseID = "YOUR_USE_CASE_ID"
+button.useCaseID = @"YOUR_USE_CASE_ID"
+MyViewController * __weak weakSelf = self;
+self.button.action = ^void(YotiButton* button) {
+    [weakSelf handleButtonTap:button];
+};
 ```
 
-The UI integration is now complete.
+The iOS Button SDK supports a few themes which have slightly different behaviours:
 
+|Name|Colour|Target App|
+|---|---|---|---|---|
+|yoti|Blue|Digital ID Apps|
+|yotiUK|Blue with white logo|Digital ID Apps|
+|easyID|Red with white logo|EasyID App|
+|partnership|White with supplementary view|Digital ID Apps|
+
+Depending on which theme you select it may target a specific app or have a supplementary view underneath it.
+The way each themed button is used however remains the same.
+
+To set the theme simply alter `theme` property on your button with a new enum case.
+By default, the `partnership` theme will be selected at runtime for users in the United Kingdom and `yoti` for everyone else.
+
+#### Swift:
+```swift
+
+button.theme = .easyID
+```
+
+#### Objective-C:
+```objective-C
+
+button.theme = YTBThemeEasyID
+
+```
+The UI integration is now complete.
 
 ### Create a Scenario
 
@@ -140,7 +172,7 @@ You will now need your SDK ID, Scenario ID and call back URL ready from your app
 For each of the scenarios you want to handle, you would need to add them to the iOS Button SDK like below:
 
 #### Swift:
-Please add the scenario method in your AppDelegate.swift in :
+Please add the scenario method in your AppDelegate.swift or somewhere before the button is accessible at runtime (ensuring it is only called once):
 
 ```Objective-C
 
@@ -178,7 +210,7 @@ import YotiButtonSDK
 }
 ```
 #### Objective-C:
-Please add the scenario method in your AppDelegate.m in
+Please add the scenario method in your AppDelegate.m or somewhere before the button is accessible at runtime (ensuring it is only called once):
 
 ```objective-c
 
@@ -212,19 +244,14 @@ like below
 
     return YES;
 ```
-then in your viewController class inside your button IBAction function call the function  : 
 
-```swift
-
-public static func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) throws 
-```
-Next, go to the view controller containing the YotiButton outlet. On its IBAction, call the sdk method signature in swift or signature in objective-c.
+Next, go to the view controller containing the YotiButton. In the handler function you embedded inside the button action body, call the iOS Button SDK `startScenario` method.
 
 #### Swift:
 
 ```swift
 
-@IBAction func yotiButtonDidTouchUpInside(_ sender: YotiButton) {
+func handleButtonTap(_ sender: YotiButton) {
     guard let useCaseID = sender.useCaseID else {
         return
     }
@@ -241,7 +268,7 @@ Next, go to the view controller containing the YotiButton outlet. On its IBActio
 
 ```objective-c
 
-- (IBAction)buttonDidTouchUpInside:(YotiButton*)sender {
+- (void)handleButtonTap:(YotiButton*)sender {
     NSString* useCaseID = sender.useCaseID;
     NSError* error = nil;
 
@@ -255,20 +282,21 @@ Next, go to the view controller containing the YotiButton outlet. On its IBActio
 }
 ```
 
-In Swift your ViewController class should comply to YotiSDKDelegate and to BackendDelegate in order to get the callbacks.
+In Swift your ViewController class should comply to YotiSDKDelegate and to BackendDelegate in order to get callbacks from the iOS Button SDK.
 
 ```swift
 
 extension ViewController: YotiSDKDelegate {
     func yotiSDKDidFail(for useCaseID: String, with error: Error) {
-    	// handle here the error related to the failing of retrieving a usecaseID and a token
+    	// Handle the errors related to the failure of retrieving a useCaseID and a token or opening the Digital ID app on the user's device
+        // Note the error will contain an associated App Store URL where the user can download the application in case the iOS Button SDK was not able to open the Digital ID app.
     }
 
     func yotiSDKDidSucceed(for useCaseID: String, baseURL: URL?, token: String?, url: URL?) {
         // Handle here the success of the opening of Yoti app for example by requesting a profile from the backend like below
         // Get the specific scenario by calling  
         let scenario = YotiSDK.scenario(for: useCaseID)
-        // request the backend to get the profile linked to a specific scenario by passing the token returned and self as delegate for a call back
+        // Request the backend to get the profile linked to a specific scenario by passing the token returned and self as delegate for a callback
         YotiSDK.callbackBackend(scenario: scenario!, token: token!, with: self)
     }
 
@@ -292,7 +320,7 @@ We implemented the delegate functions of the protocols our ViewController compli
 ```objective-c
 
 - (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID with:(NSError * _Nonnull)error {
-    // handle failure here
+    // Handle the errors related to the failure of retrieving a useCaseID and a token or opening the Digital ID app on the user's device
 }
 
 - (void)yotiSDKDidSucceedFor:(NSString * _Nonnull)useCaseID baseURL:(NSURL * _Nullable)baseURL token:(NSString * _Nullable)token url:(NSURL * _Nullable)url {
@@ -301,7 +329,7 @@ We implemented the delegate functions of the protocols our ViewController compli
 }
 
 - (void)yotiSDKDidOpenYotiApp {
-	// behaviour when SDK opens yoti app (if needed)
+	// Behaviour when SDK opens yoti app (if needed)
 }
 ```
 when the callback returns from the backend we get the data linked to the profile or the error in
@@ -407,7 +435,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 
 ## Handling Users
-The Web SDK will handle the user storage. When you retrieve the user profile, you receive a user ID generated by Yoti exclusively for your application. This means that if the same individual logs into another app, Yoti will assign her/him a different ID. You can use this ID to verify whether (for your application) the retrieved profile identifies a new or an existing user. Please see relevant github pages for more information.
+The Web SDK will handle the user storage. When you retrieve the user profile, you receive a user ID generated by Yoti exclusively for your application. This means that if the same individual logs into another app, Yoti will assign her/him a different ID. You can use this ID to verify whether (for your application) the retrieved profile identifies a new or an existing user. Please see relevant GitHub pages for more information.
 
 ## Support 
 For any questions or support please email sdksupport@yoti.com. Please provide the following to get you up and working as quickly as possible:
