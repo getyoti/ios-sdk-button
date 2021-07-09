@@ -72,7 +72,7 @@ public class YotiSDK: NSObject {
 
         guard let querySchemes = Bundle.main.object(forInfoDictionaryKey: "LSApplicationQueriesSchemes") as? [String],
               !expectedSchemes.isDisjoint(with: querySchemes) else {
-            delegate.yotiSDKDidFail(for: useCaseID, with: SetupError.invalidApplicationQueriesSchemes(nil))
+            delegate.yotiSDKDidFail(for: useCaseID, appStoreURL: nil, with: SetupError.invalidApplicationQueriesSchemes(nil))
             return
         }
 
@@ -86,7 +86,9 @@ public class YotiSDK: NSObject {
         }
 
         guard canOpenURL else {
-            delegate.yotiSDKDidFail(for: useCaseID, with: SetupError.noIDAppInstalled(theme.appStoreURL))
+            delegate.yotiSDKDidFail(for: useCaseID,
+                                    appStoreURL: theme.appStoreURL,
+                                    with: SetupError.noIDAppInstalled(theme.appStoreURL))
             return
         }
 
