@@ -138,12 +138,12 @@ self.button.action = ^void(YotiButton* button) {
 
 The iOS Button SDK supports a few themes which have slightly different behaviours:
 
-|Name|Colour|Target App|
-|---|---|---|---|---|
-|yoti|Blue|Digital ID Apps|
-|yotiUK|Blue with white logo|Digital ID Apps|
-|easyID|Red with white logo|EasyID App|
-|partnership|White with supplementary view|Digital ID Apps|
+|Name       |Colour                         |Target App     |
+|-----------|-------------------------------|---------------|
+|yoti       |Blue                           |Digital ID Apps|
+|yotiUK     |Blue with white logo           |Digital ID Apps|
+|easyID     |Red with white logo            |EasyID App     |
+|partnership|White with supplementary view  |Digital ID Apps|
 
 Depending on which theme you select it may target a specific app or have a supplementary view underneath it.
 The way each themed button is used however remains the same.
