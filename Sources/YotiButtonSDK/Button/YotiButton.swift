@@ -67,10 +67,11 @@ import UIKit
 
 private extension YotiButton {
     func setUpView() {
-        translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(buttonTouchedUpInside), for: UIControl.Event.touchUpInside)
         addSubview(button)
         addSupportViewIfNecessary()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         addConstraints()
     }
 
@@ -95,9 +96,9 @@ private extension YotiButton {
     func addConstraints() {
         switch theme {
             case .partnership:
-                heightConstraint = heightAnchor.constraint(equalToConstant: YotiButton.defaultFrame.height + 28)
+                heightConstraint = heightAnchor.constraint(greaterThanOrEqualToConstant: YotiButton.defaultFrame.height + 28)
             default:
-                heightConstraint = heightAnchor.constraint(equalToConstant: YotiButton.defaultFrame.height)
+                heightConstraint = heightAnchor.constraint(greaterThanOrEqualToConstant: YotiButton.defaultFrame.height)
 
         }
         heightConstraint?.isActive = true
@@ -108,7 +109,8 @@ private extension YotiButton {
     func constrainButtonToEdges() {
         buttonConstraints = [button.topAnchor.constraint(equalTo: topAnchor, constant: 0),
                              button.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
-                             button.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),]
+                             button.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
+                             button.heightAnchor.constraint(greaterThanOrEqualToConstant: YotiButton.defaultFrame.height),]
         if theme != .partnership {
             buttonConstraints += [button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)]
         }
