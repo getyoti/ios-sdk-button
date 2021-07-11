@@ -96,8 +96,8 @@ You can also add iOS Button SDK by adding the project via a submodule and draggi
 Navigate to where you want to integrate the button, add a UIView and change the class to YotiButton. 
 Add layout constraints and then add a **User defined runtime attributes**: `useCaseID` of type String with a value that will allow us to identify the button.
 Link the button view with an appropriate IBOutlet.
-Programatically assign a block/closure to the action property.
-This action property returns the button instance to allow the same block/closure to be reused across multiple buttons.
+Programatically assign a closure/block to the action property.
+This action property returns the button instance to allow the same closure/block to be reused across multiple buttons.
 
 ### Programatically
 
