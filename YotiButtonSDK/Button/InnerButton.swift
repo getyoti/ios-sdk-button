@@ -93,7 +93,6 @@ private extension InnerButton {
         layer.borderWidth = 2.0
         layoutMargins = InnerButton.margins
 
-        translatesAutoresizingMaskIntoConstraints = false
         brandLogoView.translatesAutoresizingMaskIntoConstraints = false
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
 
@@ -101,8 +100,6 @@ private extension InnerButton {
         brandLogoView.heightAnchor.constraint(equalToConstant: InnerButton.brandLogoWidth).isActive = true
         brandLogoView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         brandLogoView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor).isActive = true
-        brandLogoView.topAnchor.constraint(greaterThanOrEqualTo: layoutMarginsGuide.topAnchor).isActive = true
-        brandLogoView.bottomAnchor.constraint(greaterThanOrEqualTo: layoutMarginsGuide.bottomAnchor).isActive = true
         brandLogoView.trailingAnchor.constraint(equalTo: messageLabel.leadingAnchor, constant: -16).isActive = true
 
         messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
