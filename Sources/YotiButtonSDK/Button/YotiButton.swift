@@ -51,7 +51,7 @@ import UIKit
     /// Default is set according to the ``theme`` and is assumed to be single line.
     /// - Parameters:
     ///   - title: Text which will be set on the button.
-    ///   - state: UIControlState which the text will apply to.
+    ///   - state: UIControl.State which the text will apply to.
     @objc public func setTitle(_ title: String?, for state: UIControl.State) {
         button.setTitle(title, for: state)
     }
@@ -59,7 +59,7 @@ import UIKit
     /// Default is opaque white.
     /// - Parameters:
     ///   - color: Color to set on the title.
-    ///   - state: UIControlState which the color will apply to.
+    ///   - state: UIControl.State which the color will apply to.
     @objc public func setTitleColor(_ color: UIColor?, for state: UIControl.State) {
         button.setTitleColor(color, for: state)
     }
