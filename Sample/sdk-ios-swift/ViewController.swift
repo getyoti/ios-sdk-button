@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         rememberMeButton.theme = .yoti
         unfulfilledButton.theme = .easyID
 
-        let action: YotiButton.TouchedUpInside = { [weak self] (button)  in
+        let action: YotiButton.TouchedUpInside = { [weak self] button in
             self?.yotiButtonDidTouchUpInside(button)
         }
 
