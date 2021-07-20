@@ -95,7 +95,8 @@ private extension YotiButton {
     func constrainButtonToEdges() {
         buttonConstraints = [button.topAnchor.constraint(equalTo: topAnchor, constant: 0),
                              button.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
-                             button.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),]
+                             button.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
+        ]
         if theme != .partnership {
             buttonConstraints += [button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)]
         }
@@ -108,7 +109,8 @@ private extension YotiButton {
         supportConstraints = [supportView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
                               supportView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
                               supportView.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 8),
-                              supportView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),]
+                              supportView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
+        ]
         NSLayoutConstraint.activate(supportConstraints)
     }
 }
