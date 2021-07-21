@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C17BD58217500AD009843F7 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BD57217500AD009843F7 /* Profile.swift */; };
-		5208A50F26961FD100BAAB9E /* YotiButtonSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 5208A50E26961FD100BAAB9E /* YotiButtonSDK */; };
+		52C3B3A426A88B2800C9FD04 /* YotiButtonSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 52C3B3A326A88B2800C9FD04 /* YotiButtonSDK */; };
 		52C415E0268E635E00FD1081 /* YotiButtonSDK.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52C415DF268E635E00FD1081 /* YotiButtonSDK.strings */; };
 		F9AFBE892028669B00F635EC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AFBE882028669B00F635EC /* ProfileViewController.swift */; };
 		F9F5CF09201F5BF30088DCDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5CF08201F5BF30088DCDC /* AppDelegate.swift */; };
@@ -61,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5208A50F26961FD100BAAB9E /* YotiButtonSDK in Frameworks */,
+				52C3B3A426A88B2800C9FD04 /* YotiButtonSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +153,7 @@
 			);
 			name = "sdk-ios-swift";
 			packageProductDependencies = (
-				5208A50E26961FD100BAAB9E /* YotiButtonSDK */,
+				52C3B3A326A88B2800C9FD04 /* YotiButtonSDK */,
 			);
 			productName = "sdk-ios-swift";
 			productReference = F9F5CF05201F5BF30088DCDC /* sdk-ios-swift.app */;
@@ -234,7 +234,7 @@
 			);
 			mainGroup = F9F5CEFC201F5BF30088DCDC;
 			packageReferences = (
-				5208A50D26961FD100BAAB9E /* XCRemoteSwiftPackageReference "sdk-button" */,
+				52C3B3A226A88B2800C9FD04 /* XCRemoteSwiftPackageReference "ios-sdk-button" */,
 			);
 			productRefGroup = F9F5CF06201F5BF30088DCDC /* Products */;
 			projectDirPath = "";
@@ -618,20 +618,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5208A50D26961FD100BAAB9E /* XCRemoteSwiftPackageReference "sdk-button" */ = {
+		52C3B3A226A88B2800C9FD04 /* XCRemoteSwiftPackageReference "ios-sdk-button" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://gitlab.internal.yoti.com/mobile/ios/sdk-button.git";
+			repositoryURL = "https://github.com/getyoti/ios-sdk-button.git";
 			requirement = {
-				branch = swiftpackage;
-				kind = branch;
+				kind = revision;
+				revision = 8976058af0c3dfc67048d31b7ce50e6a809aa4de;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5208A50E26961FD100BAAB9E /* YotiButtonSDK */ = {
+		52C3B3A326A88B2800C9FD04 /* YotiButtonSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5208A50D26961FD100BAAB9E /* XCRemoteSwiftPackageReference "sdk-button" */;
+			package = 52C3B3A226A88B2800C9FD04 /* XCRemoteSwiftPackageReference "ios-sdk-button" */;
 			productName = YotiButtonSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
