@@ -22,6 +22,11 @@ public class YotiSDK: NSObject {
         shared.add(scenario: scenario)
     }
 
+    @objc(startScenarioForUseCaseID:withDelegate:error:)
+    public static func startScenario(for useCaseID: String, with delegate: SDKDelegate) throws {
+        try shared.startScenario(for: useCaseID, theme: Theme.default, with: delegate)
+    }
+
     @objc(startScenarioForUseCaseID:theme:withDelegate:error:)
     public static func startScenario(for useCaseID: String, theme: Theme, with delegate: SDKDelegate) throws {
         try shared.startScenario(for: useCaseID, theme: theme, with: delegate)
@@ -67,7 +72,7 @@ public class YotiSDK: NSObject {
 
         guard let querySchemes = Bundle.main.object(forInfoDictionaryKey: "LSApplicationQueriesSchemes") as? [String],
               !expectedSchemes.isDisjoint(with: querySchemes) else {
-            delegate.yotiSDKDidFail(for: useCaseID, with: SetupError.invalidApplicationQueriesSchemes(nil))
+            delegate.yotiSDKDidFail(for: useCaseID, appStoreURL: nil, with: SetupError.invalidApplicationQueriesSchemes(nil))
             return
         }
 
@@ -75,12 +80,14 @@ public class YotiSDK: NSObject {
         let canOpenURL = expectedURLs.contains{ UIApplication.shared.canOpenURL($0) }
 
         guard canOpenURL else {
-            delegate.yotiSDKDidFail(for: useCaseID, with: SetupError.noIDAppInstalled(theme.appStoreURL))
+            delegate.yotiSDKDidFail(for: useCaseID,
+                                    appStoreURL: theme.appStoreURL,
+                                    with: SetupError.noIDAppInstalled(theme.appStoreURL))
             return
         }
 
         scenario.currentDelegate = delegate
-        kernel.startScenario(scenario, with: delegate)
+        kernel.startScenario(scenario, theme: theme, with: delegate)
     }
 
     // MARK: - UIApplication Delegate
