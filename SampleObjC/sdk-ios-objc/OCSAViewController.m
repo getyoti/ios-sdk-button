@@ -49,8 +49,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    [self.rememberMe setTitle:@"OC RememberMe Scenario" for:UIControlStateNormal];
-    [self.selfieAuth setTitle:@"OC SelfieAuth Scenario" for:UIControlStateNormal];
+    [self.unfulfilled setTitle:@"OC Nonlocalised Button" for: UIControlStateNormal];
 }
 
 -(void) moveToProfile {

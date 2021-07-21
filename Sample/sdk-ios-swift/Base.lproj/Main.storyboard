@@ -24,9 +24,8 @@
                                 <rect key="frame" x="37.5" y="495" width="300" height="44"/>
                                 <accessibility key="accessibilityConfiguration" hint="scenario no selfie"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" placeholder="YES" id="59W-BZ-o9L"/>
+                                    <constraint firstAttribute="height" constant="44" id="59W-BZ-o9L"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="AZ0-yf-XqT"/>
-                                    <constraint firstAttribute="width" secondItem="WwZ-FF-DzN" secondAttribute="height" multiplier="75:11" placeholder="YES" id="FhK-2y-kYS"/>
                                 </constraints>
                                 <state key="normal" title="RememberMeIDphoto"/>
                                 <userDefinedRuntimeAttributes>
@@ -36,7 +35,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBr-MW-r5B" customClass="YotiButton" customModule="YotiButtonSDK">
                                 <rect key="frame" x="37.5" y="559" width="300" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="uBr-MW-r5B" secondAttribute="height" multiplier="75:11" placeholder="YES" id="HZh-dG-PN2"/>
                                     <constraint firstAttribute="height" constant="44" placeholder="YES" id="YD8-ry-uWM"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="sfk-kX-vzL"/>
                                 </constraints>
@@ -119,11 +117,12 @@ LTD</string>
                             <constraint firstItem="uBr-MW-r5B" firstAttribute="top" secondItem="WwZ-FF-DzN" secondAttribute="bottom" constant="20" id="0T2-x6-P1K"/>
                             <constraint firstItem="YHH-sv-wEc" firstAttribute="centerY" secondItem="pRj-ao-PFO" secondAttribute="centerY" id="25y-o3-OIx"/>
                             <constraint firstItem="WwZ-FF-DzN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7df-n7-Me9"/>
+                            <constraint firstItem="uBr-MW-r5B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="9ux-sF-hMG"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uBr-MW-r5B" secondAttribute="trailing" constant="16" id="At6-a3-9R9"/>
                             <constraint firstItem="WwZ-FF-DzN" firstAttribute="top" secondItem="VXl-ym-rWR" secondAttribute="bottom" constant="20" id="CyX-W7-4OJ"/>
                             <constraint firstItem="VXl-ym-rWR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F8e-Hf-VhN"/>
                             <constraint firstItem="YHH-sv-wEc" firstAttribute="leading" secondItem="pRj-ao-PFO" secondAttribute="trailing" constant="16" id="HVb-AE-h2m"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uBr-MW-r5B" secondAttribute="bottom" constant="64" id="bcw-uX-9Of"/>
-                            <constraint firstItem="VXl-ym-rWR" firstAttribute="width" secondItem="VXl-ym-rWR" secondAttribute="height" multiplier="75:11" placeholder="YES" id="cIo-aL-bob"/>
                             <constraint firstItem="uBr-MW-r5B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="e46-yC-xQS"/>
                             <constraint firstItem="pRj-ao-PFO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-64" id="eSV-hj-KJw"/>
                             <constraint firstItem="pRj-ao-PFO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="wYP-Uu-Kyj"/>
@@ -299,6 +298,17 @@ LTD</string>
             <point key="canvasLocation" x="-260" y="139"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="VXl-ym-rWR">
+            <size key="intrinsicContentSize" width="70" height="30"/>
+        </designable>
+        <designable name="WwZ-FF-DzN">
+            <size key="intrinsicContentSize" width="150" height="30"/>
+        </designable>
+        <designable name="uBr-MW-r5B">
+            <size key="intrinsicContentSize" width="138" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

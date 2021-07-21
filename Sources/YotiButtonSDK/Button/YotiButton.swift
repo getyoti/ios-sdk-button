@@ -28,6 +28,7 @@ import UIKit
     @objc public var theme = Theme.default {
         didSet {
             button.apply(theme: theme)
+            button.resetCopy()
             removeConstraints()
             addSupportViewIfNecessary()
             addConstraints()
