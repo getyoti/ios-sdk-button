@@ -11,12 +11,12 @@
 		0D7AA269265688B30070E683 /* SetUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7AA268265688B30070E683 /* SetUpError.swift */; };
 		0DBBCC0A2407CDB300F9226E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBBCC092407CDB300F9226E /* Resource.swift */; };
 		0DCE9D03265BDF8A0009954A /* CallbackBackendError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCE9D02265BDF8A0009954A /* CallbackBackendError.swift */; };
+		14C5C2AC26A709C800ADF4B3 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14C5C2AB26A709C800ADF4B3 /* Roboto-Medium.ttf */; };
 		1C68C5E421242BE400228878 /* YotiSDKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */; };
 		1C68C5E62124364100228878 /* YotiBackendDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C68C5E52124364100228878 /* YotiBackendDelegate.swift */; };
 		527C7145268BA7DC00BAA350 /* Theme+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C7144268BA7DC00BAA350 /* Theme+Localization.swift */; };
 		5281A2C32689F2A200EEA5BB /* YotiTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2C22689F2A200EEA5BB /* YotiTheme.swift */; };
 		5281A2C6268A14DC00EEA5BB /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5281A2C4268A14DC00EEA5BB /* NunitoSans-Bold.ttf */; };
-		5281A2C7268A14DC00EEA5BB /* GT-Eesti-Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5281A2C5268A14DC00EEA5BB /* GT-Eesti-Display-Bold.ttf */; };
 		5281A2C9268A16A200EEA5BB /* Theme+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2C8268A16A200EEA5BB /* Theme+Font.swift */; };
 		5281A2F6268A297D00EEA5BB /* Theme+Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */; };
 		5289579D268F5AAC00B2EA8D /* Theme+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5289579C268F5AAC00B2EA8D /* Theme+URL.swift */; };
@@ -57,12 +57,12 @@
 		0D7AA268265688B30070E683 /* SetUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUpError.swift; sourceTree = "<group>"; };
 		0DBBCC092407CDB300F9226E /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		0DCE9D02265BDF8A0009954A /* CallbackBackendError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallbackBackendError.swift; sourceTree = "<group>"; };
+		14C5C2AB26A709C800ADF4B3 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiSDKDelegate.swift; sourceTree = "<group>"; };
 		1C68C5E52124364100228878 /* YotiBackendDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiBackendDelegate.swift; sourceTree = "<group>"; };
 		527C7144268BA7DC00BAA350 /* Theme+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Localization.swift"; sourceTree = "<group>"; };
 		5281A2C22689F2A200EEA5BB /* YotiTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiTheme.swift; sourceTree = "<group>"; };
 		5281A2C4268A14DC00EEA5BB /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
-		5281A2C5268A14DC00EEA5BB /* GT-Eesti-Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GT-Eesti-Display-Bold.ttf"; sourceTree = "<group>"; };
 		5281A2C8268A16A200EEA5BB /* Theme+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Font.swift"; sourceTree = "<group>"; };
 		5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Logo.swift"; sourceTree = "<group>"; };
 		52895764268F27E000B2EA8D /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
@@ -245,10 +245,10 @@
 		B43B0E3D1F2206B600CD5E4E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5281A2C5268A14DC00EEA5BB /* GT-Eesti-Display-Bold.ttf */,
-				5281A2C4268A14DC00EEA5BB /* NunitoSans-Bold.ttf */,
-				B4D1ED051F221F27002C01DE /* YotiButtonSDKAssets.xcassets */,
 				0DBBCC092407CDB300F9226E /* Resource.swift */,
+				5281A2C4268A14DC00EEA5BB /* NunitoSans-Bold.ttf */,
+				14C5C2AB26A709C800ADF4B3 /* Roboto-Medium.ttf */,
+				B4D1ED051F221F27002C01DE /* YotiButtonSDKAssets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -374,9 +374,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5281A2C7268A14DC00EEA5BB /* GT-Eesti-Display-Bold.ttf in Resources */,
 				5281A2C6268A14DC00EEA5BB /* NunitoSans-Bold.ttf in Resources */,
 				B4D1ED061F221F27002C01DE /* YotiButtonSDKAssets.xcassets in Resources */,
+				14C5C2AC26A709C800ADF4B3 /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

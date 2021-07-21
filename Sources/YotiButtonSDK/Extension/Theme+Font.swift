@@ -13,8 +13,8 @@ extension Theme {
     }
 
     static func yotiFont(ofSize fontSize: CGFloat = 15) -> UIFont {
-        UIFont.register(font: "GT-Eesti-Display-Bold", type: "ttf")
-        return UIFont(name: "GTEestiDisplay-Bold", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
+        UIFont.register(font: "Roboto-Medium", type: "ttf")
+        return UIFont(name: "Roboto-Medium", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
     }
 
     static func easyIDFont(ofSize fontSize: CGFloat = 15) -> UIFont {

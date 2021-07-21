@@ -5,6 +5,7 @@
 import UIKit
 
 class SupportView: UIView {
+    static let height: CGFloat = 28
     private var supportText = UILabel(frame: CGRect.zero)
     private var supportImage = UIImageView(image: Resource.loadImage(named: "support_image"))
     private var stackView: UIStackView!

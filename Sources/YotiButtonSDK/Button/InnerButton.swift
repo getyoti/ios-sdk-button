@@ -36,7 +36,7 @@ class InnerButton: UIButton {
     }()
 
     convenience init() {
-        self.init(frame: CGRect(x: 0, y: 0, width: 300, height: 44))
+        self.init(frame: YotiButton.defaultFrame)
     }
 
     override init(frame: CGRect) {
@@ -54,7 +54,7 @@ class InnerButton: UIButton {
     }
 
     override func layoutSubviews() {
-        setupSubviews()
+        setUpSubviews()
         apply(theme: currentTheme)
     }
 
@@ -88,7 +88,7 @@ private extension InnerButton {
         addSubview(messageLabel)
     }
 
-    func setupSubviews() {
+    func setUpSubviews() {
         layer.cornerRadius = 8
         layer.borderWidth = 2.0
         layoutMargins = InnerButton.margins

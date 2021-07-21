@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable public class YotiButton: UIView {
     public typealias TouchedUpInside = (YotiButton) -> Void
 
-    private static let defaultFrame = CGRect(x: 0, y: 0, width: 300, height: 44)
+    public static let defaultFrame = CGRect(x: 0, y: 0, width: 300, height: 44)
     private var button = InnerButton(frame: YotiButton.defaultFrame)
     private var heightConstraint: NSLayoutConstraint?
     private var buttonConstraints: [NSLayoutConstraint] = []
@@ -96,7 +96,7 @@ private extension YotiButton {
     func addConstraints() {
         switch theme {
             case .partnership:
-                heightConstraint = heightAnchor.constraint(greaterThanOrEqualToConstant: YotiButton.defaultFrame.height + 28)
+                heightConstraint = heightAnchor.constraint(equalToConstant: YotiButton.defaultFrame.height + SupportView.height)
             default:
                 heightConstraint = heightAnchor.constraint(greaterThanOrEqualToConstant: YotiButton.defaultFrame.height)
 
@@ -107,12 +107,13 @@ private extension YotiButton {
     }
 
     func constrainButtonToEdges() {
-        buttonConstraints = [button.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-                             button.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
-                             button.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
-                             button.heightAnchor.constraint(greaterThanOrEqualToConstant: YotiButton.defaultFrame.height),]
+        buttonConstraints = [button.topAnchor.constraint(equalTo: topAnchor),
+                             button.leftAnchor.constraint(equalTo: leftAnchor),
+                             button.rightAnchor.constraint(equalTo: rightAnchor),
+                             button.heightAnchor.constraint(greaterThanOrEqualToConstant: YotiButton.defaultFrame.height),
+        ]
         if theme != .partnership {
-            buttonConstraints += [button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)]
+            buttonConstraints += [button.bottomAnchor.constraint(equalTo: bottomAnchor)]
         }
         NSLayoutConstraint.activate(buttonConstraints)
 
@@ -120,10 +121,11 @@ private extension YotiButton {
 
     func constrainSupportView() {
         guard supportView.superview != nil else { return }
-        supportConstraints = [supportView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
-                              supportView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
+        supportConstraints = [supportView.leftAnchor.constraint(equalTo: leftAnchor),
+                              supportView.rightAnchor.constraint(equalTo: rightAnchor),
                               supportView.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 8),
-                              supportView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),]
+                              supportView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ]
         NSLayoutConstraint.activate(supportConstraints)
     }
 }
