@@ -24,7 +24,12 @@ public class YotiSDK: NSObject {
 
     @objc(startScenarioForUseCaseID:withDelegate:error:)
     public static func startScenario(for useCaseID: String, with delegate: SDKDelegate) throws {
-        try shared.startScenario(for: useCaseID, with: delegate)
+        try shared.startScenario(for: useCaseID, theme: Theme.default, with: delegate)
+    }
+
+    @objc(startScenarioForUseCaseID:theme:withDelegate:error:)
+    public static func startScenario(for useCaseID: String, theme: Theme, with delegate: SDKDelegate) throws {
+        try shared.startScenario(for: useCaseID, theme: theme, with: delegate)
     }
 
     @objc(callbackBackendScenario:token:withDelegate:)
@@ -50,8 +55,7 @@ public class YotiSDK: NSObject {
         return scenarios[useCaseID]
     }
 
-    func startScenario(for useCaseID: String, with delegate: SDKDelegate) throws {
-
+    func startScenario(for useCaseID: String, theme: Theme, with delegate: SDKDelegate) throws {
         guard let scenario = scenario(for: useCaseID) else {
             throw ShareRequestError.startScenarioError("No ScenarioID associated with this useCaseID")
         }
@@ -60,9 +64,30 @@ public class YotiSDK: NSObject {
             throw ShareRequestError.generic("Invalid value on UseCaseID, ClientSDKID, ScenarioID")
         }
 
-        scenario.currentDelegate = delegate
+        let expectedSchemes: Set<String>
+        switch theme {
+            case .easyID: expectedSchemes = ["easyid"]
+            default: expectedSchemes = ["easyid", "yoti"]
+        }
 
-        kernel.startScenario(for: useCaseID, with: delegate)
+        guard let querySchemes = Bundle.main.object(forInfoDictionaryKey: "LSApplicationQueriesSchemes") as? [String],
+              !expectedSchemes.isDisjoint(with: querySchemes) else {
+            delegate.yotiSDKDidFail(for: useCaseID, appStoreURL: nil, with: SetupError.invalidApplicationQueriesSchemes(nil))
+            return
+        }
+
+        let expectedURLs = expectedSchemes.compactMap{ URL(string:"\($0)://send?text=Hello%2C%20World!") }
+        let canOpenURL = expectedURLs.contains{ UIApplication.shared.canOpenURL($0) }
+
+        guard canOpenURL else {
+            delegate.yotiSDKDidFail(for: useCaseID,
+                                    appStoreURL: theme.appStoreURL,
+                                    with: SetupError.noIDAppInstalled(theme.appStoreURL))
+            return
+        }
+
+        scenario.currentDelegate = delegate
+        kernel.startScenario(scenario, theme: theme, with: delegate)
     }
 
     // MARK: - UIApplication Delegate

@@ -6,9 +6,8 @@ import Foundation
 
 @objc(YTBScenarioRetrievalDelegate)
 public protocol ScenarioRetrievalDelegate {
-    func yotiSDKDidFail(`for` useCaseID: String, with error: Error)
+    func yotiSDKDidFail(`for` useCaseID: String, appStoreURL: URL?, with error: Error)
     func yotiSDKDidSucceed(`for` useCaseID: String, baseURL: URL?, token: String?, url: URL?)
-
 }
 
 @objc(YTBAppLaunchDelegate)

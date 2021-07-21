@@ -27,3 +27,13 @@ extension Theme {
         case partnership = "yoti.sdk.partnership.button.label"
     }
 }
+
+extension Theme {
+    static var `default`: Theme {
+        if Locale.current.regionCode == "GB" {
+            return .partnership
+        } else {
+            return .yoti
+        }
+    }
+}

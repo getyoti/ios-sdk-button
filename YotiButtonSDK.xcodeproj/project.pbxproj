@@ -19,6 +19,7 @@
 		5281A2C6268A14DC00EEA5BB /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5281A2C4268A14DC00EEA5BB /* NunitoSans-Bold.ttf */; };
 		5281A2C9268A16A200EEA5BB /* Theme+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2C8268A16A200EEA5BB /* Theme+Font.swift */; };
 		5281A2F6268A297D00EEA5BB /* Theme+Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */; };
+		5289579D268F5AAC00B2EA8D /* Theme+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5289579C268F5AAC00B2EA8D /* Theme+URL.swift */; };
 		52C4159F268E2ED500FD1081 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4159E268E2ED500FD1081 /* SupportView.swift */; };
 		52C415A2268E460100FD1081 /* InnerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C415A1268E460100FD1081 /* InnerButton.swift */; };
 		52C415DE268E610100FD1081 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C415DD268E610100FD1081 /* String+Localization.swift */; };
@@ -65,6 +66,7 @@
 		5281A2C8268A16A200EEA5BB /* Theme+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Font.swift"; sourceTree = "<group>"; };
 		5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Logo.swift"; sourceTree = "<group>"; };
 		52895764268F27E000B2EA8D /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
+		5289579C268F5AAC00B2EA8D /* Theme+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+URL.swift"; sourceTree = "<group>"; };
 		52C4159E268E2ED500FD1081 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
 		52C415A1268E460100FD1081 /* InnerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerButton.swift; sourceTree = "<group>"; };
 		52C415DD268E610100FD1081 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				5281A2C8268A16A200EEA5BB /* Theme+Font.swift */,
 				527C7144268BA7DC00BAA350 /* Theme+Localization.swift */,
 				5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */,
+				5289579C268F5AAC00B2EA8D /* Theme+URL.swift */,
 				B42E94321F22AD6400159300 /* UIFontExtension.swift */,
 			);
 			path = Extension;
@@ -386,6 +389,7 @@
 				B43B0E491F2206B600CD5E4E /* Scenario.swift in Sources */,
 				B43B0E771F220D2D00CD5E4E /* Theme+Color.swift in Sources */,
 				5281A2C32689F2A200EEA5BB /* YotiTheme.swift in Sources */,
+				5289579D268F5AAC00B2EA8D /* Theme+URL.swift in Sources */,
 				5281A2C9268A16A200EEA5BB /* Theme+Font.swift in Sources */,
 				52C415DE268E610100FD1081 /* String+Localization.swift in Sources */,
 				B43B0E431F2206B600CD5E4E /* KernelSDK.swift in Sources */,
