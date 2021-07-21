@@ -2,4 +2,5 @@
  Copyright © 2021 Yoti Ltd. All rights reserved.
 */
 
-"yoti.sdk.easyid.button.label" = "Localised Button";
+"yoti.sdk.yoti.button.label" = "RememberMe Scenario";
+"yoti.sdk.partnership.button.label" = "SelfieAuth Scenario";

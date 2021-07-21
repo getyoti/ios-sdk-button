@@ -40,8 +40,8 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        rememberMeButton.setTitle("RememberMe Scenario", for: .normal)
-        selfieAuthButton.setTitle("SelfieAuth Scenario", for: .normal)
+        let controlStates: [UIControl.State] = [.normal, .highlighted, .selected]
+        controlStates.forEach{ unfulfilledButton.setTitle("Nonlocalised Button", for: $0) }
     }
 
     func moveToProfile() {
