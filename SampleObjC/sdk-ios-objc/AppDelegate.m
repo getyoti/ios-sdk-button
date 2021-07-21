@@ -67,5 +67,4 @@
     return [YotiSDK application:application open:url options:options];
 }
 
-
 @end
