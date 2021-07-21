@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         rememberMeButton.theme = .yoti
         unfulfilledButton.theme = .easyID
 
-        let action: YotiButton.TouchedUpInside = { [weak self] (button)  in
+        let action: YotiButton.TouchedUpInside = { [weak self] button in
             self?.yotiButtonDidTouchUpInside(button)
         }
 
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: SDKDelegate {
-    func yotiSDKDidFail(for useCaseID: String, with error: Error) {
+    func yotiSDKDidFail(for useCaseID: String, appStoreURL: URL?, with error: Error) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         print(error)
     }

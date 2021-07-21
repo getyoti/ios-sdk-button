@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "YotiButtonSDK",
+        "repositoryURL": "https://gitlab.internal.yoti.com/mobile/ios/sdk-button.git",
+        "state": {
+          "branch": "swiftpackage",
+          "revision": "44351b452d89b470284c62a0ff862684d70d255d",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

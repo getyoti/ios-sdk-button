@@ -39,7 +39,7 @@
       </MacroExpansion>
       <TestPlans>
          <TestPlanReference
-            reference = "container:YotiButtonSDKTests/UnitTestPlan.xctestplan"
+            reference = "container:Tests/YotiButtonSDKTests/UnitTestPlan.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>

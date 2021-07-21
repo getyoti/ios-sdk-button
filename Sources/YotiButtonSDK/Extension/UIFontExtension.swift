@@ -7,8 +7,7 @@ import UIKit
 
 extension UIFont {
     static func register(font: String, type: String?) {
-        let bundle = Bundle(for: YotiSDK.self)
-        guard let path = bundle.url(forResource: font, withExtension: type),
+        guard let path = Resource.module.url(forResource: font, withExtension: type),
               let data = try? Data(contentsOf: path),
               let provider = CGDataProvider(data: data as CFData)
         else {
