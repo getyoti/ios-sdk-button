@@ -108,7 +108,7 @@ You can simply instantiate the button providing a frame and assigning a `useCase
 
 import YotiButtonSDK
 
-let button = YotiButton(frame: CGRect(x: 0, y: 0, width: 300, height: 44))
+let button = YotiButton(frame: YotiButton.defaultFrame)
 button.useCaseID = "YOUR_USE_CASE_ID"
 ```
 If you integrated using Cocoapods please use the following:
