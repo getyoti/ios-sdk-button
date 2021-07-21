@@ -51,10 +51,12 @@ class InnerButton: UIButton {
 
     func setUpView() {
         addSubviews()
+        setUpSubviews()
+        apply(theme: currentTheme)
+        resetCopy()
     }
 
     override func layoutSubviews() {
-        setUpSubviews()
         apply(theme: currentTheme)
     }
 
@@ -77,8 +79,11 @@ class InnerButton: UIButton {
         layer.borderColor = theme.colors(for: state).border.cgColor
         messageLabel.textColor = theme.colors(for: state).foreground
         messageLabel.font = theme.font
-        messageLabel.text = theme.stockCopyKey.stringValue.localization(stockValue: theme.stockCopyValue)
         brandLogoView.image = theme.logo
+    }
+
+    func resetCopy() {
+        messageLabel.text = currentTheme.stockCopyKey.stringValue.localization(stockValue: currentTheme.stockCopyValue)
     }
 }
 
