@@ -16,7 +16,7 @@ final class KernelSDK: NSObject {
     /**
      * Perform a call to the Yoti API to retrieve the scenario and start the Yoti App
      */
-    func startScenario(_ scenario: Scenario, with delegate: SDKDelegate) {
+    func startScenario(_ scenario: Scenario, theme: Theme, with delegate: SDKDelegate) {
 
         NotificationCenter.default.post(name: YotiSDK.willMakeNetworkRequest, object: nil)
 
@@ -26,7 +26,7 @@ final class KernelSDK: NSObject {
 
             guard let qrCodeURL = qrCodeURL,
                   error == nil else {
-                delegate.yotiSDKDidFail(for: scenario.useCaseID, with: error!)
+                delegate.yotiSDKDidFail(for: scenario.useCaseID, appStoreURL: nil, with: error!)
                 print("Error while retrieving the scenario from the Yoti API, please check your clientSDKID and scenarioID.")
                 return
             }
@@ -36,7 +36,7 @@ final class KernelSDK: NSObject {
                   let sourceSchemes = urlType["CFBundleURLSchemes"] as? [String],
                   !sourceSchemes.isEmpty
             else {
-                delegate.yotiSDKDidFail(for: scenario.useCaseID, with: SetupError.invalidBundleURLSchemes)
+                delegate.yotiSDKDidFail(for: scenario.useCaseID, appStoreURL: nil, with: SetupError.invalidBundleURLSchemes)
                 print("CFBundleURLSchemes is undefined this app.")
                 return
             }
@@ -44,11 +44,12 @@ final class KernelSDK: NSObject {
             scenario.qrCodeURL = qrCodeURL
 
             var urlComponents = URLComponents(url: qrCodeURL, resolvingAgainstBaseURL: false)
+            urlComponents?.scheme = theme.scheme
             urlComponents?.queryItems = [URLQueryItem(name: "useCaseID", value: scenario.useCaseID),
                                          URLQueryItem(name: "sourceScheme", value: sourceSchemes.first)]
 
             guard let url = urlComponents?.url else {
-                delegate.yotiSDKDidFail(for: scenario.useCaseID, with: ShareRequestError.startScenarioError("Malformed value received"))
+                delegate.yotiSDKDidFail(for: scenario.useCaseID, appStoreURL: nil, with: ShareRequestError.startScenarioError("Malformed value received"))
                 return
             }
 
@@ -56,6 +57,7 @@ final class KernelSDK: NSObject {
                 guard isSuccessful else {
                     let error: ShareRequestError = .startScenarioError("Yoti application could not be opened")
                     delegate.yotiSDKDidFail(for: scenario.useCaseID,
+                                            appStoreURL: nil,
                                             with: error)
                     return
                 }
