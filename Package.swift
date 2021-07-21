@@ -19,7 +19,7 @@ let package = Package(
             name: "YotiButtonSDK",
             dependencies: [],
             exclude: ["Info.plist"],
-            resources: [.process("Resources/GT-Eesti-Display-Bold.ttf"),
+            resources: [.process("Resources/Roboto-Medium.ttf"),
                         .process("Resources/NunitoSans-Bold.ttf")]),
         .testTarget(
             name: "YotiButtonSDKTests",
