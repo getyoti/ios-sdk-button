@@ -397,7 +397,7 @@ The Web SDK will handle the user storage. When you retrieve the user profile, yo
 
 
 ## Support 
-For any questions or support please email sdksupport@yoti.com. Please provide the following to get you up and working as quickly as possible:
+For any questions or support please email clientsupport@yoti.com. Please provide the following to get you up and working as quickly as possible:
 - Software version on phone
 - Language of Web SDK 
 - Screenshot of error
