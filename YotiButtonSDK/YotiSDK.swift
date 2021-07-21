@@ -72,13 +72,7 @@ public class YotiSDK: NSObject {
         }
 
         let expectedURLs = expectedSchemes.compactMap{ URL(string:"\($0)://send?text=Hello%2C%20World!") }
-        var canOpenURL = false
-        for url in expectedURLs {
-            if UIApplication.shared.canOpenURL(url) {
-                canOpenURL = true
-                break
-            }
-        }
+        let canOpenURL = expectedURLs.contains{ UIApplication.shared.canOpenURL($0) }
 
         guard canOpenURL else {
             delegate.yotiSDKDidFail(for: useCaseID, with: SetupError.noIDAppInstalled(theme.appStoreURL))
