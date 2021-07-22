@@ -98,10 +98,22 @@ class ViewController: UIViewController {
     }
 }
 
+private extension ViewController {
+    func handleSetupError(_ error: SetupError) {
+        switch error as SetupError {
+            case .noIDAppInstalled(let url): UIApplication.shared.open(url, options: [:])
+            default: break
+        }
+    }
+}
+
 extension ViewController: SDKDelegate {
     func yotiSDKDidFail(for useCaseID: String, appStoreURL: URL?, with error: Error) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         print(error)
+        if let setupError = error as? SetupError {
+            handleSetupError(setupError)
+        }
     }
 
     func yotiSDKDidSucceed(for useCaseID: String, baseURL: URL?, token: String?, url: URL?) {
