@@ -13,7 +13,7 @@ jobs:
           destination: ['platform=iOS Simulator,OS=14.5,name=iPhone X']
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - name: Build and Test
+      run: xcodebuild -scheme YotiButtonSDK test -sdk iphonesimulator
+    env: 
+      destination: ${{ matrix.destination }}
