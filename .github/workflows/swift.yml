@@ -10,8 +10,8 @@ jobs:
     runs-on: macos-latest
     strategy:
         matrix:
-          destination: ['platform=iOS Simulator,OS=14.4,name=iPhone X']
+          destination: ['platform=iOS Simulator,OS=14.4,name=iPhone 12']
     steps:
     - uses: actions/checkout@v2
     - name: Build and Test
-      run: xcodebuild -scheme YotiButtonSDK test -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.4,name=iPhone X'
+      run: xcodebuild -scheme YotiButtonSDK test -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 12'
