@@ -20,13 +20,13 @@
 		5281A2C9268A16A200EEA5BB /* Theme+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2C8268A16A200EEA5BB /* Theme+Font.swift */; };
 		5281A2F6268A297D00EEA5BB /* Theme+Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */; };
 		5289579D268F5AAC00B2EA8D /* Theme+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5289579C268F5AAC00B2EA8D /* Theme+URL.swift */; };
+		52BA15BB26AF062B00EE445F /* Theme+URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA15BA26AF062A00EE445F /* Theme+URLTests.swift */; };
 		52C4159F268E2ED500FD1081 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4159E268E2ED500FD1081 /* SupportView.swift */; };
 		52C415A2268E460100FD1081 /* InnerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C415A1268E460100FD1081 /* InnerButton.swift */; };
 		52C415DE268E610100FD1081 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C415DD268E610100FD1081 /* String+Localization.swift */; };
 		B42E94331F22AD6400159300 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E94321F22AD6400159300 /* UIFontExtension.swift */; };
 		B42E94841F2368D000159300 /* CallbackBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42E94831F2368D000159300 /* CallbackBackendService.swift */; };
 		B43B0E1A1F22063800CD5E4E /* YotiButtonSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B43B0E101F22063800CD5E4E /* YotiButtonSDK.framework */; };
-		B43B0E1F1F22063800CD5E4E /* YotiButtonSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E1E1F22063800CD5E4E /* YotiButtonSDKTests.swift */; };
 		B43B0E211F22063800CD5E4E /* YotiButtonSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = B43B0E131F22063800CD5E4E /* YotiButtonSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B43B0E421F2206B600CD5E4E /* EnvironmentConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E2E1F2206B600CD5E4E /* EnvironmentConfiguration.swift */; };
 		B43B0E431F2206B600CD5E4E /* KernelSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43B0E2F1F2206B600CD5E4E /* KernelSDK.swift */; };
@@ -67,6 +67,7 @@
 		5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Logo.swift"; sourceTree = "<group>"; };
 		52895764268F27E000B2EA8D /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
 		5289579C268F5AAC00B2EA8D /* Theme+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+URL.swift"; sourceTree = "<group>"; };
+		52BA15BA26AF062A00EE445F /* Theme+URLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Theme+URLTests.swift"; sourceTree = "<group>"; };
 		52C4159E268E2ED500FD1081 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
 		52C415A1268E460100FD1081 /* InnerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerButton.swift; sourceTree = "<group>"; };
 		52C415DD268E610100FD1081 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		B43B0E131F22063800CD5E4E /* YotiButtonSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YotiButtonSDK.h; sourceTree = "<group>"; };
 		B43B0E141F22063800CD5E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B43B0E191F22063800CD5E4E /* YotiButtonSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YotiButtonSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B43B0E1E1F22063800CD5E4E /* YotiButtonSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiButtonSDKTests.swift; sourceTree = "<group>"; };
 		B43B0E201F22063800CD5E4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B43B0E2E1F2206B600CD5E4E /* EnvironmentConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentConfiguration.swift; sourceTree = "<group>"; };
 		B43B0E2F1F2206B600CD5E4E /* KernelSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KernelSDK.swift; sourceTree = "<group>"; };
@@ -189,9 +189,9 @@
 		B43B0E1D1F22063800CD5E4E /* YotiButtonSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				52895764268F27E000B2EA8D /* UnitTestPlan.xctestplan */,
-				B43B0E1E1F22063800CD5E4E /* YotiButtonSDKTests.swift */,
 				B43B0E201F22063800CD5E4E /* Info.plist */,
+				52BA15BA26AF062A00EE445F /* Theme+URLTests.swift */,
+				52895764268F27E000B2EA8D /* UnitTestPlan.xctestplan */,
 			);
 			path = YotiButtonSDKTests;
 			sourceTree = "<group>";
@@ -346,6 +346,7 @@
 					B43B0E181F22063800CD5E4E = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 6VUTP72GG4;
+						LastSwiftMigration = 1250;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -425,7 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B43B0E1F1F22063800CD5E4E /* YotiButtonSDKTests.swift in Sources */,
+				52BA15BB26AF062B00EE445F /* Theme+URLTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,11 +527,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6VUTP72GG4;
 				INFOPLIST_FILE = Tests/YotiButtonSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoti.mobile.ios.sdk.YotiButtonSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -616,11 +619,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6VUTP72GG4;
 				INFOPLIST_FILE = Tests/YotiButtonSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoti.mobile.ios.sdk.YotiButtonSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Production;
 		};
