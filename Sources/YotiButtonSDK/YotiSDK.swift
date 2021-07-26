@@ -13,8 +13,7 @@ public class YotiSDK: NSObject {
     @objc public static let willMakeNetworkRequest = Notification.Name("com.yoti.willMakeNetworkRequest")
 
     var kernel = KernelSDK.shared
-
-    private var scenarios = [String: Scenario]()
+    var scenarios = [String: Scenario]()
 
     // MARK: - Static Functions
     @objc(addScenario:)

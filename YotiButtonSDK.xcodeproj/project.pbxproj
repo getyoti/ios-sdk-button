@@ -21,6 +21,11 @@
 		5281A2F6268A297D00EEA5BB /* Theme+Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5281A2F5268A297D00EEA5BB /* Theme+Logo.swift */; };
 		5289579D268F5AAC00B2EA8D /* Theme+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5289579C268F5AAC00B2EA8D /* Theme+URL.swift */; };
 		52BA15BB26AF062B00EE445F /* Theme+URLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA15BA26AF062A00EE445F /* Theme+URLTests.swift */; };
+		52BA15DB26AF590F00EE445F /* Theme+LocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA15DA26AF590F00EE445F /* Theme+LocalizationTests.swift */; };
+		52BA15DD26AF5C5A00EE445F /* YotiSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA15DC26AF5C5A00EE445F /* YotiSDKTests.swift */; };
+		52BA15DF26AF647700EE445F /* SetupErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA15DE26AF647700EE445F /* SetupErrorTests.swift */; };
+		52BA15E226AF66B200EE445F /* CallbackBackendErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA15E126AF66B200EE445F /* CallbackBackendErrorTests.swift */; };
+		52BA15E426AF67F800EE445F /* ShareRequestErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52BA15E326AF67F800EE445F /* ShareRequestErrorTests.swift */; };
 		52C4159F268E2ED500FD1081 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4159E268E2ED500FD1081 /* SupportView.swift */; };
 		52C415A2268E460100FD1081 /* InnerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C415A1268E460100FD1081 /* InnerButton.swift */; };
 		52C415DE268E610100FD1081 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C415DD268E610100FD1081 /* String+Localization.swift */; };
@@ -68,6 +73,11 @@
 		52895764268F27E000B2EA8D /* UnitTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTestPlan.xctestplan; sourceTree = "<group>"; };
 		5289579C268F5AAC00B2EA8D /* Theme+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+URL.swift"; sourceTree = "<group>"; };
 		52BA15BA26AF062A00EE445F /* Theme+URLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Theme+URLTests.swift"; sourceTree = "<group>"; };
+		52BA15DA26AF590F00EE445F /* Theme+LocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+LocalizationTests.swift"; sourceTree = "<group>"; };
+		52BA15DC26AF5C5A00EE445F /* YotiSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YotiSDKTests.swift; sourceTree = "<group>"; };
+		52BA15DE26AF647700EE445F /* SetupErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupErrorTests.swift; sourceTree = "<group>"; };
+		52BA15E126AF66B200EE445F /* CallbackBackendErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallbackBackendErrorTests.swift; sourceTree = "<group>"; };
+		52BA15E326AF67F800EE445F /* ShareRequestErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareRequestErrorTests.swift; sourceTree = "<group>"; };
 		52C4159E268E2ED500FD1081 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
 		52C415A1268E460100FD1081 /* InnerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerButton.swift; sourceTree = "<group>"; };
 		52C415DD268E610100FD1081 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
@@ -138,6 +148,25 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		52BA15E026AF669700EE445F /* PublicErrors */ = {
+			isa = PBXGroup;
+			children = (
+				52BA15E126AF66B200EE445F /* CallbackBackendErrorTests.swift */,
+				52BA15DE26AF647700EE445F /* SetupErrorTests.swift */,
+				52BA15E326AF67F800EE445F /* ShareRequestErrorTests.swift */,
+			);
+			path = PublicErrors;
+			sourceTree = "<group>";
+		};
+		52BA15E626AF693000EE445F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				52BA15DA26AF590F00EE445F /* Theme+LocalizationTests.swift */,
+				52BA15BA26AF062A00EE445F /* Theme+URLTests.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		52C415A0268E45EC00FD1081 /* Button */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,7 +206,7 @@
 				1C68C5E321242BE400228878 /* YotiSDKDelegate.swift */,
 				5281A2C22689F2A200EEA5BB /* YotiTheme.swift */,
 				52C415A0268E45EC00FD1081 /* Button */,
-				B43B0E751F220D1F00CD5E4E /* Extension */,
+				B43B0E751F220D1F00CD5E4E /* Extensions */,
 				B43B0E2D1F2206B600CD5E4E /* Kernel */,
 				B43B0E331F2206B600CD5E4E /* Model */,
 				B43B0E361F2206B600CD5E4E /* PublicErrors */,
@@ -190,8 +219,10 @@
 			isa = PBXGroup;
 			children = (
 				B43B0E201F22063800CD5E4E /* Info.plist */,
-				52BA15BA26AF062A00EE445F /* Theme+URLTests.swift */,
+				52BA15DC26AF5C5A00EE445F /* YotiSDKTests.swift */,
 				52895764268F27E000B2EA8D /* UnitTestPlan.xctestplan */,
+				52BA15E626AF693000EE445F /* Extensions */,
+				52BA15E026AF669700EE445F /* PublicErrors */,
 			);
 			path = YotiButtonSDKTests;
 			sourceTree = "<group>";
@@ -226,9 +257,9 @@
 		B43B0E361F2206B600CD5E4E /* PublicErrors */ = {
 			isa = PBXGroup;
 			children = (
+				0DCE9D02265BDF8A0009954A /* CallbackBackendError.swift */,
 				0D7AA268265688B30070E683 /* SetUpError.swift */,
 				0D07DC102657D14100786C68 /* ShareRequestError.swift */,
-				0DCE9D02265BDF8A0009954A /* CallbackBackendError.swift */,
 			);
 			path = PublicErrors;
 			sourceTree = "<group>";
@@ -263,7 +294,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B43B0E751F220D1F00CD5E4E /* Extension */ = {
+		B43B0E751F220D1F00CD5E4E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				52C415DD268E610100FD1081 /* String+Localization.swift */,
@@ -274,7 +305,7 @@
 				5289579C268F5AAC00B2EA8D /* Theme+URL.swift */,
 				B42E94321F22AD6400159300 /* UIFontExtension.swift */,
 			);
-			path = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +457,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52BA15E426AF67F800EE445F /* ShareRequestErrorTests.swift in Sources */,
+				52BA15DD26AF5C5A00EE445F /* YotiSDKTests.swift in Sources */,
+				52BA15DB26AF590F00EE445F /* Theme+LocalizationTests.swift in Sources */,
+				52BA15DF26AF647700EE445F /* SetupErrorTests.swift in Sources */,
+				52BA15E226AF66B200EE445F /* CallbackBackendErrorTests.swift in Sources */,
 				52BA15BB26AF062B00EE445F /* Theme+URLTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
