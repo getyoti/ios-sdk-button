@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let controlStates: [UIControl.State] = [.normal, .highlighted, .selected]
-        controlStates.forEach{ unfulfilledButton.setTitle("Nonlocalised Button", for: $0) }
+        controlStates.forEach { unfulfilledButton.setTitle("Nonlocalised Button", for: $0) }
     }
 
     func moveToProfile() {
@@ -136,7 +136,7 @@ extension ViewController: BackendDelegate {
             responseObject = decodedJson
             moveToProfile()
         } catch let error {
-            print (error)
+            print(error)
         }
     }
 }

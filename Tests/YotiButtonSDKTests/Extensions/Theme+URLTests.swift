@@ -5,7 +5,7 @@
 import XCTest
 @testable import YotiButtonSDK
 
-final class Theme_URLTests: XCTestCase  {
+final class Theme_URLTests: XCTestCase {
     func testGivenYotiTheme_whenSchemeCalled_thenHttpsSchemeIsMapped() {
         XCTAssertEqual(Theme.yoti.scheme, "https")
     }
