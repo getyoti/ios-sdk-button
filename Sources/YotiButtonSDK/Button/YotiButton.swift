@@ -27,6 +27,9 @@ import UIKit
     /// The theme may be used to target a specific app or and may insert a supplementary view underneath it.
     @objc public var theme = Theme.default {
         didSet {
+            if Locale.current.regionCode == "GB" && theme == .yoti {
+                theme = .yotiUK
+            }
             button.apply(theme: theme)
             button.resetCopy()
             removeConstraints()
