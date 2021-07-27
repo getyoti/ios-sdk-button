@@ -39,6 +39,7 @@ private extension SupportView {
         stackView.alignment = .center
         stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
+        stackView.spacing = 8.0
         stackView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
         stackView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0).isActive = true
