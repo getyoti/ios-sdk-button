@@ -615,7 +615,7 @@
 			repositoryURL = "https://github.com/getyoti/ios-sdk-button.git";
 			requirement = {
 				kind = revision;
-				revision = 8976058af0c3dfc67048d31b7ce50e6a809aa4de;
+				revision = 506ada7fa0680efa9813e015dfe9f8874250a2a6;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
