@@ -17,7 +17,7 @@ For localisation include a `.strings` file named `YotiButtonSDK` in your applica
 "yoti.sdk.partnership.button.label"
 "yoti.sdk.support_info.text" (partnership theme)
 
-You can alternativly continue to call `func setTitle(_ title: String?, for state: UIControl.State)` after `viewDidAppear`.
+You can alternatively continue to call `func setTitle(_ title: String?, for state: UIControl.State)` after `viewDidAppear`.
 
 Update your app's `Info.plist` to include `easyid` in the `LSApplicationQueriesSchemes`.
 
