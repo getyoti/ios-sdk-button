@@ -23,7 +23,7 @@ extension SetupError: LocalizedError {
                     return "Cannot launch Yoti app. Check LSApplicationQueriesSchemes"
                 }
             case .noIDAppInstalled(let url):
-                return "An ID app has not been installed, it can be downloaded here: \(url)"
+                return "A Digital ID app has not been installed, it can be downloaded here: \(url)"
         }
     }
 }
