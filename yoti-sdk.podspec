@@ -92,7 +92,7 @@ This repo contains the tools and step by step instructions so that your users ca
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "YotiButtonSDK/*.swift", "YotiButtonSDK/*/*.swift", "YotiButtonSDK/*/*/*.swift"
+  s.source_files  = "Sources/YotiButtonSDK/*.swift", "Sources/YotiButtonSDK/*/*.swift", "Sources/YotiButtonSDK/*/*/*.swift"
   s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -109,7 +109,7 @@ This repo contains the tools and step by step instructions so that your users ca
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
   s.resource_bundles = {
-    'YotiButtonResourcesSDK' => ['YotiButtonSDK/Resources/*.{xcassets}'] }
+    'YotiButtonResourcesSDK' => ['Sources/YotiButtonSDK/Resources/*.{xcassets}'] }
   
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
