@@ -1,68 +1,81 @@
+[![SPM compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Cocoapods compatible](https://img.shields.io/badge/Cocoapods-compatible-4BC51D.svg?style=flat)](http://cocoapods.org/pods/yoti-sdk) 
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg?style=flat)](https://developer.apple.com/documentation)
-
+![master branch](https://github.com/getyoti/ios-sdk-button/actions/workflows/swift.yml/badge.svg?branch=master)
 # ios-sdk-button
 
-The mobile SDK purpose is to provide 3rd party applications the ability to request attributes from a Yoti user while leveraging the Yoti mobile App. It is an interaction between a 3rd Party app and Yoti app, facilitated by a very lightweight SDKs.
+The iOS Button SDK will provide your application with the ability to request attributes from a Digital ID app* via a simple "sign in with" style button.
 This repo contains the tools and step by step instructions so that your users can share their identity details with your application in a secure and trusted way. 
 
+*Digital ID app is either the Yoti or EasyID iOS app*
+
 ## Requirements
-- Yoti application should be installed on the device
-- The minimum version of the deployment target should be 12.0 or above.
+- Digital ID application should be installed on the device
+- The minimum version of the deployment target should be iOS 12.0 or above.
 - You will need Xcode 12.0 or above
 ----
 
 ## Installing the SDK
 
-There are three sections to complete installing the mobile SDK:
+There are three sections to complete installing the iOS Button SDK:
 
-1. First please follow our Yoti dashboard process. You will need to create an organisation [here](https://www.yoti.com/dashboard/login-organisations). After organisation creation you will need to create a Yoti application. If you are testing or using yoti for personal use please go straight to creating an application [here](https://www.yoti.com/dashboard/login).
+1. First please follow our Yoti dashboard process. You will need to create an organisation [here](https://www.yoti.com/dashboard/login-organisations). 
+    After organisation creation, you will need to create a Yoti application. If you are testing or using Yoti for personal use please go straight to creating an application [here](https://www.yoti.com/dashboard/login).
 
     The application process will generate keys for you. Please keep your sdk id and scenario id safe for the mobile integration.
 
     For more information please follow our developer page instructions located [here](https://www.yoti.com/developers/).
-2. Installing the web SDK. Please browse through our github page and initialise the web sdk in your web backend. 
+2. Installing the web sdk. Please browse through our GitHub page and initialise the web sdk in your web backend. 
 
     For more information please follow our developer page instructions located [here](https://www.yoti.com/developers/ ).
-3.  Installing the Mobile SDK. This can be done using one of the three methods below:
-    - Carthage - desired preference
+3.  Installing the iOS Button SDK. This can be done using one of the methods below:
+    - Swift Package Manager - (recommended)
+    - Carthage
     - Cocoapods
     - Drag and drop 
 
-### Carthage (recommended)
+### Swift Package Manager
+
+[SPM](https://swift.org/package-manager/) is a decentralized dependency manager deeply integrated into Xcode and maintained by the Swift community project. 
+This builds your dependencies and automatically links and embeds them in your application.
+
+To integrate the iOS Button SDK into your Xcode project using SPM, simply add a new dependency in your Project's `Swift Packages`
+Use the URL given by this repository's "Code" clone button.
+
+### Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
 
-To integrate Yoti into your Xcode project using Carthage, specify it in your `Cartfile`:
+To integrate iOS Button SDK into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "getyoti/ios-sdk-button" ~> 3.0.0
+github "getyoti/ios-sdk-button" ~> 3.1.0
 ```
 
-This will allow you to type `carthage update ios-sdk-button` in your Terminal to fetch and build the latest version of the framework.
-The first time you are integrating the iOS SDK,  the dynamic framework will be generated at `Carthage/Build/iOS/`. 
+This will allow you to type `carthage update ios-sdk-button --use-xcframeworks` in your Terminal to fetch and build the latest version of the framework.
+The first time you are integrating the iOS Button SDK,  the dynamic framework will be generated at `Carthage/Build/iOS/`. 
 
-Drag the built `YotiButtonSDK.framework` into your Xcode project without copying it. Don't commit the `Carthage` folder but do commit the `Carthage.resolved` file.
+Drag the built `YotiButtonSDK.xcframework` into your Target's "Frameworks, Libraries, and Embedded Content". Don't commit the `Carthage` folder but do commit the `Carthage.resolved` file.
 
-Each time you want to fetch the dependency, you can type  `carthage bootstrap`.
+Each time you want to fetch the dependency, you can type  `carthage bootstrap --use-xcframeworks`.
 
 ### CocoaPods
 
 [CocoaPods](https://cocoapods.org) is a dependency manager for Swift and Objective-C Cocoa projects. Installation instructions are in [the guides](https://guides.cocoapods.org/using/getting-started.html#getting-started).
 
 
-To integrate Yoti into your Xcode project using Cocoapods, specify it in your `Podfile`:
+To integrate Yoti into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
-```
-pod 'yoti-sdk', '~> 3.0.0'
+```ruby
+pod 'yoti-sdk', '~> 3.1.0'
 ```
 
 Tip: CocoaPods provides a `pod init` command to create a Podfile with smart defaults. You should use it.
 
 Now you can install the dependencies in your project:
 
-```
+```bash
 $ pod install
 ```
 
@@ -70,64 +83,96 @@ Make sure to always open the Xcode workspace instead of the project file when bu
 
 ### Drag & Drop (not recommended)
 
-You can also add Yoti SDK by adding the project via a submodule and dragging the Yoti's project file into yours.
+You can also add iOS Button SDK by adding the project via a submodule and dragging the YotiButtonSDK project file into yours.
 
 ## Configuration
 
-Before we start the configuration you have to add Yoti SDK as a build phase:
-Go to your project, and go to the `Build Phases` tab, press the `+` on the top left, select `New Copy Files Phase` and change the `Destination` to `Frameworks`.
-
-Click the `+` on the new Phase and select YotiButtonSDK.framework and click `add`.
-
-Navigate to where you want to integrate the Yoti button, add a button and change class to YotiButton. 
+### Interface Builder
 
 **Class**: YotiButton
 
 **Module**: YotiButtonSDK
 
-Add a **User defined runtime attributes**: `useCaseID` of type String with a value which will allow you to identify the button.
+Navigate to where you want to integrate the button, add a UIView and change the class to YotiButton. 
+Add layout constraints and then add a **User defined runtime attributes**: `useCaseID` of type String with a value that will allow us to identify the button.
+Link the button view with an appropriate IBOutlet.
+Programatically assign a closure/block to the action property.
+This action property returns the button instance to allow the same closure/block to be reused across multiple buttons.
 
-### Yoti Button 
+### Programatically
 
-The SDK provide a custom Button you can use in your layout, do not forget to set the `useCaseID`, it's the link with the `Scenario`. See definitions lower. Or you can also define the button in the code like this:
+You can simply instantiate the button providing a frame and assigning a `useCaseID` as shown in the following examples:
 
 #### Swift:
 ```swift
 
 import YotiButtonSDK
 
-let button = YotiButton(frame: CGRect(x: 0, y: 0, width: 230, height: 48))
+let button = YotiButton(frame: YotiButton.defaultFrame)
 button.useCaseID = "YOUR_USE_CASE_ID"
 ```
-In case you used Cocoapods please use the following:
+If you integrated using Cocoapods please use the following:
 
 ```swift
 
 import yoti_sdk
 
-let button = YotiButton(frame: CGRect(x: 0, y: 0, width: 230, height: 48))
+let button = YotiButton(frame: CGRect(x: 0, y: 0, width: 300, height: 44))
 button.useCaseID = "YOUR_USE_CASE_ID"
+button.action = { [weak self] (button)  in
+    self?.handleButtonTap(button)
+}
 ```
 
 #### Objective-C:
 ```objective-C
 
 #import <YotiButtonSDK/YotiButtonSDK.h>                                                                                                           
-YotiButton* button = [[YotiButton alloc] initWithFrame:CGRectMake(0, 0, 230, 48)]
-button.useCaseID = "YOUR_USE_CASE_ID"
+YotiButton* button = [[YotiButton alloc] initWithFrame:CGRectMake(0, 0, 300, 44)]
+button.useCaseID = @"YOUR_USE_CASE_ID"
+MyViewController * __weak weakSelf = self;
+self.button.action = ^void(YotiButton* button) {
+    [weakSelf handleButtonTap:button];
+};
 ```
 
-The front end of the integration is now complete.
+The iOS Button SDK supports a few themes which have slightly different behaviours:
 
+|Name       |Colour                         |Target App     |
+|-----------|-------------------------------|---------------|
+|yoti       |Blue                           |Digital ID Apps|
+|yotiUK     |Blue with white logo           |Digital ID Apps|
+|easyID     |Red with white logo            |EasyID App     |
+|partnership|White with supplementary view  |Digital ID Apps|
+
+Depending on which theme you select it may target a specific app or have a supplementary view underneath it.
+The way each themed button is used however remains the same.
+
+To set the theme simply alter `theme` property on your button with a new enum case.
+By default, the `partnership` theme will be selected at runtime for users in the United Kingdom and `yoti` for everyone else.
+
+#### Swift:
+```swift
+
+button.theme = .easyID
+```
+
+#### Objective-C:
+```objective-C
+
+button.theme = YTBThemeEasyID
+
+```
+The UI integration is now complete.
 
 ### Create a Scenario
 
 You will now need your SDK ID, Scenario ID and call back URL ready from your application dashboard. 
 
-For each of the scenarios you want to handle, you would need to add them to the YotiSDK like below:
+For each of the scenarios you want to handle, you would need to add them to the iOS Button SDK like below:
 
-Swift:
-Please add the scenario method in your AppDelegate.swift in :
+#### Swift:
+Please add the scenario method in your AppDelegate.swift or somewhere before the button is accessible at runtime (ensuring it is only called once):
 
 ```Objective-C
 
@@ -164,8 +209,8 @@ import YotiButtonSDK
     }
 }
 ```
-Objective-C:
-Please add the scenarion method in your appDelegate.m in
+#### Objective-C:
+Please add the scenario method in your AppDelegate.m or somewhere before the button is accessible at runtime (ensuring it is only called once):
 
 ```objective-c
 
@@ -199,19 +244,14 @@ like below
 
     return YES;
 ```
-then in your viewController class inside your button IBAction function call the function  : 
+
+Next, go to the view controller containing the YotiButton. In the handler function you embedded inside the button action body, call the iOS Button SDK `startScenario` method.
+
+#### Swift:
 
 ```swift
 
-public static func startScenario(for useCaseID: String, with delegate: YotiSDKDelegate) throws 
-```
-Next, go to the view controller containing the YotiButton outlet. On its IBAction, call the sdk method signature in swift or signature in objective-c.
-
-Swift:
-
-```swift
-
-@IBAction func yotiButtonDidTouchUpInside(_ sender: YotiButton) {
+func handleButtonTap(_ sender: YotiButton) {
     guard let useCaseID = sender.useCaseID else {
         return
     }
@@ -224,11 +264,11 @@ Swift:
 }
 ```
 
-Objective-C: 
+#### Objective-C: 
 
 ```objective-c
 
-- (IBAction)buttonDidTouchUpInside:(YotiButton*)sender {
+- (void)handleButtonTap:(YotiButton*)sender {
     NSString* useCaseID = sender.useCaseID;
     NSError* error = nil;
 
@@ -242,20 +282,21 @@ Objective-C:
 }
 ```
 
-In Swift your ViewController class should comply to YotiSDKDelegate and to BackendDelegate in order to get the callbacks.
+In Swift your ViewController class should comply to YotiSDKDelegate and to BackendDelegate in order to get callbacks from the iOS Button SDK.
 
 ```swift
 
 extension ViewController: YotiSDKDelegate {
-    func yotiSDKDidFail(for useCaseID: String, with error: Error) {
-    	// handle here the error related to the failing of retrieving a usecaseID and a token
+    func yotiSDKDidFail(for useCaseID: String, appStoreURL: URL?, with error: Error) {
+    	// Handle the errors related to the failure of retrieving a useCaseID and a token or opening the Digital ID app on the user's device
+        // Note the error will contain an associated App Store URL where the user can download the application in case the iOS Button SDK was not able to open the Digital ID app. The appStoreURL parameter is for Objective-C compatibility and is redundant.
     }
 
     func yotiSDKDidSucceed(for useCaseID: String, baseURL: URL?, token: String?, url: URL?) {
         // Handle here the success of the opening of Yoti app for example by requesting a profile from the backend like below
         // Get the specific scenario by calling  
         let scenario = YotiSDK.scenario(for: useCaseID)
-        // request the backend to get the profile linked to a specific scenario by passing the token returned and self as delegate for a call back
+        // Request the backend to get the profile linked to a specific scenario by passing the token returned and self as delegate for a callback
         YotiSDK.callbackBackend(scenario: scenario!, token: token!, with: self)
     }
 
@@ -265,21 +306,21 @@ extension ViewController: YotiSDKDelegate {
 }
 ```
 
-In Objective-C, your viewController should comply to  YTBSDKDelegate and YTBBackendDelegate like this:
+In Objective-C, your viewController should conform to YTBSDKDelegate and YTBBackendDelegate like this:
 
 ```objective-c
 
 @interface ViewController () <YTBSDKDelegate, YTBBackendDelegate>
 ```
 BackendDelegate is its name in swift, YTBBackendDelegate namespace is for Objective-C
-Note that complying to YTBBackendDelegate is optional because you might or not rely on a backend to implement your scenarios. Our current implementation relies on a backend to implement our scenarios.
+Note that conforming to YTBBackendDelegate is optional because you might or not rely on a backend to implement your scenarios. Our current implementation relies on a backend to implement our scenarios.
 
 We implemented the delegate functions of the protocols our ViewController complies to like this:
 
 ```objective-c
 
-- (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID with:(NSError * _Nonnull)error {
-    // handle failure here
+- (void)yotiSDKDidFailFor:(NSString * _Nonnull)useCaseID appStoreURL:(NSURL * _Nullable)appStoreURL with:(NSError * _Nonnull)error {
+    // Handle the errors related to the failure of retrieving a useCaseID and a token or opening the Digital ID app on the user's device
 }
 
 - (void)yotiSDKDidSucceedFor:(NSString * _Nonnull)useCaseID baseURL:(NSURL * _Nullable)baseURL token:(NSString * _Nullable)token url:(NSURL * _Nullable)url {
@@ -288,19 +329,19 @@ We implemented the delegate functions of the protocols our ViewController compli
 }
 
 - (void)yotiSDKDidOpenYotiApp {
-	// behaviour when SDK opens yoti app (if needed)
+	// Behaviour when SDK opens yoti app (if needed)
 }
 ```
 when the callback returns from the backend we get the data linked to the profile or the error in
 
-Swift:
+#### Swift:
 
 ```swift
 
 func backendDidFinish(with data: Data?, error: Error?)
 ```
 
-Objective-C:
+#### Objective-C:
 
 ```objective-c
 - (void)backendDidFinishWith:(NSData * _Nullable)data error:(NSError * _Nullable)error
@@ -310,7 +351,7 @@ Objective-C:
 ### Notifications
 In case you need to change your interface before we are doing a network request, you can subscribe to the `willMakeNetworkRequest` and `didFinishNetworkRequest` notification from the `YotiSDK` class
 
-Swift: 
+#### Swift: 
 ```swift
 NotificationCenter.default.addObserver(forName: YotiSDK.willMakeNetworkRequest, object: nil, queue: nil) { (notification) in
     // Disable interface
@@ -323,7 +364,7 @@ NotificationCenter.default.addObserver(forName: YotiSDK.didFinishNetworkRequest,
 }
 ```
 
-Objective-C: 
+#### Objective-C: 
 ```objective-c
 [NSNotificationCenter.defaultCenter addObserverForName:YotiSDK.willMakeNetworkRequest object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
     // Disable interface
@@ -338,7 +379,7 @@ Objective-C:
 
 ### Inter-app communication
 
-Yoti SDK would perform an app switch to Yoti app and back to your app to complete the sharing process, your application's `.plist` also need to handle this.
+iOS Button SDK will perform an app switch to the appropriate app and back to your app to complete the sharing process, your application's `.plist` also need to handle this.
 
 #### Add your URL Scheme
 
@@ -354,18 +395,19 @@ Yoti SDK would perform an app switch to Yoti app and back to your app to complet
 </array>
 ```
 
-#### Add Yoti as a query scheme
+#### Add Yoti and/or EasyID as a query scheme (both are recommended)
 
 ```xml
 <key>LSApplicationQueriesSchemes</key>
 <array>
-  <string>yoti</string>
+    <string>yoti</string>
+    <string>easyid</string>
 </array>
 ```
 
-#### Notify your application lifecycle to Yoti SDK
+#### Notify iOS Button SDK of your application lifecycle
 
-Swift:
+#### Swift:
 ```swift
 
 import YotiButtonSDK
@@ -378,7 +420,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
-Objective-C:
+#### Objective-C:
 ```objective-c
 
 #import <YotiButtonSDK/YotiButtonSDK.h>
@@ -393,12 +435,11 @@ Objective-C:
 ```
 
 ## Handling Users
-The Web SDK will handle the user storage. When you retrieve the user profile, you receive a user ID generated by Yoti exclusively for your application. This means that if the same individual logs into another app, Yoti will assign her/him a different ID. You can use this ID to verify whether (for your application) the retrieved profile identifies a new or an existing user. Please see relevant github pages for more information.
-
+The Web SDK will handle the user storage. When you retrieve the user profile, you receive a user ID generated by Yoti exclusively for your application. This means that if the same individual logs into another app, Yoti will assign her/him a different ID. You can use this ID to verify whether (for your application) the retrieved profile identifies a new or an existing user. Please see https://developers.yoti.com/ for more information.
 
 ## Support 
 For any questions or support please email clientsupport@yoti.com. Please provide the following to get you up and working as quickly as possible:
-- Software version on phone
+- iOS version of the test device
 - Language of Web SDK 
 - Screenshot of error
 

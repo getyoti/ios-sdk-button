@@ -1,18 +1,24 @@
 # ChangeLog
 
-## Version 3.0.0
+## Version 4.0.0
 
-`GenericError` and `NetworkError` types have been removed and replaced by the following error types: `SetupError`, `ShareRequestError`, `CallbackBackendError`. 
-
-All new error types conform to `LocalizableError` protocol and provide human readable description on which includes the reason that caused it.
+A `Theme` type is included that changes the look and feel of the button.
 
 ### Migration Guide
+It is recommended to select a theme to have the most control over the appearance and behaviour of the button.
+If you opt to use the partnership theme (the default for UK users), it is recommended the button be placed beneath any other buttons in your layout.
+A height of 72pt should be used for the partnership theme and at least 44pt for the other themes.
+In addition to this, at least 300pt width should accommodate the default English language text.
 
-#### Network Error
-`NetworkError` has been included as a distinct error case in `ShareRequestError` and `CallbackBackendError`.
+For localisation include a `.strings` file named `YotiButtonSDK` in your application bundle and specify the following keys based on the theme:
 
-In more detail:
-`NetworkError.httpError(Int)` has been replaced with `ShareRequestError.httpRequestError(Int)` and `CallbackBackendError.httpRequestError(Int)`. The associated value of type `Int` provides the status code of the request.
+"yoti.sdk.yoti.button.label"
+"yoti.sdk.easyid.button.label"
+"yoti.sdk.partnership.button.label"
+"yoti.sdk.support_info.text" (partnership theme)
 
-#### Generic Error
-`GenericError` included the following cases `nilValue`, `malformedValue(String)` and `unknown(String)`. This type has been completely removed and the different cases are included in the three aforementioned types.
+You can alternatively continue to call `func setTitle(_ title: String?, for state: UIControl.State)` after `viewDidAppear`.
+
+Update your app's `Info.plist` to include `easyid` in the `LSApplicationQueriesSchemes`.
+
+Lastly, update the `yotiSDKDidFail` delegate callback to include the optional `appStoreURL` parameter, which you can use to redirect users to download Yoti or EasyID.

@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "9D2C240A-4A44-4B3C-A61D-B660319556ED",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:YotiButtonSDK.xcodeproj",
+        "identifier" : "B43B0E181F22063800CD5E4E",
+        "name" : "YotiButtonSDKTests"
+      }
+    }
+  ],
+  "version" : 1
+}

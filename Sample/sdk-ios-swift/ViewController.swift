@@ -10,14 +10,15 @@ class ViewController: UIViewController {
     var responseObject: ProfileDictionary?
     @IBOutlet weak var rememberMeButton: YotiButton!
     @IBOutlet weak var selfieAuthButton: YotiButton!
+    @IBOutlet weak var unfulfilledButton: YotiButton!
 
-    @IBAction func yotiButtonDidTouchUpInside(_ sender: YotiButton) {
+    func yotiButtonDidTouchUpInside(_ sender: YotiButton) {
         guard let useCaseID = sender.useCaseID else {
              return
         }
         do {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            try YotiSDK.startScenario(for: useCaseID, with: self)
+            try YotiSDK.startScenario(for: useCaseID, theme: sender.theme, with: self)
         } catch let error {
             print("\(error.localizedDescription)")
         }
@@ -25,8 +26,22 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        rememberMeButton.setTitle("RememberMe Scenario", for: .normal)
-        selfieAuthButton.setTitle("SelfieAuth Scenario", for: .normal)
+        rememberMeButton.theme = .yoti
+        unfulfilledButton.theme = .easyID
+
+        let action: YotiButton.TouchedUpInside = { [weak self] button in
+            self?.yotiButtonDidTouchUpInside(button)
+        }
+
+        rememberMeButton.action = action
+        selfieAuthButton.action = action
+        unfulfilledButton.action = action
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let controlStates: [UIControl.State] = [.normal, .highlighted, .selected]
+        controlStates.forEach { unfulfilledButton.setTitle("Nonlocalised Button", for: $0) }
     }
 
     func moveToProfile() {
@@ -83,9 +98,22 @@ class ViewController: UIViewController {
     }
 }
 
+private extension ViewController {
+    func handleSetupError(_ error: SetupError) {
+        switch error as SetupError {
+            case .noIDAppInstalled(let url): UIApplication.shared.open(url, options: [:])
+            default: break
+        }
+    }
+}
+
 extension ViewController: SDKDelegate {
-    func yotiSDKDidFail(for useCaseID: String, with error: Error) {
+    func yotiSDKDidFail(for useCaseID: String, appStoreURL: URL?, with error: Error) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        print(error)
+        if let setupError = error as? SetupError {
+            handleSetupError(setupError)
+        }
     }
 
     func yotiSDKDidSucceed(for useCaseID: String, baseURL: URL?, token: String?, url: URL?) {
@@ -108,7 +136,7 @@ extension ViewController: BackendDelegate {
             responseObject = decodedJson
             moveToProfile()
         } catch let error {
-            print (error)
+            print(error)
         }
     }
 }

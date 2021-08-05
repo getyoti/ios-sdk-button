@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2C17BD58217500AD009843F7 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BD57217500AD009843F7 /* Profile.swift */; };
+		52C3B3A426A88B2800C9FD04 /* YotiButtonSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 52C3B3A326A88B2800C9FD04 /* YotiButtonSDK */; };
+		52C415E0268E635E00FD1081 /* YotiButtonSDK.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52C415DF268E635E00FD1081 /* YotiButtonSDK.strings */; };
 		F9AFBE892028669B00F635EC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AFBE882028669B00F635EC /* ProfileViewController.swift */; };
 		F9F5CF09201F5BF30088DCDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5CF08201F5BF30088DCDC /* AppDelegate.swift */; };
 		F9F5CF0B201F5BF30088DCDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5CF0A201F5BF30088DCDC /* ViewController.swift */; };
@@ -16,7 +18,6 @@
 		F9F5CF13201F5BF30088DCDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9F5CF11201F5BF30088DCDC /* LaunchScreen.storyboard */; };
 		F9F5CF1E201F5BF40088DCDC /* sdk_ios_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5CF1D201F5BF40088DCDC /* sdk_ios_swiftTests.swift */; };
 		F9F5CF29201F5BF40088DCDC /* sdk_ios_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F5CF28201F5BF40088DCDC /* sdk_ios_swiftUITests.swift */; };
-		F9F5CF37201F5DA00088DCDC /* YotiButtonSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9F5CF36201F5DA00088DCDC /* YotiButtonSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		2C17BD57217500AD009843F7 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		52C415DF268E635E00FD1081 /* YotiButtonSDK.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = YotiButtonSDK.strings; sourceTree = "<group>"; };
 		F9AFBE882028669B00F635EC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F9F5CF05201F5BF30088DCDC /* sdk-ios-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sdk-ios-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F5CF08201F5BF30088DCDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +54,6 @@
 		F9F5CF24201F5BF40088DCDC /* sdk-ios-swiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sdk-ios-swiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9F5CF28201F5BF40088DCDC /* sdk_ios_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sdk_ios_swiftUITests.swift; sourceTree = "<group>"; };
 		F9F5CF2A201F5BF40088DCDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9F5CF36201F5DA00088DCDC /* YotiButtonSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YotiButtonSDK.framework; path = Carthage/Build/iOS/YotiButtonSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9F5CF37201F5DA00088DCDC /* YotiButtonSDK.framework in Frameworks */,
+				52C3B3A426A88B2800C9FD04 /* YotiButtonSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +85,6 @@
 		F9F5CEFC201F5BF30088DCDC = {
 			isa = PBXGroup;
 			children = (
-				F9F5CF36201F5DA00088DCDC /* YotiButtonSDK.framework */,
 				F9F5CF07201F5BF30088DCDC /* sdk-ios-swift */,
 				F9F5CF1C201F5BF40088DCDC /* sdk-ios-swiftTests */,
 				F9F5CF27201F5BF40088DCDC /* sdk-ios-swiftUITests */,
@@ -113,6 +113,7 @@
 				F9F5CF11201F5BF30088DCDC /* LaunchScreen.storyboard */,
 				F9F5CF14201F5BF30088DCDC /* Info.plist */,
 				2C17BD57217500AD009843F7 /* Profile.swift */,
+				52C415DF268E635E00FD1081 /* YotiButtonSDK.strings */,
 			);
 			path = "sdk-ios-swift";
 			sourceTree = "<group>";
@@ -145,13 +146,15 @@
 				F9F5CF01201F5BF30088DCDC /* Sources */,
 				F9F5CF02201F5BF30088DCDC /* Frameworks */,
 				F9F5CF03201F5BF30088DCDC /* Resources */,
-				1438B9D0238C430700B41F5B /* Carthage Copy Framework Files */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "sdk-ios-swift";
+			packageProductDependencies = (
+				52C3B3A326A88B2800C9FD04 /* YotiButtonSDK */,
+			);
 			productName = "sdk-ios-swift";
 			productReference = F9F5CF05201F5BF30088DCDC /* sdk-ios-swift.app */;
 			productType = "com.apple.product-type.application";
@@ -199,20 +202,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Yoti Ltd";
 				TargetAttributes = {
 					F9F5CF04201F5BF30088DCDC = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1250;
 						ProvisioningStyle = Automatic;
 					};
 					F9F5CF18201F5BF40088DCDC = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1250;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F9F5CF04201F5BF30088DCDC;
 					};
 					F9F5CF23201F5BF40088DCDC = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1250;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F9F5CF04201F5BF30088DCDC;
 					};
@@ -227,6 +233,9 @@
 				Base,
 			);
 			mainGroup = F9F5CEFC201F5BF30088DCDC;
+			packageReferences = (
+				52C3B3A226A88B2800C9FD04 /* XCRemoteSwiftPackageReference "ios-sdk-button" */,
+			);
 			productRefGroup = F9F5CF06201F5BF30088DCDC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -243,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52C415E0268E635E00FD1081 /* YotiButtonSDK.strings in Resources */,
 				F9F5CF13201F5BF30088DCDC /* LaunchScreen.storyboard in Resources */,
 				F9F5CF10201F5BF30088DCDC /* Assets.xcassets in Resources */,
 				F9F5CF0E201F5BF30088DCDC /* Main.storyboard in Resources */,
@@ -264,29 +274,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1438B9D0238C430700B41F5B /* Carthage Copy Framework Files */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/YotiButtonSDK.framework",
-			);
-			name = "Carthage Copy Framework Files";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/YotiButtonSDK.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F9F5CF01201F5BF30088DCDC /* Sources */ = {
@@ -365,6 +352,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -372,8 +360,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -422,6 +412,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -429,8 +420,10 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -453,7 +446,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -464,16 +458,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6VUTP72GG4;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "sdk-ios-swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Yoti.sdk-ios-swift";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yoti.mobile.ios.sdk.yoti-button.sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -484,16 +477,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6VUTP72GG4;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "sdk-ios-swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Yoti.sdk-ios-swift";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yoti.mobile.ios.sdk.yoti-button.sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -505,10 +497,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "sdk-ios-swiftTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Yoti.sdk-ios-swiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sdk-ios-swift.app/sdk-ios-swift";
 			};
@@ -521,10 +517,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "sdk-ios-swiftTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Yoti.sdk-ios-swiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sdk-ios-swift.app/sdk-ios-swift";
 			};
@@ -536,10 +536,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "sdk-ios-swiftUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Yoti.sdk-ios-swiftUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "sdk-ios-swift";
 			};
@@ -551,10 +555,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "sdk-ios-swiftUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Yoti.sdk-ios-swiftUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "sdk-ios-swift";
 			};
@@ -600,6 +608,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		52C3B3A226A88B2800C9FD04 /* XCRemoteSwiftPackageReference "ios-sdk-button" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getyoti/ios-sdk-button.git";
+			requirement = {
+				kind = revision;
+				revision = 506ada7fa0680efa9813e015dfe9f8874250a2a6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52C3B3A326A88B2800C9FD04 /* YotiButtonSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 52C3B3A226A88B2800C9FD04 /* XCRemoteSwiftPackageReference "ios-sdk-button" */;
+			productName = YotiButtonSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F9F5CEFD201F5BF30088DCDC /* Project object */;
 }
