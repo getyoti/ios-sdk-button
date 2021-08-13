@@ -10,7 +10,7 @@ final class Resource {
         if let image = UIImage(named: name, in: Resource.module, compatibleWith: nil) {
             return image
         } else if let resourceBundle = resourceBundle(),
-            let image = UIImage(named: name, in: resourceBundle, compatibleWith: nil) {
+                  let image = UIImage(named: name, in: resourceBundle, compatibleWith: nil) {
             return image
         } else {
             return UIImage()
@@ -21,7 +21,7 @@ final class Resource {
         if let color = UIColor(named: name, in: Resource.module, compatibleWith: .none) {
             return color
         } else if let resourceBundle = resourceBundle(),
-            let color = UIColor(named: name, in: resourceBundle, compatibleWith: nil) {
+                  let color = UIColor(named: name, in: resourceBundle, compatibleWith: nil) {
             return color
         } else {
             return .systemBlue
@@ -31,8 +31,8 @@ final class Resource {
 
 private extension Resource {
     static func resourceBundle() -> Bundle? {
-        guard let resourceBundleURL = Resource.module.url(forResource: "YotiButtonResourcesSDK",
-                                                          withExtension: "bundle") else { return nil }
+        guard let resourceBundleURL = Bundle(for: Resource.self).url(forResource: "YotiButtonResourcesSDK",
+                                                                     withExtension: "bundle") else { return nil }
         return Bundle(url: resourceBundleURL)
     }
 }
