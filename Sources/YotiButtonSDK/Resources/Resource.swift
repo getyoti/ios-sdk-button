@@ -18,19 +18,22 @@ final class Resource {
     }
 
     static func color(named name: String) -> UIColor {
-        UIColor(named: name, in: Resource.module, compatibleWith: .none)!
+        if let color = UIColor(named: name, in: Resource.module, compatibleWith: .none) {
+            return color
+        } else if let resourceBundle = resourceBundle(),
+            let color = UIColor(named: name, in: resourceBundle, compatibleWith: nil) {
+            return color
+        } else {
+            return .systemBlue
+        }
     }
 }
 
 private extension Resource {
     static func resourceBundle() -> Bundle? {
-        guard let resourceBundleURL = Resource.module.url(
-            forResource: "YotiButtonResourcesSDK",
-                withExtension: "bundle") else { return nil }
-
-        guard let resourceBundle = Bundle(url: resourceBundleURL) else { return nil }
-
-        return resourceBundle
+        guard let resourceBundleURL = Resource.module.url(forResource: "YotiButtonResourcesSDK",
+                                                          withExtension: "bundle") else { return nil }
+        return Bundle(url: resourceBundleURL)
     }
 }
 

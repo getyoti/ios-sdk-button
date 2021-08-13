@@ -1,6 +1,6 @@
 [![SPM compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Cocoapods compatible](https://img.shields.io/badge/Cocoapods-compatible-4BC51D.svg?style=flat)](http://cocoapods.org/pods/yoti-sdk) 
+[![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](http://cocoapods.org/pods/yoti-sdk) 
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg?style=flat)](https://developer.apple.com/documentation)
 ![master branch](https://github.com/getyoti/ios-sdk-button/actions/workflows/swift.yml/badge.svg?branch=master)
 # ios-sdk-button
