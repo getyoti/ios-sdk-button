@@ -27,6 +27,18 @@ final class Resource {
             return .systemBlue
         }
     }
+
+    static func fontData(named name: String, ofType extension: String?) -> Data? {
+        if let path = Resource.module.url(forResource: name, withExtension: `extension`),
+           let data = try? Data(contentsOf: path) {
+            return data
+        } else if let path = resourceBundle()?.url(forResource: name, withExtension: `extension`),
+                  let data = try? Data(contentsOf: path) {
+            return data
+        } else {
+            return nil
+        }
+    }
 }
 
 private extension Resource {

@@ -110,6 +110,9 @@ import YotiButtonSDK
 
 let button = YotiButton(frame: YotiButton.defaultFrame)
 button.useCaseID = "YOUR_USE_CASE_ID"
+button.action = { [weak self] (button)  in
+    self?.handleButtonTap(button)
+}
 ```
 If you integrated using Cocoapods please use the following:
 
