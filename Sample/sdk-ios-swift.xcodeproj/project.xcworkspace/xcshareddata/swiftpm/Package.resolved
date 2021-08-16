@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/getyoti/ios-sdk-button.git",
         "state": {
           "branch": null,
-          "revision": "506ada7fa0680efa9813e015dfe9f8874250a2a6",
-          "version": null
+          "revision": "869fceaf4ac6837d7df29b888f5343a8ab7e40a8",
+          "version": "4.0.0"
         }
       }
     ]

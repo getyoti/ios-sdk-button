@@ -7,8 +7,7 @@ import UIKit
 
 extension UIFont {
     static func register(font: String, type: String?) {
-        guard let path = Resource.module.url(forResource: font, withExtension: type),
-              let data = try? Data(contentsOf: path),
+        guard let data = Resource.fontData(named: font, ofType: type),
               let provider = CGDataProvider(data: data as CFData)
         else {
             return

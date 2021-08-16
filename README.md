@@ -1,7 +1,7 @@
 [![SPM compatible](https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat)](https://swift.org/package-manager/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Cocoapods compatible](https://img.shields.io/badge/Cocoapods-compatible-4BC51D.svg?style=flat)](http://cocoapods.org/pods/yoti-sdk) 
-[![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg?style=flat)](https://developer.apple.com/documentation)
+[![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](http://cocoapods.org/pods/yoti-sdk) 
+[![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg?style=flat)](https://developer.apple.com/documentation)
 ![master branch](https://github.com/getyoti/ios-sdk-button/actions/workflows/swift.yml/badge.svg?branch=master)
 # ios-sdk-button
 
@@ -50,7 +50,7 @@ Use the URL given by this repository's "Code" clone button.
 To integrate iOS Button SDK into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```
-github "getyoti/ios-sdk-button" ~> 3.1.0
+github "getyoti/ios-sdk-button" ~> 4.0.0
 ```
 
 This will allow you to type `carthage update ios-sdk-button --use-xcframeworks` in your Terminal to fetch and build the latest version of the framework.
@@ -68,7 +68,7 @@ Each time you want to fetch the dependency, you can type  `carthage bootstrap --
 To integrate Yoti into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'yoti-sdk', '~> 3.1.0'
+pod 'yoti-sdk', '~> 4.0.0'
 ```
 
 Tip: CocoaPods provides a `pod init` command to create a Podfile with smart defaults. You should use it.
@@ -110,6 +110,9 @@ import YotiButtonSDK
 
 let button = YotiButton(frame: YotiButton.defaultFrame)
 button.useCaseID = "YOUR_USE_CASE_ID"
+button.action = { [weak self] (button)  in
+    self?.handleButtonTap(button)
+}
 ```
 If you integrated using Cocoapods please use the following:
 

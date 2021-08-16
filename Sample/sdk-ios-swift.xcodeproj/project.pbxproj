@@ -614,8 +614,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/getyoti/ios-sdk-button.git";
 			requirement = {
-				kind = revision;
-				revision = 506ada7fa0680efa9813e015dfe9f8874250a2a6;
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
