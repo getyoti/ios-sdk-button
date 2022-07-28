@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14B03EFF28919C8500FF9775 /* YotiButtonSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B03EFE28919C8500FF9775 /* YotiButtonSDK.xcframework */; };
+		14B03F0028919C8D00FF9775 /* YotiButtonSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14B03EFE28919C8500FF9775 /* YotiButtonSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2C17BDA52175EB63009843F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDA42175EB63009843F7 /* AppDelegate.m */; };
 		2C17BDA82175EB63009843F7 /* OCSAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDA72175EB63009843F7 /* OCSAViewController.m */; };
 		2C17BDAD2175EB64009843F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C17BDAC2175EB64009843F7 /* Assets.xcassets */; };
@@ -16,8 +18,6 @@
 		2C17BDC82175EB64009843F7 /* sdk_ios_objcUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDC72175EB64009843F7 /* sdk_ios_objcUITests.m */; };
 		2C17BDD721761A61009843F7 /* OCSAProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C17BDD621761A61009843F7 /* OCSAProfileViewController.m */; };
 		2C17BE3121789152009843F7 /* MainOC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C17BE2F21789152009843F7 /* MainOC.storyboard */; };
-		52AF0343269767D8004811BC /* YotiButtonSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236F59D26976072007B6BE5 /* YotiButtonSDK.xcframework */; };
-		52AF0344269767D8004811BC /* YotiButtonSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5236F59D26976072007B6BE5 /* YotiButtonSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		52AF034626976CE6004811BC /* YotiButtonSDK.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52AF034526976CE6004811BC /* YotiButtonSDK.strings */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				52AF0344269767D8004811BC /* YotiButtonSDK.xcframework in Embed Frameworks */,
+				14B03F0028919C8D00FF9775 /* YotiButtonSDK.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14B03EFE28919C8500FF9775 /* YotiButtonSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = YotiButtonSDK.xcframework; path = Carthage/Build/YotiButtonSDK.xcframework; sourceTree = "<group>"; };
 		2C17BDA02175EB63009843F7 /* sdk-ios-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sdk-ios-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C17BDA32175EB63009843F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C17BDA42175EB63009843F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,7 +72,6 @@
 		2C17BDD521761A61009843F7 /* OCSAProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCSAProfileViewController.h; sourceTree = "<group>"; };
 		2C17BDD621761A61009843F7 /* OCSAProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCSAProfileViewController.m; sourceTree = "<group>"; };
 		2C17BE3021789152009843F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainOC.storyboard; sourceTree = "<group>"; };
-		5236F59D26976072007B6BE5 /* YotiButtonSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = YotiButtonSDK.xcframework; path = Carthage/Build/iOS/YotiButtonSDK.xcframework; sourceTree = "<group>"; };
 		52AF034526976CE6004811BC /* YotiButtonSDK.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = YotiButtonSDK.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52AF0343269767D8004811BC /* YotiButtonSDK.xcframework in Frameworks */,
+				14B03EFF28919C8500FF9775 /* YotiButtonSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +104,7 @@
 		0DD4C83F265FCE3300A1F9A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5236F59D26976072007B6BE5 /* YotiButtonSDK.xcframework */,
+				14B03EFE28919C8500FF9775 /* YotiButtonSDK.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -396,7 +396,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -457,7 +457,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -481,16 +481,15 @@
 				DEVELOPMENT_TEAM = 6VUTP72GG4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build",
 				);
 				INFOPLIST_FILE = "sdk-ios-objc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"${PROJECT_DIR}/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Yoti.sdk-ios-objc";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yoti.mobile.ios.sdk.yoti-button.sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -504,16 +503,15 @@
 				DEVELOPMENT_TEAM = 6VUTP72GG4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build",
 				);
 				INFOPLIST_FILE = "sdk-ios-objc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-					"${PROJECT_DIR}/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Yoti.sdk-ios-objc";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yoti.mobile.ios.sdk.yoti-button.sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
