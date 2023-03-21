@@ -18,8 +18,8 @@
     NSError* error = nil;
     YTBScenarioBuilder *selfieAuthScenarioBuilder = [[YTBScenarioBuilder alloc] init];
     selfieAuthScenarioBuilder.useCaseID = @"yoti_btn_1";
-    selfieAuthScenarioBuilder.clientSDKID = @"d10b19d3-fa50-48ab-bd8c-f5a099205e6c";
-    selfieAuthScenarioBuilder.scenarioID = @"17807359-a933-4b77-baa2-3c2fdb5608f2";
+    selfieAuthScenarioBuilder.clientSDKID = @"fbc94ea7-7e55-4659-a5b7-ad1d3eb30aa0";
+    selfieAuthScenarioBuilder.scenarioID = @"86f9d913-88b0-476c-92c5-f5e6bde57fbf";
     selfieAuthScenarioBuilder.callbackBackendURL = [NSURL URLWithString:@"https://android-test-yoti.herokuapp.com/profile-json"];
     YTBScenario *selfieAuthScenario = [selfieAuthScenarioBuilder create:&error];
     [YotiSDK addScenario: selfieAuthScenario];
@@ -27,8 +27,8 @@
     error = nil;
     YTBScenarioBuilder *rememberMePhotoIDScenarioBuilder = [[YTBScenarioBuilder alloc] init];
     rememberMePhotoIDScenarioBuilder.useCaseID = @"yoti_btn_2";
-    rememberMePhotoIDScenarioBuilder.clientSDKID = @"d10b19d3-fa50-48ab-bd8c-f5a099205e6c";
-    rememberMePhotoIDScenarioBuilder.scenarioID = @"17807359-a933-4b77-baa2-3c2fdb5608f2";
+    rememberMePhotoIDScenarioBuilder.clientSDKID = @"fbc94ea7-7e55-4659-a5b7-ad1d3eb30aa0";
+    rememberMePhotoIDScenarioBuilder.scenarioID = @"86f9d913-88b0-476c-92c5-f5e6bde57fbf";
     rememberMePhotoIDScenarioBuilder.callbackBackendURL = [NSURL URLWithString:@"https://android-test-yoti.herokuapp.com/profile-json"];
     YTBScenario *rememberMePhotoIDScenario = [rememberMePhotoIDScenarioBuilder create:&error];
     [YotiSDK addScenario: rememberMePhotoIDScenario];
