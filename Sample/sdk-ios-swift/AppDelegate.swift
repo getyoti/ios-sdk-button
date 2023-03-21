@@ -20,15 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             // Here we need to add as many scenarios as we want. each scenario is linked to a button in the Main.storyboard.
             let selfieAuthScenario = try ScenarioBuilder().setUseCaseID("yoti_btn_1")
-                .setClientSDKID("d10b19d3-fa50-48ab-bd8c-f5a099205e6c")
-                .setScenarioID("17807359-a933-4b77-baa2-3c2fdb5608f2")
+                .setClientSDKID("fbc94ea7-7e55-4659-a5b7-ad1d3eb30aa0")
+                .setScenarioID("86f9d913-88b0-476c-92c5-f5e6bde57fbf")
                 .setCallbackBackendURL(url)
                 .create()
             YotiSDK.add(scenario: selfieAuthScenario)
 
             let rememberMePhotoIDScenario = try ScenarioBuilder().setUseCaseID("yoti_btn_2")
-                .setClientSDKID("d10b19d3-fa50-48ab-bd8c-f5a099205e6c")
-                .setScenarioID("17807359-a933-4b77-baa2-3c2fdb5608f2")
+                .setClientSDKID("fbc94ea7-7e55-4659-a5b7-ad1d3eb30aa0")
+                .setScenarioID("86f9d913-88b0-476c-92c5-f5e6bde57fbf")
                 .setCallbackBackendURL(url)
                 .create()
             YotiSDK.add(scenario: rememberMePhotoIDScenario)
